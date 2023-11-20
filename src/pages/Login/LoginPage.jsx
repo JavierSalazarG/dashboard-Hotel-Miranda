@@ -8,11 +8,14 @@ import {
   IconEmail,
   IconPassword,
 } from "./LoginStyled";
+//imgs--------------
+import Logo from "../../../public/logo/logo.png";
+//===========================
 export const LoginPage = () => {
   return (
     <>
       <DivLoginStyles>
-        <img src="../../../public/logo/logo.png" />
+        <img src={Logo} />
         <h1>Travl</h1>
         <PLoginStyles>Hotel Admin Dashboard</PLoginStyles>
         <FormStyles>

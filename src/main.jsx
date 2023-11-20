@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 //Pages------
 import { App } from "./App";
-import Layout from "./components/layaut";
+import Layout from "./components/layaut/layaut";
 import { RoomPage } from "./pages/Roons/roomPage";
 import { GuestPage } from "./pages/Guest/GuestPage";
 import { BookingsPage } from "./pages/Bookings/BookingsPage";
