@@ -251,7 +251,7 @@ export const H2TitleStyled = styled.h2`
 `;
 export const SectionButtonsStyled = styled.section`
   width: 100%;
-  max-width: 36rem;
+  max-width: 26rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

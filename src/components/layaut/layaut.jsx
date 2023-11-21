@@ -30,15 +30,12 @@ import {
   IconMenuStyled,
   H2TitleStyled,
   SectionButtonsStyled,
-  ImgPerfilHeader,
   FormSeekerStyled,
   LabelSeekerStyled,
   InputSeekerStyled,
   IconSeekerStyled,
   ButtonsHeaderStyled,
-  IconHeartStyled,
   IconEmailsStyled,
-  IconMessagesStyled,
   IconBellStyled,
   SpanAllertStyled,
 } from "./LayautStyled";
@@ -117,21 +114,12 @@ const Layout = () => {
             </FormSeekerStyled>
             <ButtonsHeaderStyled>
               <SpanAllertStyled>3</SpanAllertStyled>
-              <IconHeartStyled />
-            </ButtonsHeaderStyled>
-            <ButtonsHeaderStyled>
-              <SpanAllertStyled>3</SpanAllertStyled>
               <IconEmailsStyled />
             </ButtonsHeaderStyled>
             <ButtonsHeaderStyled>
               <SpanAllertStyled>5</SpanAllertStyled>
               <IconBellStyled />
             </ButtonsHeaderStyled>
-            <ButtonsHeaderStyled>
-              <SpanAllertStyled>5</SpanAllertStyled>
-              <IconMessagesStyled />
-            </ButtonsHeaderStyled>
-            <ImgPerfilHeader src={ImgPefil} />
           </SectionButtonsStyled>
         </HeaderStyled>
         <Outlet />
