@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-
+import { useState } from "react";
 //styled ------------------
 import {
   ContainerStyled,
@@ -43,60 +43,69 @@ import {
   SpanAllertStyled,
 } from "./LayautStyled";
 //========================
+
 //imgs ---------------
 import Logo from "../../../public/logo/logo.png";
 import ImgPefil from "../../../public/navbar/perfil.png";
 //============================
 const Layout = () => {
+  const [isMenuVisible, setMenuVisible] = useState(true);
+
+  const HandleMenu = () => {
+    setMenuVisible(!isMenuVisible);
+  };
+
   return (
     <ContainerStyled>
-      <NavStyles>
-        <ALogoStyles>
-          <ImgLogoStyles src={Logo} />
-          <div>
-            <H1LogoStyles>travl</H1LogoStyles>
-            <PLogoStyles>Hotel Admin Dashboard</PLogoStyles>
-          </div>
-        </ALogoStyles>
-        <UlNavStyles>
-          <LiNavStyles>
-            <IconCashboardStyles />
-            <LinkNavStyles to={"/"}>Dashboard</LinkNavStyles>
-          </LiNavStyles>
-          <LiNavStyles>
-            <IconRoomStyles />
-            <LinkNavStyles to={"/Room"}>Room</LinkNavStyles>
-          </LiNavStyles>
-          <LiNavStyles>
-            <IconBookingsStyles />
-            <LinkNavStyles to={"/Bookings"}>Bookings</LinkNavStyles>
-          </LiNavStyles>
-          <LiNavStyles>
-            <IconGuestStyles />
-            <LinkNavStyles to={"/Guest"}>Guest</LinkNavStyles>
-          </LiNavStyles>
-          <LiNavStyles>
-            <IconConciergeStyles />
-            <LinkNavStyles to={"/Concierge"}>Concierge</LinkNavStyles>
-          </LiNavStyles>
-        </UlNavStyles>
-        <ProfileStyled>
-          <ImgProfileStyled src={ImgPefil} />
-          <NameProfileStyled>William Johanson</NameProfileStyled>
-          <EmailProfileStyled>williamjohn@mail.com</EmailProfileStyled>
-          <ButtonlProfileStyled>Contact Us</ButtonlProfileStyled>
-        </ProfileStyled>
-        <FooterStyled>
-          <ParrafStyled>Travl Hotel Admin Dashboard</ParrafStyled>
-          <CopyrightStyled>© 2020 All Rights Reserved</CopyrightStyled>
-          <CopyrightStyled>Made with ♥ by Peterdraw</CopyrightStyled>
-        </FooterStyled>
-      </NavStyles>
+      {isMenuVisible && (
+        <NavStyles>
+          <ALogoStyles>
+            <ImgLogoStyles src={Logo} />
+            <div>
+              <H1LogoStyles>travl</H1LogoStyles>
+              <PLogoStyles>Hotel Admin Dashboard</PLogoStyles>
+            </div>
+          </ALogoStyles>
+          <UlNavStyles>
+            <LiNavStyles>
+              <IconCashboardStyles />
+              <LinkNavStyles to={"/"}>Dashboard</LinkNavStyles>
+            </LiNavStyles>
+            <LiNavStyles>
+              <IconRoomStyles />
+              <LinkNavStyles to={"/Room"}>Room</LinkNavStyles>
+            </LiNavStyles>
+            <LiNavStyles>
+              <IconBookingsStyles />
+              <LinkNavStyles to={"/Bookings"}>Bookings</LinkNavStyles>
+            </LiNavStyles>
+            <LiNavStyles>
+              <IconGuestStyles />
+              <LinkNavStyles to={"/Guest"}>Guest</LinkNavStyles>
+            </LiNavStyles>
+            <LiNavStyles>
+              <IconConciergeStyles />
+              <LinkNavStyles to={"/Concierge"}>Concierge</LinkNavStyles>
+            </LiNavStyles>
+          </UlNavStyles>
+          <ProfileStyled>
+            <ImgProfileStyled src={ImgPefil} />
+            <NameProfileStyled>William Johanson</NameProfileStyled>
+            <EmailProfileStyled>williamjohn@mail.com</EmailProfileStyled>
+            <ButtonlProfileStyled>Contact Us</ButtonlProfileStyled>
+          </ProfileStyled>
+          <FooterStyled>
+            <ParrafStyled>Travl Hotel Admin Dashboard</ParrafStyled>
+            <CopyrightStyled>© 2020 All Rights Reserved</CopyrightStyled>
+            <CopyrightStyled>Made with ♥ by Peterdraw</CopyrightStyled>
+          </FooterStyled>
+        </NavStyles>
+      )}
 
       <DivGeneralStyled>
         <HeaderStyled>
           <SectionTittleStyled>
-            <IconMenuStyled />
+            <IconMenuStyled onClick={HandleMenu} />
             <H2TitleStyled>Concierge List</H2TitleStyled>
           </SectionTittleStyled>
           <SectionButtonsStyled>

@@ -31,6 +31,7 @@ export const ContainerStyled = styled.div`
 `;
 //logo-------------------
 export const NavStyles = styled.nav`
+  display: none;
   width: 100%;
   max-width: 15rem;
   height: 100%;
@@ -209,6 +210,40 @@ export const SectionTittleStyled = styled.section`
 export const IconMenuStyled = styled(RiMenu2Fill)`
   width: 1.5rem;
   height: 1.5rem;
+  cursor: pointer;
+
+  &:hover {
+    -webkit-animation: pulsate-bck 0.5s ease-in-out infinite both;
+    animation: pulsate-bck 0.5s ease-in-out infinite both;
+  }
+  @-webkit-keyframes pulsate-bck {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @keyframes pulsate-bck {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
 `;
 export const H2TitleStyled = styled.h2`
   color: #262626;
@@ -281,6 +316,7 @@ export const IconBellStyled = styled(CiBellOn)`
 `;
 
 export const SpanAllertStyled = styled.span`
+  display: none;
   width: 1.7rem;
   height: 1.7rem;
   display: flex;
