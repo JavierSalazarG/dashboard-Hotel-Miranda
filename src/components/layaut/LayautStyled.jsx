@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { LuLayoutDashboard, LuCalendarCheck2 } from "react-icons/lu";
+import { FaRegHeart } from "react-icons/fa";
+import { CiBellOn } from "react-icons/ci";
 import { FiKey } from "react-icons/fi";
 import { IoPersonOutline } from "react-icons/io5";
-import { HiMiniPuzzlePiece } from "react-icons/hi2";
-
+import { HiMiniPuzzlePiece, HiMagnifyingGlass } from "react-icons/hi2";
+import { RiMenu2Fill } from "react-icons/ri";
+import { MdOutlineEmail, MdOutlineMessage } from "react-icons/md";
 const StylesIcons = `
 width: 24px;
   height: 24px;
@@ -14,11 +17,22 @@ width: 24px;
     color: red;
   }
 `;
+const StylesIconsHeader = `
+width: 1.5rem;
+  height: 1.5rem;
+  align-self: flex-end;
+  color: #135846;
+`;
 
+export const ContainerStyled = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+`;
 //logo-------------------
 export const NavStyles = styled.nav`
   width: 100%;
-  max-width: 18rem;
+  max-width: 15rem;
   height: 100%;
   min-height: 100vh;
   display: flex;
@@ -26,7 +40,7 @@ export const NavStyles = styled.nav`
   justify-content: start;
   align-items: start;
   box-shadow: 13px 3px 40px #00000005;
-  padding-left: 5rem;
+  padding-left: 3rem;
 `;
 
 export const ALogoStyles = styled.nav`
@@ -164,4 +178,120 @@ export const CopyrightStyled = styled.footer`
   color: #799283;
   font-size: 0.8rem;
 `;
+
 //====================================
+
+export const DivGeneralStyled = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+//header----------------
+
+export const HeaderStyled = styled.header`
+  width: 90%;
+  height: 7.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 3px 10px #00000005;
+`;
+export const SectionTittleStyled = styled.section`
+  width: 17.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const IconMenuStyled = styled(RiMenu2Fill)`
+  width: 1.5rem;
+  height: 1.5rem;
+`;
+export const H2TitleStyled = styled.h2`
+  color: #262626;
+  font-size: 1.75rem;
+`;
+export const SectionButtonsStyled = styled.section`
+  width: 100%;
+  max-width: 36rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const ImgPerfilHeader = styled.img`
+  border-radius: 8px;
+  width: 3.75rem;
+  height: 3.75rem;
+`;
+export const FormSeekerStyled = styled.form`
+  max-width: 21.9rem;
+`;
+export const LabelSeekerStyled = styled.label`
+  max-width: 21.9rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fcfcfc;
+  border-radius: 12px;
+  height: 3.5rem;
+`;
+export const InputSeekerStyled = styled.input`
+  border: none;
+  width: 100%;
+  padding-left: 1rem;
+  outline: none;
+  background: transparent;
+  height: 3.5rem;
+  color: #6e6e6e;
+`;
+export const IconSeekerStyled = styled(HiMagnifyingGlass)`
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #6e6e6e;
+`;
+export const ButtonsHeaderStyled = styled.button`
+  background: none;
+  border: none;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: start;
+  position: relative;
+  bottom: 0.5rem;
+`;
+
+//Icons header--------------
+
+export const IconHeartStyled = styled(FaRegHeart)`
+  ${StylesIconsHeader}
+`;
+export const IconMessagesStyled = styled(MdOutlineMessage)`
+  ${StylesIconsHeader}
+`;
+export const IconEmailsStyled = styled(MdOutlineEmail)`
+  ${StylesIconsHeader}
+`;
+export const IconBellStyled = styled(CiBellOn)`
+  ${StylesIconsHeader}
+`;
+
+export const SpanAllertStyled = styled.span`
+  width: 1.7rem;
+  height: 1.7rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #e23428;
+  border-radius: 8px;
+  position: relative;
+  right: 0.5rem;
+`;
+//========================
+//=============

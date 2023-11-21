@@ -1,12 +1,8 @@
 import { Outlet } from "react-router-dom";
-import { RiMenu2Fill } from "react-icons/ri";
-import { HiMagnifyingGlass } from "react-icons/hi2";
-import { FaRegHeart } from "react-icons/fa";
-import { MdOutlineEmail, MdOutlineMessage } from "react-icons/md";
-import { CiBellOn } from "react-icons/ci";
 
 //styled ------------------
 import {
+  ContainerStyled,
   NavStyles,
   ALogoStyles,
   ImgLogoStyles,
@@ -28,14 +24,32 @@ import {
   NameProfileStyled,
   EmailProfileStyled,
   ButtonlProfileStyled,
+  DivGeneralStyled,
+  HeaderStyled,
+  SectionTittleStyled,
+  IconMenuStyled,
+  H2TitleStyled,
+  SectionButtonsStyled,
+  ImgPerfilHeader,
+  FormSeekerStyled,
+  LabelSeekerStyled,
+  InputSeekerStyled,
+  IconSeekerStyled,
+  ButtonsHeaderStyled,
+  IconHeartStyled,
+  IconEmailsStyled,
+  IconMessagesStyled,
+  IconBellStyled,
+  SpanAllertStyled,
 } from "./LayautStyled";
 //========================
 //imgs ---------------
 import Logo from "../../../public/logo/logo.png";
+import ImgPefil from "../../../public/navbar/perfil.png";
 //============================
 const Layout = () => {
   return (
-    <>
+    <ContainerStyled>
       <NavStyles>
         <ALogoStyles>
           <ImgLogoStyles src={Logo} />
@@ -67,7 +81,7 @@ const Layout = () => {
           </LiNavStyles>
         </UlNavStyles>
         <ProfileStyled>
-          <ImgProfileStyled src="../../../public/navbar/perfil.png" />
+          <ImgProfileStyled src={ImgPefil} />
           <NameProfileStyled>William Johanson</NameProfileStyled>
           <EmailProfileStyled>williamjohn@mail.com</EmailProfileStyled>
           <ButtonlProfileStyled>Contact Us</ButtonlProfileStyled>
@@ -79,35 +93,41 @@ const Layout = () => {
         </FooterStyled>
       </NavStyles>
 
-      <div>
-        <header>
-          <RiMenu2Fill />
-          <h2>Concierge List</h2>
-          <form>
-            <label>
-              <input type="text" />
-              <HiMagnifyingGlass />
-            </label>
-          </form>
-          <button>
-            <FaRegHeart />
-          </button>
-          <button>
-            <MdOutlineEmail />
-          </button>
-          <button>
-            <CiBellOn />
-          </button>
-          <button>
-            <FaRegHeart />
-          </button>
-          <button>
-            <MdOutlineMessage />
-          </button>
-        </header>
+      <DivGeneralStyled>
+        <HeaderStyled>
+          <SectionTittleStyled>
+            <IconMenuStyled />
+            <H2TitleStyled>Concierge List</H2TitleStyled>
+          </SectionTittleStyled>
+          <SectionButtonsStyled>
+            <FormSeekerStyled>
+              <LabelSeekerStyled>
+                <InputSeekerStyled type="text" />
+                <IconSeekerStyled />
+              </LabelSeekerStyled>
+            </FormSeekerStyled>
+            <ButtonsHeaderStyled>
+              <SpanAllertStyled>3</SpanAllertStyled>
+              <IconHeartStyled />
+            </ButtonsHeaderStyled>
+            <ButtonsHeaderStyled>
+              <SpanAllertStyled>3</SpanAllertStyled>
+              <IconEmailsStyled />
+            </ButtonsHeaderStyled>
+            <ButtonsHeaderStyled>
+              <SpanAllertStyled>5</SpanAllertStyled>
+              <IconBellStyled />
+            </ButtonsHeaderStyled>
+            <ButtonsHeaderStyled>
+              <SpanAllertStyled>5</SpanAllertStyled>
+              <IconMessagesStyled />
+            </ButtonsHeaderStyled>
+            <ImgPerfilHeader src={ImgPefil} />
+          </SectionButtonsStyled>
+        </HeaderStyled>
         <Outlet />
-      </div>
-    </>
+      </DivGeneralStyled>
+    </ContainerStyled>
   );
 };
 
