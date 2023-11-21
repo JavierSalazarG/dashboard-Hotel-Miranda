@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 //Pages------
-import { App } from "./App";
+import { DashboardPage } from "./pages/Dashboard/DashboardPage";
 import Layout from "./components/layaut/layaut";
 import { RoomPage } from "./pages/Roons/roomPage";
 import { GuestPage } from "./pages/Guest/GuestPage";
@@ -12,13 +12,14 @@ import { ConciergePage } from "./pages/Concierge/ConciergePage";
 import { UserPage } from "./pages/user/UserPage";
 import { LoginPage } from "./pages/Login/LoginPage";
 //-------------------
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<App />} />
+          <Route path="/home" element={<DashboardPage />} />
           <Route path="/Room" element={<RoomPage />} />
           <Route path="/Bookings" element={<BookingsPage />} />
           <Route path="/Guest" element={<GuestPage />} />

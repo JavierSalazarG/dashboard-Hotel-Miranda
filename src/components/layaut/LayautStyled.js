@@ -28,12 +28,11 @@ export const ContainerStyled = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  background: #f8f8f8;
 `;
 //logo-------------------
 export const NavStyles = styled.nav`
-  display: none;
-  width: 100%;
-  max-width: 15rem;
+  width: 18rem;
   height: 100%;
   min-height: 100vh;
   display: flex;
@@ -41,7 +40,8 @@ export const NavStyles = styled.nav`
   justify-content: start;
   align-items: start;
   box-shadow: 13px 3px 40px #00000005;
-  padding-left: 3rem;
+  padding-left: 1rem;
+  background-color: #fff;
 `;
 
 export const ALogoStyles = styled.nav`
@@ -190,7 +190,7 @@ export const DivGeneralStyled = styled.div`
 //header----------------
 
 export const HeaderStyled = styled.header`
-  width: 90%;
+  width: 100%;
   height: 7.5rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -199,6 +199,7 @@ export const HeaderStyled = styled.header`
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 3px 10px #00000005;
+  background-color: #fff;
 `;
 export const SectionTittleStyled = styled.section`
   width: 17.5rem;

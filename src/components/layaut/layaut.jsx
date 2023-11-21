@@ -66,7 +66,7 @@ const Layout = () => {
           <UlNavStyles>
             <LiNavStyles>
               <IconCashboardStyles />
-              <LinkNavStyles to={"/"}>Dashboard</LinkNavStyles>
+              <LinkNavStyles to={"/home"}>Dashboard</LinkNavStyles>
             </LiNavStyles>
             <LiNavStyles>
               <IconRoomStyles />
