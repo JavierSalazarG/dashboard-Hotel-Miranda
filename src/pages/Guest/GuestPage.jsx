@@ -1,7 +1,9 @@
+import { Concierge } from "../../components/tables/Concierge";
+import { MainStyled } from "./GuestStyled";
 export const GuestPage = () => {
   return (
-    <>
-      <h1>Guest</h1>
-    </>
+    <MainStyled>
+      <Concierge />
+    </MainStyled>
   );
 };

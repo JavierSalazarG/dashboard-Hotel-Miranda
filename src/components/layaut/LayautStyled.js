@@ -82,24 +82,11 @@ export const UlNavStyles = styled.ul`
   justify-content: space-around;
 `;
 
-export const LiNavStyles = styled.li`
-  width: 100%;
-  text-align: start;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  height: 4rem;
-
-  cursor: pointer;
-  transition: border-left 0.2s ease;
-`;
 export const LinkNavStyles = styled(NavLink)`
   text-decoration: none;
   color: #799283;
   transition: color 0.2 ease;
 `;
-
 //icons----------------------
 
 export const IconCashboardStyles = styled(LuLayoutDashboard)`
@@ -118,6 +105,48 @@ export const IconConciergeStyles = styled(HiMiniPuzzlePiece)`
   ${StylesIcons}
 `;
 //===========================
+
+export const LiNavStyles = styled.li`
+  width: 100%;
+  text-align: start;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 4rem;
+
+  cursor: pointer;
+  transition: border-left 0.2s ease;
+
+  &:hover {
+    border-left: 4px solid red;
+
+    ${LinkNavStyles} {
+      color: red;
+      font-weight: 600;
+    }
+    ${IconCashboardStyles} {
+      color: red;
+      margin-left: 1rem;
+    }
+    ${IconRoomStyles} {
+      color: red;
+      margin-left: 1rem;
+    }
+    ${IconBookingsStyles} {
+      color: red;
+      margin-left: 1rem;
+    }
+    ${IconGuestStyles} {
+      color: red;
+      margin-left: 1rem;
+    }
+    ${IconConciergeStyles} {
+      color: red;
+      margin-left: 1rem;
+    }
+  }
+`;
 
 //perfil----------------------
 

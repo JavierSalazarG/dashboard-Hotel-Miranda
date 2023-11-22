@@ -57,6 +57,12 @@ export const SectionElementStyled = styled.section`
   &:hover ${DivIconStyled} ${IconBedStyled} {
     color: #fff;
   }
+  &:hover ${DivIconStyled} ${IconCalendar} {
+    color: #fff;
+  }
+  &:hover ${DivIconStyled} ${IconexiStyled} {
+    color: #fff;
+  }
 `;
 
 export const DivTextStyled = styled.div`
