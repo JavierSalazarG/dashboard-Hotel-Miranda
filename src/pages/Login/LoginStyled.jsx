@@ -23,7 +23,7 @@ export const PLoginStyles = styled.p`
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 `;
-export const FormStyles = styled.label`
+export const FormStyles = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;

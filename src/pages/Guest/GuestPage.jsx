@@ -1,9 +1,10 @@
-import { Concierge } from "../../components/tables/Concierge";
-import { MainStyled } from "./GuestStyled";
+import React from "react";
+
 export const GuestPage = () => {
+  // Your component logic here
   return (
-    <MainStyled>
-      <Concierge />
-    </MainStyled>
+    <div>
+      <h1>gg</h1>
+    </div>
   );
 };

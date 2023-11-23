@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 //styled ------------------
 import {
   ContainerStyled,
@@ -47,7 +48,12 @@ import ImgPefil from "../../../public/navbar/perfil.png";
 //============================
 const Layout = () => {
   const [isMenuVisible, setMenuVisible] = useState(true);
-
+  let location = useLocation();
+  let locationmal = location.pathname;
+  let locationAcctual = locationmal.substring(1);
+  if (locationAcctual === "Concierge/new") {
+    locationAcctual = "New Empoyee";
+  }
   const HandleMenu = () => {
     setMenuVisible(!isMenuVisible);
   };
@@ -70,7 +76,7 @@ const Layout = () => {
             </LiNavStyles>
             <LiNavStyles>
               <IconRoomStyles />
-              <LinkNavStyles to={"/Room"}>Room</LinkNavStyles>
+              <LinkNavStyles to={"/rooms"}>Room</LinkNavStyles>
             </LiNavStyles>
             <LiNavStyles>
               <IconBookingsStyles />
@@ -82,7 +88,7 @@ const Layout = () => {
             </LiNavStyles>
             <LiNavStyles>
               <IconConciergeStyles />
-              <LinkNavStyles to={"/Concierge"}>Concierge</LinkNavStyles>
+              <LinkNavStyles to={"/Concierges"}>Concierge</LinkNavStyles>
             </LiNavStyles>
           </UlNavStyles>
           <ProfileStyled>
@@ -103,7 +109,7 @@ const Layout = () => {
         <HeaderStyled>
           <SectionTittleStyled>
             <IconMenuStyled onClick={HandleMenu} />
-            <H2TitleStyled>Concierge List</H2TitleStyled>
+            <H2TitleStyled>{locationAcctual}</H2TitleStyled>
           </SectionTittleStyled>
           <SectionButtonsStyled>
             <FormSeekerStyled>

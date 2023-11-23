@@ -231,7 +231,6 @@ export const HeaderStyled = styled.header`
   background-color: #fff;
 `;
 export const SectionTittleStyled = styled.section`
-  width: 17.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -240,6 +239,7 @@ export const SectionTittleStyled = styled.section`
 export const IconMenuStyled = styled(RiMenu2Fill)`
   width: 1.5rem;
   height: 1.5rem;
+  margin-right: 2rem;
   cursor: pointer;
 
   &:hover {

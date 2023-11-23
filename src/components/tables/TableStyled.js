@@ -1,49 +1,71 @@
 import styled from "styled-components";
 
 export const TableStyled = styled.table`
+  margin: 0 auto;
   width: 100%;
-  height: auto;
   background: #fff;
   padding: 1.25rem;
   border-radius: 1.25rem;
-  display: flex;
 `;
-export const TbodyStyled = styled.tbody`
-  width: 100%;
-`;
+export const TbodyStyled = styled.tbody``;
 
 export const TrTitleStyled = styled.tr`
-  height: 4.5rem;
+  height: 5.5rem;
   border-bottom: 2px solid #f5f5f5;
-  width: 100%;
 
   th {
-    width: 10rem !important;
     text-align: left;
-    width: auto;
-    padding-right: 3rem;
-    padding-left: 1rem;
   }
 `;
 export const TrStyled = styled.tr`
-  width: 100%;
-  height: 7.5rem;
-
+  height: 5.5rem;
+  cursor: pointer;
+  border-bottom: 2px solid #f5f5f5;
+  &:hover {
+    box-shadow: 8rem;
+    box-shadow: 0px 10px 30px #00000114;
+  }
+  th {
+    text-align: left;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
   td {
-    width: 6rem;
-    height: 100%;
+    width: auto;
+    text-align: start;
+
+    border: none;
   }
 `;
 
-export const ImgHabitacionStyled = styled.img`
+export const DivImgStyled = styled.div`
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+`;
+export const ImgStyled = styled.img`
   width: 9.3rem;
   height: 4.8rem;
   border-radius: 8px;
   margin-right: 1rem;
 `;
-export const ThFacilitiesStyled = styled.th`
-  width: 6rem !important;
+export const ImgPerfilStyled = styled.img`
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 8px;
+  margin-right: 1rem;
 `;
+export const PStyled = styled.p`
+  color: #799283;
+  font-size: 0.8rem;
+`;
+export const DivTextStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const PnumberStyled = styled.p`
   color: #799283;
   font-size: 0.8rem;
@@ -67,5 +89,26 @@ export const BookedStyle = styled.span`
   justify-content: center;
   align-items: center;
   color: #fff;
+  border-radius: 12px;
+`;
+export const ActiveStyle = styled.span`
+  font-weight: 700;
+  height: 3rem;
+  width: 7.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5ad07a;
+  border-radius: 12px;
+`;
+
+export const InactiveStyle = styled.span`
+  font-weight: 700;
+  height: 3rem;
+  width: 7.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e23428;
   border-radius: 12px;
 `;

@@ -1,38 +1,42 @@
 import { SlOptionsVertical } from "react-icons/sl";
-import { rooms } from "../../data/rooms";
+import { rooms } from "../../../data/rooms";
 import {
   TableStyled,
-  TrTitleStyled,
   TrStyled,
-  ImgHabitacionStyled,
-  ThFacilitiesStyled,
-  PnumberStyled,
   AvailibleStyle,
   BookedStyle,
   TbodyStyled,
-} from "./TableStyled";
-
+  ImgStyled,
+  PStyled,
+  DivTextStyled,
+  DivImgStyled,
+  TrTitleStyled,
+} from "../TableStyled";
 export const TableRooms = () => {
   return (
     <TableStyled>
       <TbodyStyled>
         <TrTitleStyled>
-          <th colSpan="2">Room Name</th>
-          <th>Bed Type</th>
+          <th>Room Name</th>
+          <th>Room Type</th>
           <th>Job Desk</th>
-          <ThFacilitiesStyled>Facilities</ThFacilitiesStyled>
-          <th>Rate</th>
+          <th>Amenities</th>
+          <th>Price</th>
           <th>Status</th>
+          <th></th>
         </TrTitleStyled>
         {rooms.map((room) => (
           <TrStyled key={room.roomId}>
             <td>
-              <ImgHabitacionStyled src={room.img} />
+              <DivImgStyled>
+                <ImgStyled src={room.img} />
+                <DivTextStyled>
+                  <PStyled>{`#${room.roomNumber}`}</PStyled>
+                  <p>{room.roomId}</p>
+                </DivTextStyled>
+              </DivImgStyled>
             </td>
-            <td>
-              <PnumberStyled>{`#${room.roomNumber}`}</PnumberStyled>
-              <p>{room.roomId}</p>
-            </td>
+
             <td>{room.bedType}</td>
             <td>{room.bedType}</td>
             <td>{room.facilities}</td>

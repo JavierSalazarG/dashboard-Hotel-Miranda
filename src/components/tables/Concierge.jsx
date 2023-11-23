@@ -1,43 +1,62 @@
 import { SlOptionsVertical } from "react-icons/sl";
 import { users } from "../../data/user";
+import { BsTelephone } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import {
   TableStyled,
-  TrTitleStyled,
   TrStyled,
-  ThFacilitiesStyled,
   PnumberStyled,
-  AvailibleStyle,
-  BookedStyle,
+  ActiveStyle,
+  InactiveStyle,
+  ImgPerfilStyled,
+  DivImgStyled,
+  DivTextStyled,
+  TrTitleStyled,
 } from "./TableStyled";
 
 export const Concierge = () => {
+  const navigate = useNavigate();
+  const HanderClick = (id) => {
+    navigate(`/Concierge/${id}`);
+  };
   return (
     <TableStyled>
       <tbody>
         <TrTitleStyled>
-          <th colSpan="2">Name</th>
-          <ThFacilitiesStyled>Job Desk</ThFacilitiesStyled>
+          <th>Name</th>
+          <th>Job Desk</th>
           <th>Schedule</th>
           <th>Contact</th>
           <th>Status</th>
         </TrTitleStyled>
         {users.map((user) => (
-          <TrStyled key={user.id}>
-            <td></td>
+          <TrStyled
+            onClick={() => {
+              HanderClick(user.id);
+            }}
+            key={user.id}
+          >
             <td>
-              <PnumberStyled>{user.nombre}</PnumberStyled>
-              <p>{user.id}</p>
-              <p>{user.start_date}</p>
+              <DivImgStyled>
+                <ImgPerfilStyled src={user.foto} />
+                <DivTextStyled>
+                  <PnumberStyled>{user.nombre}</PnumberStyled>
+                  <p>#{user.id}</p>
+                  <p>{user.start_date}</p>
+                </DivTextStyled>
+              </DivImgStyled>
             </td>
             <td>{user.description}</td>
             <td>{user.start_date}</td>
-            <td>{user.contact}</td>
-
+            <td>
+              <BsTelephone />
+              {user.contact}
+            </td>
             <td>
               {user.status ? (
-                <AvailibleStyle>Available</AvailibleStyle>
+                <ActiveStyle>ACTIVE</ActiveStyle>
               ) : (
-                <BookedStyle>INACTIVE</BookedStyle>
+                <InactiveStyle>INACTIVE</InactiveStyle>
               )}
             </td>
             <td>
