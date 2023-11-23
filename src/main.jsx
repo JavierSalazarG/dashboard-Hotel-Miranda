@@ -6,7 +6,7 @@ import "./index.css";
 import Layout from "./components/layaut/layaut";
 import { DashboardPage } from "./pages/Dashboard/DashboardPage";
 import { RoomPage } from "./pages/Roons/roomPage";
-
+import EditUser from "./pages/user/EditUser";
 import { BookingsPage } from "./pages/Bookings/BookingsPage";
 import { ConciergePage } from "./pages/Concierge/ConciergePage";
 import { LoginPage } from "./pages/Login/LoginPage";
@@ -20,14 +20,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} />
+        <Route path="*" element={<ErrorPage />} />
         <Route element={<Layout />}>
           <Route path="/home" element={<DashboardPage />} />
+          <Route path="/profile/edit" element={<EditUser />} />
           <Route path="/rooms" element={<RoomPage />} />
           <Route path="/Bookings" element={<BookingsPage />} />
           <Route path="/Users" element={<ConciergePage />} />
           <Route path="/user/new" element={<NewEployee />} />
           <Route path="/Contact" element={<ContactPage />} />
-          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

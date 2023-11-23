@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 //styled ------------------
 import {
   ContainerStyled,
@@ -47,17 +47,23 @@ import Logo from "../../../public/logo/logo.png";
 import ImgPefil from "../../../public/navbar/perfil.png";
 //============================
 const Layout = () => {
+  const navigate = useNavigate();
   const [isMenuVisible, setMenuVisible] = useState(true);
   let location = useLocation();
   let locationmal = location.pathname;
   let locationAcctual = locationmal.substring(1);
   if (locationAcctual === "user/new") {
     locationAcctual = "New Empoyee";
+  } else if (locationAcctual === "profile/edit") {
+    locationAcctual = "Edit Profile";
   }
   const HandleMenu = () => {
     setMenuVisible(!isMenuVisible);
   };
 
+  const Handleprofile = () => {
+    navigate("/profile/edit");
+  };
   return (
     <ContainerStyled>
       {isMenuVisible && (
@@ -95,7 +101,9 @@ const Layout = () => {
             <ImgProfileStyled src={ImgPefil} />
             <NameProfileStyled>William Johanson</NameProfileStyled>
             <EmailProfileStyled>williamjohn@mail.com</EmailProfileStyled>
-            <ButtonlProfileStyled>Edit</ButtonlProfileStyled>
+            <ButtonlProfileStyled onClick={Handleprofile}>
+              Edit
+            </ButtonlProfileStyled>
           </ProfileStyled>
           <FooterStyled>
             <ParrafStyled>Travl Hotel Admin Dashboard</ParrafStyled>

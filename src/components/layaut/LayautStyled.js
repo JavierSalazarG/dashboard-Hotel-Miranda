@@ -186,6 +186,7 @@ export const ButtonlProfileStyled = styled.button`
   color: #135846;
   font-size: 0.9rem;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 //=============================
