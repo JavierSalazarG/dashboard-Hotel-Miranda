@@ -6,3 +6,7 @@ export const MainStyled = styled.main`
   padding: 4rem;
   background: #f8f8f8;
 `;
+
+export const MarginStyled = styled.div`
+  height: 5rem;
+`;

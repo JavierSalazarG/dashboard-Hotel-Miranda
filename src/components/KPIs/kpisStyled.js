@@ -14,6 +14,7 @@ export const DivKpisStyled = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2.5rem;
+  margin-bottom: 5rem;
 `;
 export const DivIconStyled = styled.div`
   background: #ffedec 0% 0% no-repeat padding-box;

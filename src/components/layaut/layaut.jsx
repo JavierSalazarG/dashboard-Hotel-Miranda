@@ -51,7 +51,7 @@ const Layout = () => {
   let location = useLocation();
   let locationmal = location.pathname;
   let locationAcctual = locationmal.substring(1);
-  if (locationAcctual === "Concierge/new") {
+  if (locationAcctual === "user/new") {
     locationAcctual = "New Empoyee";
   }
   const HandleMenu = () => {
@@ -84,18 +84,18 @@ const Layout = () => {
             </LiNavStyles>
             <LiNavStyles>
               <IconGuestStyles />
-              <LinkNavStyles to={"/Guest"}>Guest</LinkNavStyles>
+              <LinkNavStyles to={"/users"}>Users</LinkNavStyles>
             </LiNavStyles>
             <LiNavStyles>
               <IconConciergeStyles />
-              <LinkNavStyles to={"/Concierges"}>Concierge</LinkNavStyles>
+              <LinkNavStyles to={"/Contact"}>Contact</LinkNavStyles>
             </LiNavStyles>
           </UlNavStyles>
           <ProfileStyled>
             <ImgProfileStyled src={ImgPefil} />
             <NameProfileStyled>William Johanson</NameProfileStyled>
             <EmailProfileStyled>williamjohn@mail.com</EmailProfileStyled>
-            <ButtonlProfileStyled>Contact Us</ButtonlProfileStyled>
+            <ButtonlProfileStyled>Edit</ButtonlProfileStyled>
           </ProfileStyled>
           <FooterStyled>
             <ParrafStyled>Travl Hotel Admin Dashboard</ParrafStyled>

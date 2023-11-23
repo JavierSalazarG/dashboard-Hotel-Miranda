@@ -18,7 +18,7 @@ export const ConciergePage = () => {
           <ButtonOrdenStyled>Inactive Employee</ButtonOrdenStyled>
         </div>
         <DivButtonsNewstyled>
-          <NavStyled to={"/Concierge/new"}>+ New Employee</NavStyled>
+          <NavStyled to={"/user/new"}>+ New Employee</NavStyled>
           <NewestStyled>Newest</NewestStyled>
         </DivButtonsNewstyled>
       </DivOptionsStyled>

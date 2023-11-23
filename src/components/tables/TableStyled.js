@@ -27,14 +27,36 @@ export const TrStyled = styled.tr`
   }
   th {
     text-align: left;
-    padding-left: 2rem;
+    padding-left: 3rem;
     padding-right: 2rem;
   }
   td {
     width: auto;
     text-align: start;
-
+    padding-left: 1rem;
+    padding-right: 2rem;
     border: none;
+  }
+`;
+export const TrContactStyled = styled.tr`
+  height: 5.5rem;
+  border-bottom: 2px solid #f5f5f5;
+  &:hover {
+    box-shadow: 8rem;
+    box-shadow: 0px 10px 30px #00000114;
+  }
+
+  td {
+    width: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: start;
+    padding-left: 1rem;
+    padding-right: 2rem;
+    border: none;
+    p {
+      max-width: 30rem;
+    }
   }
 `;
 
@@ -111,4 +133,26 @@ export const InactiveStyle = styled.span`
   align-items: center;
   color: #e23428;
   border-radius: 12px;
+`;
+
+export const TdButtonsStyled = styled.td`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+`;
+export const ButtonActivestyled = styled.button`
+  color: #5ad07a;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`;
+export const ButtonArchivetyled = styled.button`
+  color: #e23428;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 `;

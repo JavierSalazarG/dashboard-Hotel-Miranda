@@ -42,6 +42,7 @@ export const NavStyles = styled.nav`
   box-shadow: 13px 3px 40px #00000005;
   padding-left: 1rem;
   background-color: #fff;
+  padding-bottom: 5rem;
 `;
 
 export const ALogoStyles = styled.nav`

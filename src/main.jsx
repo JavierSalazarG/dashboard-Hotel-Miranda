@@ -6,12 +6,13 @@ import "./index.css";
 import Layout from "./components/layaut/layaut";
 import { DashboardPage } from "./pages/Dashboard/DashboardPage";
 import { RoomPage } from "./pages/Roons/roomPage";
-import { GuestPage } from "./pages/Guest/GuestPage";
+
 import { BookingsPage } from "./pages/Bookings/BookingsPage";
 import { ConciergePage } from "./pages/Concierge/ConciergePage";
 import { LoginPage } from "./pages/Login/LoginPage";
 import { NewEployee } from "./pages/NewEmployee/NewEployee";
 import { ErrorPage } from "./pages/error-page";
+import ContactPage from "./pages/Contact/ContactPage";
 //-------------------
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -23,9 +24,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/home" element={<DashboardPage />} />
           <Route path="/rooms" element={<RoomPage />} />
           <Route path="/Bookings" element={<BookingsPage />} />
-          <Route path="/Guest" element={<GuestPage />} />
-          <Route path="/Concierges" element={<ConciergePage />} />
-          <Route path="/Concierge/new" element={<NewEployee />} />
+          <Route path="/Users" element={<ConciergePage />} />
+          <Route path="/user/new" element={<NewEployee />} />
+          <Route path="/Contact" element={<ContactPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

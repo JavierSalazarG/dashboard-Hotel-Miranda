@@ -3,14 +3,31 @@ import {
   SwiperStyled,
   SwiperSlideStyled,
   ImgStyled,
+  PopUpStyled,
 } from "./comment.js";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import { useState } from "react";
 import { Navigation } from "swiper/modules";
 import { comments } from "../../data/comment.js";
 
 const Comment = () => {
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [selectedComment, setSelectedComment] = useState(null);
+
+  const truncateText = (text, maxLength) => {
+    return text.length > maxLength ? text.slice(0, maxLength) + " ..." : text;
+  };
+
+  const openPopup = (comment) => {
+    setSelectedComment(comment);
+    setShowPopUp(true);
+  };
+
+  const closePopup = () => {
+    setShowPopUp(false);
+  };
+
   return (
     <DivCommentStyled>
       <h3>Latest Review by Customers</h3>
@@ -22,8 +39,11 @@ const Comment = () => {
         className="mySwiper"
       >
         {comments.map((comment) => (
-          <SwiperSlideStyled key={comment.id}>
-            <p>{comment.comentario}</p>
+          <SwiperSlideStyled
+            onClick={() => openPopup(comment)}
+            key={comment.id}
+          >
+            <p>{truncateText(comment.comentario, 200)}</p>
             <div>
               <ImgStyled src={comment.foto_perfil} />
               <div>
@@ -34,6 +54,14 @@ const Comment = () => {
           </SwiperSlideStyled>
         ))}
       </SwiperStyled>
+      {showPopUp && (
+        <PopUpStyled>
+          <h3>{selectedComment && selectedComment.nombre}</h3>
+          <span>{selectedComment && selectedComment.fecha}</span>
+          <p>{selectedComment && selectedComment.comentario}</p>
+          <button onClick={closePopup}>Cerrar</button>
+        </PopUpStyled>
+      )}
     </DivCommentStyled>
   );
 };
