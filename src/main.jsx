@@ -13,6 +13,7 @@ import { LoginPage } from "./pages/Login/LoginPage";
 import { NewEployee } from "./pages/NewEmployee/NewEployee";
 import { ErrorPage } from "./pages/error-page";
 import ContactPage from "./pages/Contact/ContactPage";
+import Booking from "./pages/Booking/Booking";
 //-------------------
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/profile/edit" element={<EditUser />} />
           <Route path="/rooms" element={<RoomPage />} />
           <Route path="/Bookings" element={<BookingsPage />} />
+          <Route path="/Booking/:id" element={<Booking />} />
           <Route path="/Users" element={<ConciergePage />} />
           <Route path="/user/new" element={<NewEployee />} />
           <Route path="/Contact" element={<ContactPage />} />

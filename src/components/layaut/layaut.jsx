@@ -31,10 +31,6 @@ import {
   IconMenuStyled,
   H2TitleStyled,
   SectionButtonsStyled,
-  FormSeekerStyled,
-  LabelSeekerStyled,
-  InputSeekerStyled,
-  IconSeekerStyled,
   ButtonsHeaderStyled,
   IconEmailsStyled,
   IconBellStyled,
@@ -52,10 +48,13 @@ const Layout = () => {
   let location = useLocation();
   let locationmal = location.pathname;
   let locationAcctual = locationmal.substring(1);
+
   if (locationAcctual === "user/new") {
     locationAcctual = "New Empoyee";
   } else if (locationAcctual === "profile/edit") {
     locationAcctual = "Edit Profile";
+  } else if (locationAcctual.startsWith("Booking/")) {
+    locationAcctual = "Booking Details";
   }
   const HandleMenu = () => {
     setMenuVisible(!isMenuVisible);
@@ -120,12 +119,6 @@ const Layout = () => {
             <H2TitleStyled>{locationAcctual}</H2TitleStyled>
           </SectionTittleStyled>
           <SectionButtonsStyled>
-            <FormSeekerStyled>
-              <LabelSeekerStyled>
-                <InputSeekerStyled type="text" />
-                <IconSeekerStyled />
-              </LabelSeekerStyled>
-            </FormSeekerStyled>
             <ButtonsHeaderStyled>
               <SpanAllertStyled>3</SpanAllertStyled>
               <IconEmailsStyled />

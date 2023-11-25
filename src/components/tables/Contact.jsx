@@ -4,7 +4,6 @@ import {
   TableStyled,
   TrContactStyled,
   TrTitleStyled,
-  ButtonActivestyled,
   TdButtonsStyled,
   ButtonArchivetyled,
 } from "./TableStyled";
@@ -30,7 +29,6 @@ export const Contact = () => {
               <p>{comment.comentario}</p>
             </td>
             <TdButtonsStyled>
-              <ButtonActivestyled>PUBLISH</ButtonActivestyled>
               <ButtonArchivetyled>ARCHIVE</ButtonArchivetyled>
             </TdButtonsStyled>
           </TrContactStyled>

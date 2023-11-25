@@ -33,7 +33,7 @@ export const TrStyled = styled.tr`
   td {
     width: auto;
     text-align: start;
-    padding-left: 1rem;
+    padding-left: 0.5rem;
     padding-right: 2rem;
     border: none;
   }
@@ -92,6 +92,10 @@ export const PnumberStyled = styled.p`
   color: #799283;
   font-size: 0.8rem;
 `;
+export const IdBoockingStyled = styled.p`
+  color: #799283;
+  font-size: 0.8rem;
+`;
 export const AvailibleStyle = styled.span`
   background: #5ad07a;
   height: 3rem;
@@ -139,20 +143,89 @@ export const TdButtonsStyled = styled.td`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
   gap: 1rem;
 `;
-export const ButtonActivestyled = styled.button`
-  color: #5ad07a;
-  font-weight: 600;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-`;
+
 export const ButtonArchivetyled = styled.button`
   color: #e23428;
   font-weight: 600;
   border: none;
   background-color: transparent;
   cursor: pointer;
+`;
+export const SpanStatusStyled = styled.span`
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  color: ${(props) => props.$color};
+  background-color: ${(props) => props.$bg};
+  font-weight: 600;
+  background-color: transparent;
+`;
+export const ButtonNotesStyled = styled.button`
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: #212121;
+  cursor: pointer;
+  background-color: #eef9f2;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  &:hover {
+    box-shadow: 0px 10px 30px #00000114;
+  }
+`;
+export const SpanNotesStyles = styled.span`
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: #799283;
+  background: transparent;
+  text-align: center;
+  padding: 1rem;
+  padding-right: 2rem;
+  border-radius: 12px;
+  border: 1px solid #799283;
+  &:hover {
+    cursor: no-drop;
+  }
+`;
+export const PopUpStyled = styled.span`
+  width: 100%;
+  max-width: 50rem;
+  height: 25rem;
+  padding: 3rem;
+  background: #fff;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  top: 30%;
+  margin-left: 5rem;
+  z-index: 99;
+  box-shadow: 0px 16px 30px rgba(40, 39, 40, 0.44);
+
+  h3 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  span {
+    margin-bottom: 2rem;
+    color: #4e4e4e;
+  }
+
+  button {
+    padding: 1rem;
+    width: fit-content;
+    margin-top: auto;
+    align-self: center;
+    border-radius: 12px;
+    border: none;
+    color: #135846;
+    background: #ebf1ef;
+    cursor: pointer;
+  }
 `;

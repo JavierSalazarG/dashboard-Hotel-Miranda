@@ -29,7 +29,10 @@ export const TableRooms = () => {
           <TrStyled key={room.roomId}>
             <td>
               <DivImgStyled>
-                <ImgStyled src={room.img} />
+                <ImgStyled
+                  alt={`Room ${room.roomNumber}`}
+                  src={room.imgs.img1}
+                />
                 <DivTextStyled>
                   <PStyled>{`#${room.roomNumber}`}</PStyled>
                   <p>{room.roomId}</p>

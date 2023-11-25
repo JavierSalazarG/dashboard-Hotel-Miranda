@@ -283,7 +283,7 @@ export const H2TitleStyled = styled.h2`
 `;
 export const SectionButtonsStyled = styled.section`
   width: 100%;
-  max-width: 26rem;
+  max-width: 10rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -294,27 +294,7 @@ export const ImgPerfilHeader = styled.img`
   width: 3.75rem;
   height: 3.75rem;
 `;
-export const FormSeekerStyled = styled.form`
-  max-width: 21.9rem;
-`;
-export const LabelSeekerStyled = styled.label`
-  max-width: 21.9rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: #fcfcfc;
-  border-radius: 12px;
-  height: 3.5rem;
-`;
-export const InputSeekerStyled = styled.input`
-  border: none;
-  width: 100%;
-  padding-left: 1rem;
-  outline: none;
-  background: transparent;
-  height: 3.5rem;
-  color: #6e6e6e;
-`;
+
 export const IconSeekerStyled = styled(HiMagnifyingGlass)`
   width: 1.5rem;
   height: 1.5rem;
