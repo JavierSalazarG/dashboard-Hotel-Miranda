@@ -9,9 +9,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useState } from "react";
 import { Navigation } from "swiper/modules";
-import { comments } from "../../data/comment.js";
 
-const Comment = () => {
+const Comment = ({ loading, commentList }) => {
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedComment, setSelectedComment] = useState(null);
 
@@ -27,6 +26,7 @@ const Comment = () => {
   const closePopup = () => {
     setShowPopUp(false);
   };
+  const commentsToDisplay = commentList || [];
 
   return (
     <DivCommentStyled>
@@ -38,21 +38,26 @@ const Comment = () => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {comments.map((comment) => (
-          <SwiperSlideStyled
-            onClick={() => openPopup(comment)}
-            key={comment.id}
-          >
-            <p>{truncateText(comment.comentario, 200)}</p>
-            <div>
-              <ImgStyled src={comment.foto_perfil} />
+        {loading ? (
+          <p>Cargando ...</p>
+        ) : (
+          commentsToDisplay &&
+          commentsToDisplay.map((comment) => (
+            <SwiperSlideStyled
+              onClick={() => openPopup(comment)}
+              key={comment.id}
+            >
+              <p>{truncateText(comment.comentario, 200)}</p>
               <div>
-                <p>{comment.nombre}</p>
-                <p>{comment.fecha}</p>
+                <ImgStyled src={comment.foto_perfil} />
+                <div>
+                  <p>{comment.nombre}</p>
+                  <p>{comment.fecha}</p>
+                </div>
               </div>
-            </div>
-          </SwiperSlideStyled>
-        ))}
+            </SwiperSlideStyled>
+          ))
+        )}
       </SwiperStyled>
       {showPopUp && (
         <PopUpStyled>
