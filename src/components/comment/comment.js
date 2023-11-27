@@ -58,6 +58,31 @@ export const ImgStyled = styled.img`
   height: 3.5rem;
   border-radius: 8px;
 `;
+export const Spinner = styled.div`
+  position: absolute;
+  z-index: 999;
+  top: 8rem;
+  left: 45%;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border-left-color: #135846;
+
+    animation: spin 1s ease infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  
+`;
+
 export const PopUpStyled = styled.span`
   width: 100%;
   max-width: 50rem;
