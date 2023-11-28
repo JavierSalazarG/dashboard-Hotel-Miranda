@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { RiDeleteBin6Line } from "react-icons/ri";
 export const TableStyled = styled.table`
   margin: 0 auto;
   width: 100%;
@@ -252,4 +252,18 @@ export const PopUpStyled = styled.span`
     background: #ebf1ef;
     cursor: pointer;
   }
+`;
+export const ButtonDelete = styled.button`
+  background: transparent;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  :hover {
+    box-shadow: 0px 10px 30px #00000114;
+  }
+`;
+export const IconDeletedStyled = styled(RiDeleteBin6Line)`
+  color: ${(props) => props.$color};
+  width: 1.5rem;
+  height: 1.5rem;
 `;

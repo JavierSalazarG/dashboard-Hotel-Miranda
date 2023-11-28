@@ -1,7 +1,7 @@
-import { SlOptionsVertical } from "react-icons/sl";
-import { users } from "../../data/user";
 import { BsTelephone } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { deletedUsers } from "../../features/users/UsersSlice";
 import {
   TableStyled,
   TrStyled,
@@ -13,12 +13,18 @@ import {
   DivTextStyled,
   TrTitleStyled,
   Spinner,
+  IconDeletedStyled,
+  ButtonDelete,
 } from "./TableStyled";
 
 export const Concierge = ({ loading, UsersList }) => {
-  const navigate = useNavigate();
-  const HanderClick = (id) => {
-    navigate(`/Concierge/${id}`);
+  const dispatch = useDispatch();
+
+  const HandleDeleted = (id, event) => {
+    if (event) {
+      event.stopPropagation();
+    }
+    dispatch(deletedUsers(id));
   };
   return (
     <TableStyled>
@@ -35,12 +41,7 @@ export const Concierge = ({ loading, UsersList }) => {
         ) : (
           UsersList &&
           UsersList.map((user) => (
-            <TrStyled
-              onClick={() => {
-                HanderClick(user.id);
-              }}
-              key={user.id}
-            >
+            <TrStyled key={user.id}>
               <td>
                 <DivImgStyled>
                   <ImgPerfilStyled src={user.foto} />
@@ -65,7 +66,16 @@ export const Concierge = ({ loading, UsersList }) => {
                 )}
               </td>
               <td>
-                <SlOptionsVertical />
+                <ButtonDelete
+                  onClick={() => HandleDeleted(user.id)}
+                  className="button"
+                >
+                  {open ? (
+                    <IconDeletedStyled $color="red" />
+                  ) : (
+                    <IconDeletedStyled $color="#135846" />
+                  )}
+                </ButtonDelete>
               </td>
             </TrStyled>
           ))

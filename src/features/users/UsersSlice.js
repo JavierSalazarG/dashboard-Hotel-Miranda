@@ -12,12 +12,22 @@ export const UserSlice = createSlice({
     addUsers: (state, action) => {
       state.data = [action.payload, ...state.data];
     },
+    deletedUsers: (state, action) => {
+      state.data = state.data.filter((user) => user.id !== action.payload);
+
+      state.data = [...state.data];
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(getUsersListFromAPIThunk.fulfilled, (state, action) => {
         state.status = "fulfilled";
-        state.data = [...state.data, ...action.payload];
+        const uniqueData = action.payload.filter(
+          (newUser) =>
+            !state.data.some((existingUser) => existingUser.id === newUser.id)
+        );
+
+        state.data = [...state.data, ...uniqueData];
       })
       .addCase(getUsersListFromAPIThunk.rejected, (state, action) => {
         state.status = "rejected";
@@ -32,7 +42,7 @@ export const UserSlice = createSlice({
   },
 });
 
-export const { addUsers } = UserSlice.actions;
+export const { addUsers, deletedUsers } = UserSlice.actions;
 export const getUsersData = (state) => state.user.data;
 export const getUsersStatus = (state) => state.user.status;
 export const getUsersError = (state) => state.user.error;
