@@ -38,6 +38,30 @@ export const TrStyled = styled.tr`
     border: none;
   }
 `;
+export const Spinner = styled.div`
+  position: absolute;
+  z-index: 999;
+  top: 60%;
+  left: 50%;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border-left-color: #135846;
+
+    animation: spin 1s ease infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  
+`;
 export const TrContactStyled = styled.tr`
   height: 5.5rem;
   border-bottom: 2px solid #f5f5f5;

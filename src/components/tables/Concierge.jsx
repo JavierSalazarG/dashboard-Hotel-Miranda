@@ -12,9 +12,10 @@ import {
   DivImgStyled,
   DivTextStyled,
   TrTitleStyled,
+  Spinner,
 } from "./TableStyled";
 
-export const Concierge = () => {
+export const Concierge = ({ loading, UsersList }) => {
   const navigate = useNavigate();
   const HanderClick = (id) => {
     navigate(`/Concierge/${id}`);
@@ -29,41 +30,46 @@ export const Concierge = () => {
           <th>Contact</th>
           <th>Status</th>
         </TrTitleStyled>
-        {users.map((user) => (
-          <TrStyled
-            onClick={() => {
-              HanderClick(user.id);
-            }}
-            key={user.id}
-          >
-            <td>
-              <DivImgStyled>
-                <ImgPerfilStyled src={user.foto} />
-                <DivTextStyled>
-                  <PnumberStyled>{user.nombre}</PnumberStyled>
-                  <p>#{user.id}</p>
-                  <p>{user.start_date}</p>
-                </DivTextStyled>
-              </DivImgStyled>
-            </td>
-            <td>{user.description}</td>
-            <td>{user.start_date}</td>
-            <td>
-              <BsTelephone />
-              {user.contact}
-            </td>
-            <td>
-              {user.status ? (
-                <ActiveStyle>ACTIVE</ActiveStyle>
-              ) : (
-                <InactiveStyle>INACTIVE</InactiveStyle>
-              )}
-            </td>
-            <td>
-              <SlOptionsVertical />
-            </td>
-          </TrStyled>
-        ))}
+        {loading ? (
+          <Spinner></Spinner>
+        ) : (
+          UsersList &&
+          UsersList.map((user) => (
+            <TrStyled
+              onClick={() => {
+                HanderClick(user.id);
+              }}
+              key={user.id}
+            >
+              <td>
+                <DivImgStyled>
+                  <ImgPerfilStyled src={user.foto} />
+                  <DivTextStyled>
+                    <PnumberStyled>{user.nombre}</PnumberStyled>
+                    <p>#{user.id}</p>
+                    <p>{user.start_date}</p>
+                  </DivTextStyled>
+                </DivImgStyled>
+              </td>
+              <td>{user.description}</td>
+              <td>{user.start_date}</td>
+              <td>
+                <BsTelephone />
+                {user.contact}
+              </td>
+              <td>
+                {user.status ? (
+                  <ActiveStyle>ACTIVE</ActiveStyle>
+                ) : (
+                  <InactiveStyle>INACTIVE</InactiveStyle>
+                )}
+              </td>
+              <td>
+                <SlOptionsVertical />
+              </td>
+            </TrStyled>
+          ))
+        )}
       </tbody>
     </TableStyled>
   );
