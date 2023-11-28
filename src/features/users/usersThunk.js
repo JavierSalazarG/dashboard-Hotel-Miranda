@@ -6,7 +6,7 @@ export const getUsersListFromAPIThunk = createAsyncThunk(
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(users);
-      }, 2000);
+      }, 1000);
     });
   }
 );

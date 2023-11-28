@@ -32,7 +32,6 @@ export const TableRooms = ({ RoomsList, loading }) => {
         <TrTitleStyled>
           <th>Room Name</th>
           <th>Room Type</th>
-          <th>Job Desk</th>
           <th>Amenities</th>
           <th>Price</th>
           <th>Status</th>
@@ -57,7 +56,6 @@ export const TableRooms = ({ RoomsList, loading }) => {
                 </DivImgStyled>
               </td>
 
-              <td>{room.bedType}</td>
               <td>{room.bedType}</td>
               <td>{room.facilities}</td>
               <td>{`$${room.rate}/night`}</td>

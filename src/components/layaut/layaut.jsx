@@ -53,6 +53,8 @@ const Layout = () => {
     locationAcctual = "New Empoyee";
   } else if (locationAcctual === "profile/edit") {
     locationAcctual = "Edit Profile";
+  } else if (locationAcctual === "room/new") {
+    locationAcctual = "New Room";
   } else if (locationAcctual.startsWith("Booking/")) {
     locationAcctual = "Booking Details";
   }

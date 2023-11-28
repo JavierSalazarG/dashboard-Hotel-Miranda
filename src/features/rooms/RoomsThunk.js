@@ -7,7 +7,7 @@ export const getRoomsListFromAPIThunk = createAsyncThunk(
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(rooms);
-      }, 2000);
+      }, 1000);
     });
   }
 );

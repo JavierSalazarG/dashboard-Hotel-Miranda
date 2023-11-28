@@ -14,7 +14,7 @@ const FilterRooms = () => {
         <ButtonOrdenStyled>Inactive Employee</ButtonOrdenStyled>
       </div>
       <DivButtonsNewstyled>
-        <NavStyled to={"/home"}>+ New Room</NavStyled>
+        <NavStyled to={"/room/new"}>+ New Room</NavStyled>
         <NewestStyled>Newest</NewestStyled>
       </DivButtonsNewstyled>
     </DivOptionsStyled>

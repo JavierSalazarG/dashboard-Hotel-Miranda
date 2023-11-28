@@ -56,7 +56,7 @@ const Booking = ({ BookingsList, loading }) => {
                 <p>
                   {booking.nombre} {booking.apellidos}
                 </p>
-                <IdBoockingStyled>#{booking.id_reserva}</IdBoockingStyled>
+                <IdBoockingStyled>#{booking.id}</IdBoockingStyled>
               </td>
 
               <td>{booking.fecha_reserva}</td>

@@ -16,6 +16,7 @@ import { NewEployee } from "./pages/NewEmployee/NewEployee";
 import { ErrorPage } from "./pages/error-page";
 import ContactPage from "./pages/Contact/ContactPage";
 import Booking from "./pages/Booking/Booking";
+import NewRoom from "./pages/NewRoom/NewRoom";
 //-------------------
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="/home" element={<DashboardPage />} />
             <Route path="/profile/edit" element={<EditUser />} />
             <Route path="/rooms" element={<RoomPage />} />
+            <Route path="/room/new" element={<NewRoom />} />
             <Route path="/Bookings" element={<BookingsPage />} />
             <Route path="/Booking/:id" element={<Booking />} />
             <Route path="/Users" element={<ConciergePage />} />

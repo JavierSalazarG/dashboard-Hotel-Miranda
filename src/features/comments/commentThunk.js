@@ -6,7 +6,7 @@ export const getCommentsListFromAPIThunk = createAsyncThunk(
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(comments);
-      }, 2000);
+      }, 1000);
     });
   }
 );

@@ -1,8 +1,9 @@
 import { MainStyled } from "../stytedPages";
 import { useDispatch } from "react-redux";
 import { addUsers } from "../../features/users/UsersSlice.js";
-import nextId from "react-id-generator";
+import { useNavigate } from "react-router-dom";
 import perfilImage from "../../../public/navbar/perfil.png";
+import { v4 as uuidv4 } from "uuid";
 import {
   FormStyled,
   InputStyled,
@@ -12,7 +13,8 @@ import {
   SubmitStyled,
 } from "./newEmployee.js";
 export const NewEployee = () => {
-  const id = nextId();
+  const navigate = useNavigate();
+  const id = uuidv4();
   const dispatch = useDispatch();
   const getCurrentDate = () => {
     const currentDate = new Date();
@@ -33,8 +35,9 @@ export const NewEployee = () => {
       contact: e.target[2].value,
       status: true,
     };
-    console.log(formData);
+
     dispatch(addUsers(formData));
+    navigate("/rooms");
   };
   return (
     <MainStyled>

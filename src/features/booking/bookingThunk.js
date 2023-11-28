@@ -6,7 +6,7 @@ export const getBookingListFromAPIThunk = createAsyncThunk(
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(bookings);
-      }, 2000);
+      }, 1000);
     });
   }
 );
