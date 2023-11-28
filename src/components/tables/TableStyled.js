@@ -267,3 +267,10 @@ export const IconDeletedStyled = styled(RiDeleteBin6Line)`
   width: 1.5rem;
   height: 1.5rem;
 `;
+
+export const SpanLoading = styled.p`
+  text-align: center;
+  margin: 0 auto;
+  color: #135846;
+  font-size: 1.5rem;
+`;

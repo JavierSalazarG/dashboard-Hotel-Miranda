@@ -4,7 +4,6 @@ import { MainStyled } from "../stytedPages";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.js";
-import { deletedUsers } from "../../features/users/UsersSlice.js";
 import {
   getUsersData,
   getUsersStatus,

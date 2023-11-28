@@ -8,16 +8,18 @@ import {
   ButtonNotesStyled,
   SpanNotesStyles,
   PopUpStyled,
+  Spinner,
 } from "./TableStyled";
 import { SlOptionsVertical } from "react-icons/sl";
-import { bookings } from "../../data/bookings";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const Booking = () => {
+
+const Booking = ({ BookingsList, loading }) => {
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedNote, setSelectedNote] = useState(null);
   const navigate = useNavigate();
 
+  //Popup Mensage---------------
   const openPopup = (note, event) => {
     event.stopPropagation();
     setSelectedNote(note);
@@ -27,7 +29,7 @@ const Booking = () => {
   const closePopup = () => {
     setShowPopUp(false);
   };
-
+  //=============================
   const HandleClick = (id) => {
     navigate(`/Booking/${id}`);
   };
@@ -44,59 +46,61 @@ const Booking = () => {
           <th>Status</th>
           <th></th>
         </TrTitleStyled>
-        {bookings.map((booking) => (
-          <TrStyled
-            onClick={() => HandleClick(booking.id_reserva)}
-            key={booking.id_reserva}
-          >
-            <td>
-              <p>
-                {booking.nombre} {booking.apellidos}
-              </p>
-              <IdBoockingStyled>#{booking.id_reserva}</IdBoockingStyled>
-            </td>
+        {loading ? (
+          <Spinner></Spinner>
+        ) : (
+          BookingsList &&
+          BookingsList.map((booking) => (
+            <TrStyled onClick={() => HandleClick(booking.id)} key={booking.id}>
+              <td>
+                <p>
+                  {booking.nombre} {booking.apellidos}
+                </p>
+                <IdBoockingStyled>#{booking.id_reserva}</IdBoockingStyled>
+              </td>
 
-            <td>{booking.fecha_reserva}</td>
-            <td>{booking.check_in}</td>
-            <td>{booking.check_out}</td>
-            <td>
-              {booking.ha_anadido_mensaje ? (
-                <ButtonNotesStyled
-                  onClick={(event) => openPopup(booking, event)}
-                >
-                  View Notes
-                </ButtonNotesStyled>
-              ) : (
-                <SpanNotesStyles>No Notes</SpanNotesStyles>
-              )}
-            </td>
+              <td>{booking.fecha_reserva}</td>
+              <td>{booking.check_in}</td>
+              <td>{booking.check_out}</td>
+              <td>
+                {booking.ha_anadido_mensaje ? (
+                  <ButtonNotesStyled
+                    onClick={(event) => openPopup(booking, event)}
+                  >
+                    View Notes
+                  </ButtonNotesStyled>
+                ) : (
+                  <SpanNotesStyles>No Notes</SpanNotesStyles>
+                )}
+              </td>
 
-            <td>
-              <p>
-                {booking.tipo_habitacion} - {booking.numero_habitacion}
-              </p>
-            </td>
+              <td>
+                <p>
+                  {booking.tipo_habitacion} - {booking.numero_habitacion}
+                </p>
+              </td>
 
-            <td>
-              {booking.status === "Check In" ? (
-                <SpanStatusStyled $bg="#E8FFEE" $color="#5AD07A">
-                  {booking.status}
-                </SpanStatusStyled>
-              ) : booking.status === "In Progress" ? (
-                <SpanStatusStyled $bg="#E2E2E2" $color="yellow">
-                  {booking.status}
-                </SpanStatusStyled>
-              ) : (
-                <SpanStatusStyled $bg="#FFEDEC" $color="red">
-                  {booking.status}
-                </SpanStatusStyled>
-              )}
-            </td>
-            <td>
-              <SlOptionsVertical />
-            </td>
-          </TrStyled>
-        ))}
+              <td>
+                {booking.status === "Check In" ? (
+                  <SpanStatusStyled $bg="#E8FFEE" $color="#5AD07A">
+                    {booking.status}
+                  </SpanStatusStyled>
+                ) : booking.status === "In Progress" ? (
+                  <SpanStatusStyled $bg="#E2E2E2" $color="yellow">
+                    {booking.status}
+                  </SpanStatusStyled>
+                ) : (
+                  <SpanStatusStyled $bg="#FFEDEC" $color="red">
+                    {booking.status}
+                  </SpanStatusStyled>
+                )}
+              </td>
+              <td>
+                <SlOptionsVertical />
+              </td>
+            </TrStyled>
+          ))
+        )}
         {showPopUp && (
           <PopUpStyled>
             <h3>

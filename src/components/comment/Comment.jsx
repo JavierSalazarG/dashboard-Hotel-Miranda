@@ -8,23 +8,12 @@ import {
 } from "./comment.js";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Navigation } from "swiper/modules";
-import { useDispatch, useSelector } from "react-redux";
-import { getCommentsListFromAPIThunk } from "../../features/comments/commentThunk.js";
-import {
-  getCommentData,
-  getCommentStatus,
-} from "../../features/comments/commentSlice.js";
 
-const Comment = () => {
+const Comment = ({ CommentList, loading }) => {
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedComment, setSelectedComment] = useState(null);
-  const dispatch = useDispatch();
-  const [CommentList, setCommentList] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const CommentData = useSelector(getCommentData);
-  const CommentStatus = useSelector(getCommentStatus);
 
   const truncateText = (text, maxLength) => {
     return text.length > maxLength ? text.slice(0, maxLength) + " ..." : text;
@@ -38,24 +27,6 @@ const Comment = () => {
   const closePopup = () => {
     setShowPopUp(false);
   };
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (CommentStatus === "idle" || CommentStatus === "pending") {
-          await dispatch(getCommentsListFromAPIThunk());
-        } else if (CommentStatus === "fulfilled") {
-          setCommentList(CommentData);
-        } else if (CommentStatus === "rejected") {
-          console.error("Error fetching comments:", CommentStatus);
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [dispatch, CommentData, CommentStatus]);
-
   return (
     <DivCommentStyled>
       <h3>Latest Review by Customers</h3>

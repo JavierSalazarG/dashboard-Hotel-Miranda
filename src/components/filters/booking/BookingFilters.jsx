@@ -3,7 +3,6 @@ import {
   DivOptionsStyled,
   DivButtonsNewstyled,
   ButtonOrdenStyled,
-  NavStyled,
   NewestStyled,
 } from "../roomsFilterStyled";
 const BookingFilters = () => {
