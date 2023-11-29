@@ -5,10 +5,11 @@ import "./index.css";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 import { ArchivedProvider } from "./contexts/archived.jsx";
+import { FilterRoomsProvider } from "./contexts/rooms.jsx";
 //Pages------
 import Layout from "./components/layaut/layaut";
 import { DashboardPage } from "./pages/Dashboard/DashboardPage";
-import { RoomPage } from "./pages/Roons/roomPage";
+import { RoomPage } from "./pages/Rooms/RoomPage";
 import EditUser from "./pages/user/EditUser";
 import { BookingsPage } from "./pages/Bookings/BookingsPage";
 import { ConciergePage } from "./pages/Concierge/ConciergePage";
@@ -23,25 +24,27 @@ import NewRoom from "./pages/NewRoom/NewRoom.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ArchivedProvider>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LoginPage />} />
-            <Route path="*" element={<ErrorPage />} />
-            <Route element={<Layout />}>
-              <Route path="/home" element={<DashboardPage />} />
-              <Route path="/profile/edit" element={<EditUser />} />
-              <Route path="/rooms" element={<RoomPage />} />
-              <Route path="/room/new" element={<NewRoom />} />
-              <Route path="/Bookings" element={<BookingsPage />} />
-              <Route path="/Booking/:id" element={<Booking />} />
-              <Route path="/Users" element={<ConciergePage />} />
-              <Route path="/user/new" element={<NewEployee />} />
-              <Route path="/Contact" element={<ContactPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </Provider>
+      <FilterRoomsProvider>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LoginPage />} />
+              <Route path="*" element={<ErrorPage />} />
+              <Route element={<Layout />}>
+                <Route path="/home" element={<DashboardPage />} />
+                <Route path="/profile/edit" element={<EditUser />} />
+                <Route path="/rooms" element={<RoomPage />} />
+                <Route path="/room/new" element={<NewRoom />} />
+                <Route path="/Bookings" element={<BookingsPage />} />
+                <Route path="/Booking/:id" element={<Booking />} />
+                <Route path="/Users" element={<ConciergePage />} />
+                <Route path="/user/new" element={<NewEployee />} />
+                <Route path="/Contact" element={<ContactPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </Provider>
+      </FilterRoomsProvider>
     </ArchivedProvider>
   </React.StrictMode>
 );

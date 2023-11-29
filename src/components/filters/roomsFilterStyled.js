@@ -28,6 +28,7 @@ export const ButtonOrdenStyled = styled.button`
   &:hover {
     border-bottom: 2px solid #135846;
     color: #135846;
+    font-weight: 600;
   }
 `;
 export const NavStyled = styled(NavLink)`
