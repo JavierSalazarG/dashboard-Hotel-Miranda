@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
+import { ArchivedProvider } from "./contexts/archived.jsx";
 //Pages------
 import Layout from "./components/layaut/layaut";
 import { DashboardPage } from "./pages/Dashboard/DashboardPage";
@@ -16,29 +17,31 @@ import { NewEployee } from "./pages/NewEmployee/NewEployee";
 import { ErrorPage } from "./pages/error-page";
 import ContactPage from "./pages/Contact/ContactPage";
 import Booking from "./pages/Booking/Booking";
-import NewRoom from "./pages/NewRoom/NewRoom";
+import NewRoom from "./pages/NewRoom/NewRoom.jsx";
 //-------------------
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="*" element={<ErrorPage />} />
-          <Route element={<Layout />}>
-            <Route path="/home" element={<DashboardPage />} />
-            <Route path="/profile/edit" element={<EditUser />} />
-            <Route path="/rooms" element={<RoomPage />} />
-            <Route path="/room/new" element={<NewRoom />} />
-            <Route path="/Bookings" element={<BookingsPage />} />
-            <Route path="/Booking/:id" element={<Booking />} />
-            <Route path="/Users" element={<ConciergePage />} />
-            <Route path="/user/new" element={<NewEployee />} />
-            <Route path="/Contact" element={<ContactPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </Provider>
+    <ArchivedProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="*" element={<ErrorPage />} />
+            <Route element={<Layout />}>
+              <Route path="/home" element={<DashboardPage />} />
+              <Route path="/profile/edit" element={<EditUser />} />
+              <Route path="/rooms" element={<RoomPage />} />
+              <Route path="/room/new" element={<NewRoom />} />
+              <Route path="/Bookings" element={<BookingsPage />} />
+              <Route path="/Booking/:id" element={<Booking />} />
+              <Route path="/Users" element={<ConciergePage />} />
+              <Route path="/user/new" element={<NewEployee />} />
+              <Route path="/Contact" element={<ContactPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </ArchivedProvider>
   </React.StrictMode>
 );

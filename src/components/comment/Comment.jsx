@@ -41,21 +41,24 @@ const Comment = ({ CommentList, loading }) => {
           <Spinner></Spinner>
         ) : (
           CommentList &&
-          CommentList.map((comment) => (
-            <SwiperSlideStyled
-              onClick={() => openPopup(comment)}
-              key={comment.id}
-            >
-              <p>{truncateText(comment.comentario, 200)}</p>
-              <div>
-                <ImgStyled src={comment.foto_perfil} />
-                <div>
-                  <p>{comment.nombre}</p>
-                  <p>{comment.fecha}</p>
-                </div>
-              </div>
-            </SwiperSlideStyled>
-          ))
+          CommentList.map(
+            (comment) =>
+              !comment.archive && (
+                <SwiperSlideStyled
+                  onClick={() => openPopup(comment)}
+                  key={comment.id}
+                >
+                  <p>{truncateText(comment.comentario, 200)}</p>
+                  <div>
+                    <ImgStyled src={comment.foto_perfil} />
+                    <div>
+                      <p>{comment.nombre}</p>
+                      <p>{comment.fecha}</p>
+                    </div>
+                  </div>
+                </SwiperSlideStyled>
+              )
+          )
         )}
       </SwiperStyled>
       {showPopUp && (

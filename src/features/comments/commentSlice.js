@@ -8,7 +8,22 @@ export const CommentSlice = createSlice({
     status: "idle",
     error: null,
   },
-  reducers: {},
+  reducers: {
+    AddArchive: (state, action) => {
+      state.data = state.data.map((comment) =>
+        comment.id === action.payload ? { ...comment, archive: true } : comment
+      );
+
+      state.data = [...state.data];
+    },
+    DeleteArchive: (state, action) => {
+      state.data = state.data.map((comment) =>
+        comment.id === action.payload ? { ...comment, archive: false } : comment
+      );
+
+      state.data = [...state.data];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCommentsListFromAPIThunk.fulfilled, (state, action) => {
@@ -24,7 +39,10 @@ export const CommentSlice = createSlice({
       });
   },
 });
+export const { AddArchive, DeleteArchive } = CommentSlice.actions;
 
+export const getCommentNotArchiveData = (state) =>
+  state.comment.data.filter((data) => !data.archive);
 export const getCommentData = (state) => state.comment.data;
 export const getCommentStatus = (state) => state.comment.status;
 export const getCommentError = (state) => state.comment.error;

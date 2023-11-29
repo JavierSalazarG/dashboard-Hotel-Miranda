@@ -172,7 +172,7 @@ export const TdButtonsStyled = styled.td`
 `;
 
 export const ButtonArchivetyled = styled.button`
-  color: #e23428;
+  color: ${(props) => props.$color};
   font-weight: 600;
   border: none;
   background-color: transparent;

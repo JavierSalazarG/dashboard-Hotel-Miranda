@@ -20,14 +20,14 @@ export const ButtonOrdenStyled = styled.button`
   text-align: center;
   border: none;
   background: transparent;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: ${(props) => props.$px}px solid ${(props) => props.$color};
+  font-weight: ${(props) => props.$weight};
   padding-bottom: 0.5rem;
   cursor: pointer;
-  color: #6e6e6e;
+  color: ${(props) => props.$color};
   &:hover {
     border-bottom: 2px solid #135846;
     color: #135846;
-    font-weight: 600;
   }
 `;
 export const NavStyled = styled(NavLink)`
