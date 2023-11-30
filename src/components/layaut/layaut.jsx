@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { FilterRoomsContext } from "../../contexts/rooms";
 import { FilterBookingContext } from "../../contexts/boocking";
+import { UserContext } from "../../contexts/user";
 //styled ------------------
 import {
   ContainerStyled,
@@ -46,6 +47,8 @@ import Logo from "../../../public/logo/logo.png";
 import ImgPefil from "../../../public/navbar/perfil.png";
 //============================
 const Layout = () => {
+  const { email, name } = useContext(UserContext);
+
   const { setAll: setAllRooms } = useContext(FilterRoomsContext);
   const { setAll: setAllBookingContext } = useContext(FilterBookingContext);
   const navigate = useNavigate();
@@ -111,8 +114,8 @@ const Layout = () => {
           </UlNavStyles>
           <ProfileStyled>
             <ImgProfileStyled src={ImgPefil} />
-            <NameProfileStyled>William Johanson</NameProfileStyled>
-            <EmailProfileStyled>williamjohn@mail.com</EmailProfileStyled>
+            <NameProfileStyled>{name}</NameProfileStyled>
+            <EmailProfileStyled>{email}</EmailProfileStyled>
             <ButtonlProfileStyled onClick={Handleprofile}>
               Edit
             </ButtonlProfileStyled>

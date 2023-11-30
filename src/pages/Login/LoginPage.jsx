@@ -9,32 +9,34 @@ import {
   IconEmail,
   IconPassword,
 } from "./LoginStyled";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/user";
 
 //imgs--------------
 import Logo from "../../../public/logo/logo.png";
 import { useState } from "react";
 //===========================
 export const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setpassword] = useState("");
+  const [emailLocal, setEmaiLocal] = useState("");
+  const [passwordLocal, setpasswordLocal] = useState("");
+  const { Login, setEmail, setPassword } = useContext(UserContext);
   const navigate = useNavigate();
-
   const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+    setEmaiLocal(event.target.value);
   };
   const handlePasswordChange = (event) => {
-    setpassword(event.target.value);
+    setpasswordLocal(event.target.value);
   };
   const handleLogin = (event) => {
     event.preventDefault();
-    if (email !== "admin@admin.com" || password !== "admin") {
+    if (emailLocal !== "admin@admin.com" || passwordLocal !== "admin") {
       return alert(
         "error al entrar, correo: admin@admin.com y password: admin"
       );
     } else {
-      localStorage.setItem("isLoggedIn", "true");
-      navigate("/home");
+      Login(emailLocal, passwordLocal);
     }
+    navigate("/home");
   };
 
   return (
@@ -47,7 +49,7 @@ export const LoginPage = () => {
           <LabelStyles>
             <IconEmail />{" "}
             <InputStyles
-              value={email}
+              value={emailLocal}
               onChange={handleEmailChange}
               type="email"
             />
@@ -55,7 +57,7 @@ export const LoginPage = () => {
           <LabelStyles>
             <IconPassword />{" "}
             <InputStyles
-              value={password}
+              value={passwordLocal}
               onChange={handlePasswordChange}
               type="text"
             />

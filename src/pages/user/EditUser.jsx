@@ -2,7 +2,6 @@ import { MainStyled } from "../stytedPages";
 import {
   FormStyled,
   InputStyled,
-  TexterraStyled,
   LabelStyled,
   SubmitStyled,
 } from "./EditUserStiled";
@@ -11,18 +10,15 @@ const EditUser = () => {
   const navigate = useNavigate();
   const HandleSubmit = (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      navigate("/home");
-    }, 300);
+
+    navigate("/home");
   };
   return (
     <MainStyled>
-      <FormStyled onClick={HandleSubmit}>
+      <FormStyled onSubmit={HandleSubmit}>
         <InputStyled type="text" placeholder="William Johason" />
         <inInputStyledput type="email" placeholder="williamjohn@mail.com" />
         <InputStyled type="number" placeholder="phone number" />
-
-        <TexterraStyled placeholder="Functions description"></TexterraStyled>
         <LabelStyled>
           Profile Picture
           <input type="file" id="profilePicture" accept="image/*" />
