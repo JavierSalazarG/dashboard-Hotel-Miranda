@@ -21,7 +21,9 @@ import {
 
 export const TableRooms = ({ RoomsList, loading }) => {
   const dispatch = useDispatch();
+
   const { filter } = useContext(FilterRoomsContext);
+
   const HandleDeleted = (id, event) => {
     if (event) {
       event.stopPropagation();

@@ -17,6 +17,12 @@ export const UserSlice = createSlice({
 
       state.data = [...state.data];
     },
+    updateUsers: (state, action) => {
+      const { id, updatedUserData } = action.payload;
+      state.data = state.data.map((user) =>
+        user.id === id ? { ...user, ...updatedUserData } : user
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -42,7 +48,7 @@ export const UserSlice = createSlice({
   },
 });
 
-export const { addUsers, deletedUsers } = UserSlice.actions;
+export const { addUsers, deletedUsers, updateUsers } = UserSlice.actions;
 export const getUsersData = (state) => state.user.data;
 export const getUsersStatus = (state) => state.user.status;
 export const getUsersError = (state) => state.user.error;

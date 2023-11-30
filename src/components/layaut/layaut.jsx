@@ -65,6 +65,8 @@ const Layout = () => {
     locationAcctual = "New Room";
   } else if (locationAcctual.startsWith("Booking/")) {
     locationAcctual = "Booking Details";
+  } else if (locationAcctual.startsWith("user/edit/")) {
+    locationAcctual = "Edit User";
   }
   const HandleMenu = () => {
     setMenuVisible(!isMenuVisible);

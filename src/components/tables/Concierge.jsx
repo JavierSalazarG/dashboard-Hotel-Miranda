@@ -17,12 +17,17 @@ import {
   IconDeletedStyled,
   ButtonDelete,
 } from "./TableStyled";
-
+import { useNavigate } from "react-router-dom";
 export const Concierge = ({ loading, UsersList }) => {
   const dispatch = useDispatch();
   const { filter } = useContext(FilterRoomsContext);
+  const navigate = useNavigate();
+
+  const HandleEdit = (id) => {
+    navigate(`/user/edit/${id}`);
+  };
   const RenderUsers = (user) => (
-    <TrStyled key={user.id}>
+    <TrStyled onClick={() => HandleEdit(user.id)} key={user.id}>
       <td>
         <DivImgStyled>
           <ImgPerfilStyled src={user.foto} />
@@ -47,7 +52,10 @@ export const Concierge = ({ loading, UsersList }) => {
         )}
       </td>
       <td>
-        <ButtonDelete onClick={() => HandleDeleted(user.id)} className="button">
+        <ButtonDelete
+          onClick={(event) => HandleDeleted(user.id, event)}
+          className="button"
+        >
           {open ? (
             <IconDeletedStyled $color="red" />
           ) : (

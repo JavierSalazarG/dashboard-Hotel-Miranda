@@ -22,6 +22,7 @@ import ContactPage from "./pages/Contact/ContactPage";
 import Booking from "./pages/Booking/Booking";
 import NewRoom from "./pages/NewRoom/NewRoom.jsx";
 import { FilterBookingProvider } from "./contexts/boocking.jsx";
+import EditEmployeepage from "./pages/EditEmployee/EditEmployeepage.jsx";
 //-------------------
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -43,6 +44,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                     <Route path="/Bookings" element={<BookingsPage />} />
                     <Route path="/Booking/:id" element={<Booking />} />
                     <Route path="/Users" element={<ConciergePage />} />
+                    <Route
+                      path="/user/edit/:id"
+                      element={<EditEmployeepage />}
+                    />
+
                     <Route path="/user/new" element={<NewEployee />} />
                     <Route path="/Contact" element={<ContactPage />} />
                   </Route>
