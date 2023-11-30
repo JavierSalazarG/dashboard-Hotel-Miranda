@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { FilterRoomsContext } from "../../contexts/rooms";
+import { FilterBookingContext } from "../../contexts/boocking";
 //styled ------------------
 import {
   ContainerStyled,
@@ -45,7 +46,8 @@ import Logo from "../../../public/logo/logo.png";
 import ImgPefil from "../../../public/navbar/perfil.png";
 //============================
 const Layout = () => {
-  const { setAll } = useContext(FilterRoomsContext);
+  const { setAll: setAllRooms } = useContext(FilterRoomsContext);
+  const { setAll: setAllBookingContext } = useContext(FilterBookingContext);
   const navigate = useNavigate();
   const [isMenuVisible, setMenuVisible] = useState(true);
   let location = useLocation();
@@ -86,17 +88,19 @@ const Layout = () => {
             </LiNavStyles>
             <LiNavStyles>
               <IconRoomStyles />
-              <LinkNavStyles onClick={setAll} to={"/rooms"}>
+              <LinkNavStyles onClick={setAllRooms} to={"/rooms"}>
                 Room
               </LinkNavStyles>
             </LiNavStyles>
             <LiNavStyles>
               <IconBookingsStyles />
-              <LinkNavStyles to={"/Bookings"}>Bookings</LinkNavStyles>
+              <LinkNavStyles onClick={setAllBookingContext} to={"/Bookings"}>
+                Bookings
+              </LinkNavStyles>
             </LiNavStyles>
             <LiNavStyles>
               <IconGuestStyles />
-              <LinkNavStyles onClick={setAll} to={"/users"}>
+              <LinkNavStyles onClick={setAllRooms} to={"/users"}>
                 Users
               </LinkNavStyles>
             </LiNavStyles>

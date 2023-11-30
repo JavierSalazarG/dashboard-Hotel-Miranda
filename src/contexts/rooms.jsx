@@ -1,9 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 
-// Crear el contexto
 export const FilterRoomsContext = createContext();
 
-// Crear el proveedor del contexto
 export const FilterRoomsProvider = ({ children }) => {
   const [filter, setFilter] = useState("All");
 

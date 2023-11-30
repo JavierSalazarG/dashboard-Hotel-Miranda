@@ -13,11 +13,61 @@ import {
 import { SlOptionsVertical } from "react-icons/sl";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { FilterBookingContext } from "../../contexts/boocking";
+import { useContext } from "react";
 const Booking = ({ BookingsList, loading }) => {
   const [showPopUp, setShowPopUp] = useState(false);
   const [selectedNote, setSelectedNote] = useState(null);
   const navigate = useNavigate();
+  const { filter } = useContext(FilterBookingContext);
+  const renderBooking = (booking) => (
+    <TrStyled onClick={() => HandleClick(booking.id)} key={booking.id}>
+      <td>
+        <p>
+          {booking.nombre} {booking.apellidos}
+        </p>
+        <IdBoockingStyled>#{booking.id}</IdBoockingStyled>
+      </td>
+
+      <td>{booking.fecha_reserva}</td>
+      <td>{booking.check_in}</td>
+      <td>{booking.check_out}</td>
+      <td>
+        {booking.ha_anadido_mensaje ? (
+          <ButtonNotesStyled onClick={(event) => openPopup(booking, event)}>
+            View Notes
+          </ButtonNotesStyled>
+        ) : (
+          <SpanNotesStyles>No Notes</SpanNotesStyles>
+        )}
+      </td>
+
+      <td>
+        <p>
+          {booking.tipo_habitacion} - {booking.numero_habitacion}
+        </p>
+      </td>
+
+      <td>
+        {booking.status === "Check In" ? (
+          <SpanStatusStyled $bg="#E8FFEE" $color="#5AD07A">
+            {booking.status}
+          </SpanStatusStyled>
+        ) : booking.status === "In Progress" ? (
+          <SpanStatusStyled $bg="#E2E2E2" $color="yellow">
+            {booking.status}
+          </SpanStatusStyled>
+        ) : (
+          <SpanStatusStyled $bg="#FFEDEC" $color="red">
+            {booking.status}
+          </SpanStatusStyled>
+        )}
+      </td>
+      <td>
+        <SlOptionsVertical />
+      </td>
+    </TrStyled>
+  );
 
   //Popup Mensage---------------
   const openPopup = (note, event) => {
@@ -50,56 +100,18 @@ const Booking = ({ BookingsList, loading }) => {
           <Spinner></Spinner>
         ) : (
           BookingsList &&
-          BookingsList.map((booking) => (
-            <TrStyled onClick={() => HandleClick(booking.id)} key={booking.id}>
-              <td>
-                <p>
-                  {booking.nombre} {booking.apellidos}
-                </p>
-                <IdBoockingStyled>#{booking.id}</IdBoockingStyled>
-              </td>
-
-              <td>{booking.fecha_reserva}</td>
-              <td>{booking.check_in}</td>
-              <td>{booking.check_out}</td>
-              <td>
-                {booking.ha_anadido_mensaje ? (
-                  <ButtonNotesStyled
-                    onClick={(event) => openPopup(booking, event)}
-                  >
-                    View Notes
-                  </ButtonNotesStyled>
-                ) : (
-                  <SpanNotesStyles>No Notes</SpanNotesStyles>
-                )}
-              </td>
-
-              <td>
-                <p>
-                  {booking.tipo_habitacion} - {booking.numero_habitacion}
-                </p>
-              </td>
-
-              <td>
-                {booking.status === "Check In" ? (
-                  <SpanStatusStyled $bg="#E8FFEE" $color="#5AD07A">
-                    {booking.status}
-                  </SpanStatusStyled>
-                ) : booking.status === "In Progress" ? (
-                  <SpanStatusStyled $bg="#E2E2E2" $color="yellow">
-                    {booking.status}
-                  </SpanStatusStyled>
-                ) : (
-                  <SpanStatusStyled $bg="#FFEDEC" $color="red">
-                    {booking.status}
-                  </SpanStatusStyled>
-                )}
-              </td>
-              <td>
-                <SlOptionsVertical />
-              </td>
-            </TrStyled>
-          ))
+          BookingsList.map((booking) => {
+            if (
+              filter === "All" ||
+              (filter === "Check In" && booking.status === "Check In") ||
+              (filter === "Check Out" && booking.status === "Check Out") ||
+              (filter === "In Progress" && booking.status === "In Progress") ||
+              (filter === "With Message" && booking.ha_anadido_mensaje)
+            ) {
+              return renderBooking(booking);
+            }
+            return null;
+          })
         )}
         {showPopUp && (
           <PopUpStyled>

@@ -19,31 +19,34 @@ import { ErrorPage } from "./pages/error-page";
 import ContactPage from "./pages/Contact/ContactPage";
 import Booking from "./pages/Booking/Booking";
 import NewRoom from "./pages/NewRoom/NewRoom.jsx";
+import { FilterBookingProvider } from "./contexts/boocking.jsx";
 //-------------------
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ArchivedProvider>
       <FilterRoomsProvider>
-        <Provider store={store}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<LoginPage />} />
-              <Route path="*" element={<ErrorPage />} />
-              <Route element={<Layout />}>
-                <Route path="/home" element={<DashboardPage />} />
-                <Route path="/profile/edit" element={<EditUser />} />
-                <Route path="/rooms" element={<RoomPage />} />
-                <Route path="/room/new" element={<NewRoom />} />
-                <Route path="/Bookings" element={<BookingsPage />} />
-                <Route path="/Booking/:id" element={<Booking />} />
-                <Route path="/Users" element={<ConciergePage />} />
-                <Route path="/user/new" element={<NewEployee />} />
-                <Route path="/Contact" element={<ContactPage />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </Provider>
+        <FilterBookingProvider>
+          <Provider store={store}>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<LoginPage />} />
+                <Route path="*" element={<ErrorPage />} />
+                <Route element={<Layout />}>
+                  <Route path="/home" element={<DashboardPage />} />
+                  <Route path="/profile/edit" element={<EditUser />} />
+                  <Route path="/rooms" element={<RoomPage />} />
+                  <Route path="/room/new" element={<NewRoom />} />
+                  <Route path="/Bookings" element={<BookingsPage />} />
+                  <Route path="/Booking/:id" element={<Booking />} />
+                  <Route path="/Users" element={<ConciergePage />} />
+                  <Route path="/user/new" element={<NewEployee />} />
+                  <Route path="/Contact" element={<ContactPage />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </Provider>
+        </FilterBookingProvider>
       </FilterRoomsProvider>
     </ArchivedProvider>
   </React.StrictMode>
