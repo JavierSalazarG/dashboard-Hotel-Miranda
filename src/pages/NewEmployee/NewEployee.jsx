@@ -37,7 +37,7 @@ export const NewEployee = () => {
     };
 
     dispatch(addUsers(formData));
-    navigate("/rooms");
+    navigate("/users");
   };
   return (
     <MainStyled>

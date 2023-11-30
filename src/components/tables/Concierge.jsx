@@ -1,7 +1,8 @@
 import { BsTelephone } from "react-icons/bs";
-
+import { FilterRoomsContext } from "../../contexts/rooms";
 import { useDispatch } from "react-redux";
 import { deletedUsers } from "../../features/users/UsersSlice";
+import { useContext } from "react";
 import {
   TableStyled,
   TrStyled,
@@ -19,7 +20,43 @@ import {
 
 export const Concierge = ({ loading, UsersList }) => {
   const dispatch = useDispatch();
-
+  const { filter } = useContext(FilterRoomsContext);
+  const RenderUsers = (user) => (
+    <TrStyled key={user.id}>
+      <td>
+        <DivImgStyled>
+          <ImgPerfilStyled src={user.foto} />
+          <DivTextStyled>
+            <PnumberStyled>{user.nombre}</PnumberStyled>
+            <p>#{user.id}</p>
+            <p>{user.start_date}</p>
+          </DivTextStyled>
+        </DivImgStyled>
+      </td>
+      <td>{user.description}</td>
+      <td>{user.start_date}</td>
+      <td>
+        <BsTelephone />
+        {user.contact}
+      </td>
+      <td>
+        {user.status ? (
+          <ActiveStyle>ACTIVE</ActiveStyle>
+        ) : (
+          <InactiveStyle>INACTIVE</InactiveStyle>
+        )}
+      </td>
+      <td>
+        <ButtonDelete onClick={() => HandleDeleted(user.id)} className="button">
+          {open ? (
+            <IconDeletedStyled $color="red" />
+          ) : (
+            <IconDeletedStyled $color="#135846" />
+          )}
+        </ButtonDelete>
+      </td>
+    </TrStyled>
+  );
   const HandleDeleted = (id, event) => {
     if (event) {
       event.stopPropagation();
@@ -40,45 +77,16 @@ export const Concierge = ({ loading, UsersList }) => {
           <Spinner></Spinner>
         ) : (
           UsersList &&
-          UsersList.map((user) => (
-            <TrStyled key={user.id}>
-              <td>
-                <DivImgStyled>
-                  <ImgPerfilStyled src={user.foto} />
-                  <DivTextStyled>
-                    <PnumberStyled>{user.nombre}</PnumberStyled>
-                    <p>#{user.id}</p>
-                    <p>{user.start_date}</p>
-                  </DivTextStyled>
-                </DivImgStyled>
-              </td>
-              <td>{user.description}</td>
-              <td>{user.start_date}</td>
-              <td>
-                <BsTelephone />
-                {user.contact}
-              </td>
-              <td>
-                {user.status ? (
-                  <ActiveStyle>ACTIVE</ActiveStyle>
-                ) : (
-                  <InactiveStyle>INACTIVE</InactiveStyle>
-                )}
-              </td>
-              <td>
-                <ButtonDelete
-                  onClick={() => HandleDeleted(user.id)}
-                  className="button"
-                >
-                  {open ? (
-                    <IconDeletedStyled $color="red" />
-                  ) : (
-                    <IconDeletedStyled $color="#135846" />
-                  )}
-                </ButtonDelete>
-              </td>
-            </TrStyled>
-          ))
+          UsersList.map((user) => {
+            if (
+              filter === "All" ||
+              (filter === "Active" && user.status) ||
+              (filter === "Inactive" && !user.status)
+            ) {
+              return RenderUsers(user);
+            }
+            return null;
+          })
         )}
       </tbody>
     </TableStyled>

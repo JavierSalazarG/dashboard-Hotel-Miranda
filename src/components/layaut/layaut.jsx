@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { FilterRoomsContext } from "../../contexts/rooms";
 //styled ------------------
 import {
   ContainerStyled,
@@ -43,6 +45,7 @@ import Logo from "../../../public/logo/logo.png";
 import ImgPefil from "../../../public/navbar/perfil.png";
 //============================
 const Layout = () => {
+  const { setAll } = useContext(FilterRoomsContext);
   const navigate = useNavigate();
   const [isMenuVisible, setMenuVisible] = useState(true);
   let location = useLocation();
@@ -83,7 +86,9 @@ const Layout = () => {
             </LiNavStyles>
             <LiNavStyles>
               <IconRoomStyles />
-              <LinkNavStyles to={"/rooms"}>Room</LinkNavStyles>
+              <LinkNavStyles onClick={setAll} to={"/rooms"}>
+                Room
+              </LinkNavStyles>
             </LiNavStyles>
             <LiNavStyles>
               <IconBookingsStyles />
@@ -91,7 +96,9 @@ const Layout = () => {
             </LiNavStyles>
             <LiNavStyles>
               <IconGuestStyles />
-              <LinkNavStyles to={"/users"}>Users</LinkNavStyles>
+              <LinkNavStyles onClick={setAll} to={"/users"}>
+                Users
+              </LinkNavStyles>
             </LiNavStyles>
             <LiNavStyles>
               <IconConciergeStyles />

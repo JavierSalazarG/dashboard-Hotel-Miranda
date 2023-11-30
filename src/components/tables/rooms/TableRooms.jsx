@@ -86,7 +86,7 @@ export const TableRooms = ({ RoomsList, loading }) => {
             ) {
               return renderRooms(room);
             }
-            return null; // O puedes omitir el return null
+            return null;
           })
         )}
       </TbodyStyled>
