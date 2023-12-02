@@ -23,12 +23,16 @@ export const NewEployee = () => {
     const year = currentDate.getFullYear();
     return `${day}/${month}/${year}`;
   };
+  const newId = () => {
+    const NewId = id.slice(0, 5);
+    return NewId;
+  };
   const HandleSubmit = (e) => {
     e.preventDefault();
     const formData = {
       foto: perfilImage,
       nombre: e.target[0].value,
-      id: id,
+      id: newId(),
       email: e.target[1].value,
       start_date: getCurrentDate(),
       description: e.target[3].value,

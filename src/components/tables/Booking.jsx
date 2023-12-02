@@ -38,7 +38,7 @@ const Booking = ({ BookingsList, loading }) => {
             View Notes
           </ButtonNotesStyled>
         ) : (
-          <SpanNotesStyles>No Notes</SpanNotesStyles>
+          <SpanNotesStyles onClick="none">No Notes</SpanNotesStyles>
         )}
       </td>
 

@@ -20,8 +20,12 @@ const EditEmployeepage = () => {
   const dispatch = useDispatch();
   const usersData = useSelector(getUsersData);
   const Userstatus = useSelector(getUsersStatus);
-  const [formData, setFormData] = useState({});
-
+  const [formData, setFormData] = useState({
+    nombre: "",
+    email: "",
+    contact: "",
+  });
+  console.log(formData.nombre);
   useEffect(() => {
     if (Userstatus === "idle" || Userstatus === "pending") {
       dispatch(getUsersListFromAPIThunk());
@@ -33,6 +37,14 @@ const EditEmployeepage = () => {
     }
   }, [id, Userstatus, dispatch, usersData]);
 
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
     <MainStyled>
       <FormStyled>
@@ -40,9 +52,21 @@ const EditEmployeepage = () => {
           Profile Picture
           <input type="file" id="profilePicture" accept="image/*" />
         </LabelStyled>
-        <InputStyled type="text" value={formData.nombre} />
-        <InputStyled type="email" value={formData.email} />
-        <InputStyled type="number" value={formData.contact} />
+        <InputStyled
+          type="text"
+          onChange={handleOnChange}
+          defaultValue={formData.nombre}
+        />
+        <InputStyled
+          type="email"
+          onChange={handleOnChange}
+          defaultValue={formData.email}
+        />
+        <InputStyled
+          type="number"
+          onChange={handleOnChange}
+          defaultValue={formData.contact}
+        />
 
         <SubmitStyled type="submit" value="save" />
       </FormStyled>

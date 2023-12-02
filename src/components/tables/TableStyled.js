@@ -212,6 +212,8 @@ export const SpanNotesStyles = styled.span`
   padding-right: 2rem;
   border-radius: 12px;
   border: 1px solid #799283;
+  z-index: 999;
+
   &:hover {
     cursor: no-drop;
   }

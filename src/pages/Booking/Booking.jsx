@@ -1,10 +1,10 @@
 import { MainStyled } from "../stytedPages.js";
 import { useParams } from "react-router-dom";
-import { bookings } from "../../data/bookings.js";
-import { rooms } from "../../data/rooms.js";
+
 import { useEffect, useState } from "react";
 import { Navigation } from "swiper/modules";
-
+import { getBookingListFromAPIThunk } from "../../features/booking/bookingThunk.js";
+import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.js";
 import "swiper/css/navigation";
 import {
   DivGeneralStyled,
@@ -19,34 +19,66 @@ import {
   DivDescriptionStyled,
   SwiperSlideStyled,
 } from "./bookingStyled.js";
-
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getBookingsData,
+  getBookingsStatus,
+} from "../../features/booking/bookingSlice.js";
+import {
+  getRoomsData,
+  getRoomsStatus,
+} from "../../features/rooms/RoomsSlice.js";
 const Booking = () => {
+  const dispatch = useDispatch();
+
   const { id } = useParams();
+
   const [bookingDetails, setBookingDetails] = useState(null);
   const [roomDetails, setRoomDetails] = useState("");
+
+  const bookingData = useSelector(getBookingsData);
+  const bookingStatus = useSelector(getBookingsStatus);
+
+  const roomsData = useSelector(getRoomsData);
+  const roomstatus = useSelector(getRoomsStatus);
+
   const truncateText = (text, maxLength) => {
     return text.length > maxLength ? text.slice(0, maxLength) + " ..." : text;
   };
-  useEffect(() => {
-    const foundBooking = bookings.find(
-      (booking) => booking.id_reserva.toString() === id
-    );
-    setBookingDetails(foundBooking);
-  }, [id]);
 
   useEffect(() => {
-    if (bookingDetails && bookingDetails.id_habitacion) {
-      const foundRoom = rooms.find(
-        (room) => room.roomId.toString() === bookingDetails.id_habitacion
+    if (bookingStatus === "idle") {
+      dispatch(getBookingListFromAPIThunk());
+    } else if (bookingStatus === "fulfilled") {
+      const foundBooking = bookingData.find(
+        (booking) => booking.id && booking.id.toString() === id.toString()
       );
-
-      setRoomDetails(foundRoom);
+      setBookingDetails(foundBooking);
+    } else if (bookingStatus === "rejected") {
+      console.error("Error fetching Rooms:", bookingStatus);
     }
   }, [bookingDetails]);
 
+  useEffect(() => {
+    if (roomstatus === "idle") {
+      dispatch(getRoomsListFromAPIThunk());
+    } else if (roomstatus === "fulfilled") {
+      const foundRoom = roomsData.find((room) => {
+        return (
+          room.id &&
+          bookingDetails &&
+          room.id.toString() === bookingDetails.id_habitacion?.toString()
+        );
+      });
+      setRoomDetails(foundRoom);
+    } else if (roomstatus === "rejected") {
+      console.error("Error al obtener las habitaciones:", roomstatus);
+    }
+  }, [bookingDetails, dispatch, roomsData, roomstatus]);
+
   return (
     <MainStyled>
-      {bookingDetails ? (
+      {bookingDetails && bookingDetails ? (
         <DivGeneralStyled>
           <SectionStyled>
             <H3NombreStyled>
