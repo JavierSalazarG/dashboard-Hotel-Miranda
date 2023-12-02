@@ -4,6 +4,7 @@ import {
   DivButtonsNewstyled,
   ButtonOrdenStyled,
   NewestStyled,
+  NavStyled,
 } from "../roomsFilterStyled";
 import { FilterBookingContext } from "../../../contexts/boocking";
 import { useContext } from "react";
@@ -92,6 +93,7 @@ const BookingFilters = () => {
         )}
       </div>
       <DivButtonsNewstyled>
+        <NavStyled to={"/booking/new"}>+ New Booking</NavStyled>
         <NewestStyled>Newest</NewestStyled>
       </DivButtonsNewstyled>
     </DivOptionsStyled>

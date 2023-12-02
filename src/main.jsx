@@ -17,6 +17,7 @@ import { BookingsPage } from "./pages/Bookings/BookingsPage";
 import { ConciergePage } from "./pages/Concierge/ConciergePage";
 import { LoginPage } from "./pages/Login/LoginPage";
 import { NewEployee } from "./pages/NewEmployee/NewEployee";
+import NewBooking from "./pages/NewBooking/NewBooking.jsx";
 import { ErrorPage } from "./pages/error-page";
 import ContactPage from "./pages/Contact/ContactPage";
 import Booking from "./pages/Booking/Booking";
@@ -42,6 +43,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                     <Route path="/rooms" element={<RoomPage />} />
                     <Route path="/room/new" element={<NewRoom />} />
                     <Route path="/Bookings" element={<BookingsPage />} />
+                    <Route path="/booking/new" element={<NewBooking />} />
                     <Route path="/Booking/:id" element={<Booking />} />
                     <Route path="/Users" element={<ConciergePage />} />
                     <Route

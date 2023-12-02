@@ -9,6 +9,9 @@ export const BookingSlice = createSlice({
     error: null,
   },
   reducers: {
+    addBooking: (state, action) => {
+      state.data = [action.payload, ...state.data];
+    },
     deletedBooking: (state, action) => {
       state.data = state.data.filter(
         (booking) => booking.id !== action.payload
@@ -17,6 +20,7 @@ export const BookingSlice = createSlice({
       state.data = [...state.data];
     },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(getBookingListFromAPIThunk.fulfilled, (state, action) => {
@@ -41,7 +45,7 @@ export const BookingSlice = createSlice({
   },
 });
 
-export const { deletedBooking } = BookingSlice.actions;
+export const { deletedBooking, addBooking } = BookingSlice.actions;
 export const getBookingsData = (state) => state.booking.data;
 export const getBookingsStatus = (state) => state.booking.status;
 export const getBookingsError = (state) => state.booking.error;
