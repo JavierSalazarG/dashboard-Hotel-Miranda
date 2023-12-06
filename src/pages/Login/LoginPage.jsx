@@ -49,6 +49,7 @@ export const LoginPage = () => {
           <LabelStyles>
             <IconEmail />{" "}
             <InputStyles
+              data-cy="inputUserEmail"
               value={emailLocal}
               onChange={handleEmailChange}
               type="email"
@@ -57,12 +58,13 @@ export const LoginPage = () => {
           <LabelStyles>
             <IconPassword />{" "}
             <InputStyles
+              data-cy="inputPasswordUser"
               value={passwordLocal}
               onChange={handlePasswordChange}
               type="text"
             />
           </LabelStyles>
-          <SubmitStyles type="submit" value={"Login"} />
+          <SubmitStyles data-cy="loginButton" type="submit" value={"Login"} />
         </FormStyles>
       </DivLoginStyles>
     </>
