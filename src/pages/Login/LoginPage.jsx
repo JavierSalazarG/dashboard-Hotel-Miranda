@@ -18,6 +18,7 @@ import { useState } from "react";
 //===========================
 export const LoginPage = () => {
   const [emailLocal, setEmaiLocal] = useState("");
+
   const [passwordLocal, setpasswordLocal] = useState("");
   const { Login, setEmail, setPassword } = useContext(UserContext);
   const navigate = useNavigate();
