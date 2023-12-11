@@ -37,21 +37,21 @@ export const App = () => {
 
                     {localStorage.getItem("isLoggedIn") === "true" ? (
                       <Route element={<Layout />}>
-                        <Route path="/home" element={<DashboardPage />} />
-                        <Route path="/profile/edit" element={<EditUser />} />
-                        <Route path="/rooms" element={<RoomPage />} />
-                        <Route path="/room/new" element={<NewRoom />} />
-                        <Route path="/Bookings" element={<BookingsPage />} />
-                        <Route path="/booking/new" element={<NewBooking />} />
-                        <Route path="/Booking/:id" element={<Booking />} />
-                        <Route path="/Users" element={<ConciergePage />} />
+                        <Route path="home" element={<DashboardPage />} />
+                        <Route path="profile/edit" element={<EditUser />} />
+                        <Route path="rooms" element={<RoomPage />} />
+                        <Route path="room/new" element={<NewRoom />} />
+                        <Route path="Bookings" element={<BookingsPage />} />
+                        <Route path="booking/new" element={<NewBooking />} />
+                        <Route path="Booking/:id" element={<Booking />} />
+                        <Route path="Users" element={<ConciergePage />} />
                         <Route
-                          path="/user/edit/:id"
+                          path="user/edit/:id"
                           element={<EditEmployeepage />}
                         />
 
-                        <Route path="/user/new" element={<NewEployee />} />
-                        <Route path="/Contact" element={<ContactPage />} />
+                        <Route path="user/new" element={<NewEployee />} />
+                        <Route path="Contact" element={<ContactPage />} />
                       </Route>
                     ) : (
                       <Route path="*" element={<LoginPage />} />

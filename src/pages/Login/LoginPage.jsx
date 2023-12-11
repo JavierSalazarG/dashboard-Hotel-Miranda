@@ -8,9 +8,9 @@ import {
   SubmitStyles,
   IconEmail,
   IconPassword,
-} from "./LoginStyled";
+} from "./LoginStyled.ts";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/user";
+import { UserContext } from "../../contexts/user.jsx";
 
 //imgs--------------
 import Logo from "../../../public/logo/logo.png";
