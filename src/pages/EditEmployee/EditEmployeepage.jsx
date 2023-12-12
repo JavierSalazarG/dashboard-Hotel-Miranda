@@ -2,13 +2,14 @@ import React, { forwardRef, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MainStyled } from "../stytedPages";
 import { useDispatch } from "react-redux";
-import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.js";
-import { updateUsers } from "../../features/users/UsersSlice.js";
+import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.ts";
+
 import { useSelector } from "react-redux";
 import {
   getUsersData,
   getUsersStatus,
-} from "../../features/users/UsersSlice.js";
+  updateUsers,
+} from "../../features/users/UsersSlice.ts";
 import {
   FormStyled,
   InputStyled,

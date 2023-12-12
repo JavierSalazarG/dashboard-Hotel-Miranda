@@ -1,6 +1,6 @@
 import { MainStyled } from "../stytedPages";
 import { useDispatch } from "react-redux";
-import { addUsers } from "../../features/users/UsersSlice.js";
+import { addUsers } from "../../features/users/UsersSlice.ts";
 import { useNavigate } from "react-router-dom";
 import perfilImage from "../../../public/navbar/perfil.png";
 import { v4 as uuidv4 } from "uuid";

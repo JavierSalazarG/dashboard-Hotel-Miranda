@@ -6,7 +6,7 @@
     "email": "juan.perez@empresa.com",
     "start_date": "01/01/2023",
     "description": "Analista de datos",
-    "contact": "987654321",
+    "contact": 987654321,
     "status": true
   },
   {
@@ -16,7 +16,7 @@
     "email": "ana.garcia@empresa.com",
     "start_date": "02/01/2023",
     "description": "Diseñadora gráfica",
-    "contact": "876543219",
+    "contact": 876543219,
     "status": false
   },
   {
@@ -26,7 +26,7 @@
     "email": "luis.rodriguez@empresa.com",
     "start_date": "03/01/2023",
     "description": "Programador web",
-    "contact": "765432198",
+    "contact": 765432198,
     "status": true
   },
   {
@@ -36,7 +36,7 @@
     "email": "elena.lopez@empresa.com",
     "start_date": "04/01/2023",
     "description": "Contable",
-    "contact": "654321987",
+    "contact": 654321987,
     "status": true
   },
   {
@@ -46,7 +46,7 @@
     "email": "carlos.sanchez@empresa.com",
     "start_date": "05/01/2023",
     "description": "Marketing",
-    "contact": "543219876",
+    "contact": 543219876,
     "status": false
   },
   {
@@ -56,7 +56,7 @@
     "email": "sara.martinez@empresa.com",
     "start_date": "06/01/2023",
     "description": "Recursos humanos",
-    "contact": "432198765",
+    "contact": 432198765,
     "status": false
   },
   {
@@ -66,7 +66,7 @@
     "email": "pedro.gomez@empresa.com",
     "start_date": "07/01/2023",
     "description": "Administrativo",
-    "contact": "321987654",
+    "contact": 321987654,
     "status": true
   },
   {
@@ -76,7 +76,7 @@
     "email": "laura.fernandez@empresa.com",
     "start_date": "08/01/2023",
     "description": "Comercial",
-    "contact": "219876543",
+    "contact": 219876543,
     "status": false
   },
   {
@@ -86,7 +86,7 @@
     "email": "david.gonzalez@empresa.com",
     "start_date": "09/01/2023",
     "description": "Ingeniero",
-    "contact": "198765432",
+    "contact": 998765432,
     "status": false
   },
   {
@@ -96,7 +96,7 @@
     "email": "marta.diaz@empresa.com",
     "start_date": "10/01/2023",
     "description": "Secretaria",
-    "contact": "987654321",
+    "contact": 987654321,
     "status": true
   }
 ]

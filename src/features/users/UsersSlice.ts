@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getUsersListFromAPIThunk } from "./usersThunk";
-
+import { UsersSliceInterface } from "../../interfaces/users/usersSliceInterfaces";
+const initialState: UsersSliceInterface = {
+   data: [],
+  status: 'idle',
+  error: undefined
+}
 export const UserSlice = createSlice({
   name: "user",
-  initialState: {
-    data: [],
-    status: "idle",
-    error: null,
-  },
+  initialState,
   reducers: {
     addUsers: (state, action) => {
       state.data = [action.payload, ...state.data];

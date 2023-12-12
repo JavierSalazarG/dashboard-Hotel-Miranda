@@ -3,12 +3,12 @@ import { Concierge } from "../../components/tables/Concierge";
 import { MainStyled } from "../stytedPages";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.js";
+import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.ts";
 
 import {
   getUsersData,
   getUsersStatus,
-} from "../../features/users/UsersSlice.js";
+} from "../../features/users/UsersSlice.ts";
 export const ConciergePage = () => {
   const dispatch = useDispatch();
   const usersData = useSelector(getUsersData);
