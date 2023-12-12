@@ -1,4 +1,4 @@
-export interface BookingInterface {
+ export interface BookingInterface {
     id: number
     id_habitacion: string
     nombre: string

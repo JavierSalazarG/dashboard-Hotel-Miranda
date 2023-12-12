@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MainStyled } from "../stytedPages";
 import { useDispatch } from "react-redux";
-import { addRoom } from "../../features/rooms/RoomsSlice.js";
+import { addRoom } from "../../features/rooms/RoomsSlice.ts";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import ImagePhoto from "../../../public/img_habitaion.jpg";
@@ -13,7 +13,7 @@ import {
   LabelStyled,
   SubmitStyled,
   LabelSelectStyled,
-} from "./newRoom.js";
+} from "./newRoom.ts";
 const NewRoom = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

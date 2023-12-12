@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Navigation } from "swiper/modules";
 import { getBookingListFromAPIThunk } from "../../features/booking/bookingThunk.ts";
-import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.js";
+import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.ts";
 import "swiper/css/navigation";
 import {
   DivGeneralStyled,
@@ -27,7 +27,7 @@ import {
 import {
   getRoomsData,
   getRoomsStatus,
-} from "../../features/rooms/RoomsSlice.js";
+} from "../../features/rooms/RoomsSlice.ts";
 const Booking = () => {
   const dispatch = useDispatch();
 

@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getRoomsListFromAPIThunk } from "./RoomsThunk";
+import { RoomsSliceInterface } from "../../interfaces/rooms/roomsSliceInterfaces";
 
+const initialState: RoomsSliceInterface = {
+   data: [],
+  status: 'idle',
+  error: undefined
+}
 export const RoomsSlice = createSlice({
   name: "room",
-  initialState: {
-    data: [],
-    status: "idle",
-    error: null,
-  },
+  initialState,
   reducers: {
     addRoom: (state, action) => {
       state.data = [action.payload, ...state.data];

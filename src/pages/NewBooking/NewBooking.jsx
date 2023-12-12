@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.js";
+import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.ts";
 import { addBooking } from "../../features/booking/bookingSlice.ts";
 import { useNavigate } from "react-router-dom";
 import {
@@ -14,7 +14,7 @@ import {
 import {
   getRoomsData,
   getRoomsStatus,
-} from "../../features/rooms/RoomsSlice.js";
+} from "../../features/rooms/RoomsSlice.ts";
 import { MainStyled } from "../stytedPages";
 const NewBooking = () => {
   const [roomDetails, setRoomDetails] = useState([]);

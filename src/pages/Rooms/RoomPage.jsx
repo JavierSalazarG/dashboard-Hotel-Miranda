@@ -3,12 +3,12 @@ import { TableRooms } from "../../components/tables/rooms/TableRooms.jsx";
 import { MainStyled } from "../stytedPages.js";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.js";
+import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.ts";
 
 import {
   getRoomsData,
   getRoomsStatus,
-} from "../../features/rooms/RoomsSlice.js";
+} from "../../features/rooms/RoomsSlice.ts";
 export const RoomPage = () => {
   const dispatch = useDispatch();
   const roomsData = useSelector(getRoomsData);
