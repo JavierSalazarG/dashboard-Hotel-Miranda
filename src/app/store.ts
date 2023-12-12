@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { CommentSlice } from "../features/comments/commentSlice.js";
+import { CommentSlice } from "../features/comments/commentSlice.ts";
 import { UserSlice } from "../features/users/UsersSlice.js";
 import { RoomsSlice } from "../features/rooms/RoomsSlice.js";
 import { bookingSlice } from '../features/booking/bookingSlice';

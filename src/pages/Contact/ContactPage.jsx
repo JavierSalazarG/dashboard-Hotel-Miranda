@@ -3,11 +3,11 @@ import Comment from "../../components/comment/Comment.jsx";
 import { Contact } from "../../components/tables/Contact.jsx";
 import ContactFilter from "../../components/filters/contact/contactFilter.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { getCommentsListFromAPIThunk } from "../../features/comments/commentThunk.js";
+import { getCommentsListFromAPIThunk } from "../../features/comments/commentThunk.ts";
 import {
   getCommentData,
   getCommentStatus,
-} from "../../features/comments/commentSlice.js";
+} from "../../features/comments/commentSlice.ts";
 import { useState, useEffect } from "react";
 
 const ContactPage = () => {

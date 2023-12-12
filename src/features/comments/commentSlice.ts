@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getCommentsListFromAPIThunk } from "./commentThunk";
+import { CommentsSliceInterface } from "../../interfaces/comments/commentsSliceInterfaces";
 
+const initialState: CommentsSliceInterface ={
+  data: [],
+  status: 'idle',
+  error: undefined
+}
 export const CommentSlice = createSlice({
   name: "comment",
-  initialState: {
-    data: [],
-    status: "idle",
-    error: null,
-  },
+  initialState,
   reducers: {
-    AddArchive: (state, action) => {
+    AddArchive: (state, action):void => {
       state.data = state.data.map((comment) =>
         comment.id === action.payload ? { ...comment, archive: true } : comment
       );
