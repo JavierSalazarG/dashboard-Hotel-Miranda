@@ -14,7 +14,7 @@ import {
   InputStyled,
   LabelStyled,
   SubmitStyled,
-} from "./EditEmployeeStyled.js";
+} from "./EditEmployeeStyled.ts";
 const EditEmployeepage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();

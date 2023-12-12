@@ -8,7 +8,7 @@ import {
   SubmitStyles,
   IconEmail,
   IconPassword,
-} from "./LoginStyled.js";
+} from "./LoginStyled.ts";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.jsx";
 

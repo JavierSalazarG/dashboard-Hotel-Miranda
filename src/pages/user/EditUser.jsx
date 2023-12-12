@@ -4,7 +4,7 @@ import {
   InputStyled,
   LabelStyled,
   SubmitStyled,
-} from "./EditUserStiled";
+} from "./EditUserStiled.ts";
 import { useNavigate } from "react-router-dom";
 const EditUser = () => {
   const navigate = useNavigate();

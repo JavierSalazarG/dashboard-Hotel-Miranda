@@ -18,7 +18,7 @@ import {
   SwiperStyled,
   DivDescriptionStyled,
   SwiperSlideStyled,
-} from "./bookingStyled.js";
+} from "./bookingStyled.ts";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getBookingsData,

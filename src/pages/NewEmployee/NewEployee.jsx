@@ -11,7 +11,7 @@ import {
   TexterraStyled,
   LabelStyled,
   SubmitStyled,
-} from "./newEmployee.js";
+} from "./newEmployee.ts";
 export const NewEployee = () => {
   const navigate = useNavigate();
   const id = uuidv4();

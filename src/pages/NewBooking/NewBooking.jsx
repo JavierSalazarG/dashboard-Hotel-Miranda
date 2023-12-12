@@ -10,7 +10,7 @@ import {
   SelectStyled,
   TexterraStyled,
   SubmitStyled,
-} from "./newBookingStyled";
+} from "./newBookingStyled.ts";
 import {
   getRoomsData,
   getRoomsStatus,
