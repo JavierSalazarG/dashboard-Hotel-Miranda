@@ -3,11 +3,11 @@ import Booking from "../../components/tables/Booking";
 import { MainStyled } from "../stytedPages";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBookingListFromAPIThunk } from "../../features/booking/bookingThunk.js";
+import { getBookingListFromAPIThunk } from "../../features/booking/bookingThunk.ts";
 import {
   getBookingsData,
   getBookingsStatus,
-} from "../../features/booking/bookingSlice.js";
+} from "../../features/booking/bookingSlice.ts";
 export const BookingsPage = () => {
   const dispatch = useDispatch();
   const BookingsData = useSelector(getBookingsData);

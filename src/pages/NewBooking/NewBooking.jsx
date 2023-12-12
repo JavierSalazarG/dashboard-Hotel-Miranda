@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.js";
-import { addBooking } from "../../features/booking/bookingSlice.js";
+import { addBooking } from "../../features/booking/bookingSlice.ts";
 import { useNavigate } from "react-router-dom";
 import {
   FormStyled,

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { Navigation } from "swiper/modules";
-import { getBookingListFromAPIThunk } from "../../features/booking/bookingThunk.js";
+import { getBookingListFromAPIThunk } from "../../features/booking/bookingThunk.ts";
 import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.js";
 import "swiper/css/navigation";
 import {
@@ -23,7 +23,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getBookingsData,
   getBookingsStatus,
-} from "../../features/booking/bookingSlice.js";
+} from "../../features/booking/bookingSlice.ts";
 import {
   getRoomsData,
   getRoomsStatus,
