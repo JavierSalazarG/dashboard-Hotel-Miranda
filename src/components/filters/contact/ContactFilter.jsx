@@ -5,7 +5,7 @@ import {
   DivButtonsNewstyled,
   ButtonOrdenStyled,
   NewestStyled,
-} from "../roomsFilterStyled";
+} from "../roomsFilterStyled.ts";
 
 const ContactFilter = () => {
   const { isArchived, setArchived, setAllContacts } = useContext(Archived);

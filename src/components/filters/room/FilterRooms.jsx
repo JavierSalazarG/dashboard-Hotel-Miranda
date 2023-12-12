@@ -4,7 +4,7 @@ import {
   ButtonOrdenStyled,
   NavStyled,
   NewestStyled,
-} from "../roomsFilterStyled";
+} from "../roomsFilterStyled.ts";
 import { FilterRoomsContext } from "../../../contexts/rooms";
 import { useContext } from "react";
 const FilterRooms = () => {

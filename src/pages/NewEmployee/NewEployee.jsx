@@ -1,4 +1,4 @@
-import { MainStyled } from "../stytedPages";
+import { MainStyled } from "../stytedPages.ts";
 import { useDispatch } from "react-redux";
 import { addUsers } from "../../features/users/UsersSlice.ts";
 import { useNavigate } from "react-router-dom";

@@ -17,7 +17,7 @@ import {
   Spinner,
   ButtonDelete,
   IconDeletedStyled,
-} from "../TableStyled";
+} from "../TableStyled.ts";
 
 export const TableRooms = ({ RoomsList, loading }) => {
   const dispatch = useDispatch();

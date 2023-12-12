@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MainStyled } from "../stytedPages";
+import { MainStyled } from "../stytedPages.ts";
 import { useDispatch } from "react-redux";
 import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.ts";
 

@@ -15,7 +15,7 @@ import {
   getRoomsData,
   getRoomsStatus,
 } from "../../features/rooms/RoomsSlice.ts";
-import { MainStyled } from "../stytedPages";
+import { MainStyled } from "../stytedPages.ts";
 const NewBooking = () => {
   const [roomDetails, setRoomDetails] = useState([]);
   const [loading, setLoading] = useState(true);

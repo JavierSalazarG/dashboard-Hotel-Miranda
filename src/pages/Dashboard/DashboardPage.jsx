@@ -1,4 +1,4 @@
-import { MainStyled } from "../stytedPages.js";
+import { MainStyled } from "../stytedPages.ts";
 import { Kpis } from "../../components/KPIs/Kpis.jsx";
 import Comment from "../../components/comment/Comment.jsx";
 import { useDispatch, useSelector } from "react-redux";

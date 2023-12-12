@@ -1,6 +1,6 @@
 import FilterRooms from "../../components/filters/room/FilterRooms.jsx";
 import { TableRooms } from "../../components/tables/rooms/TableRooms.jsx";
-import { MainStyled } from "../stytedPages.js";
+import { MainStyled } from "../stytedPages.ts";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.ts";

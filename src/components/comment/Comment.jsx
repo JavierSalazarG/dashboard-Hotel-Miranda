@@ -5,7 +5,7 @@ import {
   ImgStyled,
   PopUpStyled,
   Spinner,
-} from "./comment.js";
+} from "./comment.ts";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useState } from "react";

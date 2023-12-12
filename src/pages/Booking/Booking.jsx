@@ -1,4 +1,4 @@
-import { MainStyled } from "../stytedPages.js";
+import { MainStyled } from "../stytedPages.ts";
 import { useParams } from "react-router-dom";
 
 import { useEffect, useState } from "react";

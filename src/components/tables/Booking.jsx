@@ -9,7 +9,7 @@ import {
   SpanNotesStyles,
   PopUpStyled,
   Spinner,
-} from "./TableStyled";
+} from "./TableStyled.ts";
 import { SlOptionsVertical } from "react-icons/sl";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

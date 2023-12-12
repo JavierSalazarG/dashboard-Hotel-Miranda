@@ -16,7 +16,7 @@ import {
   Spinner,
   IconDeletedStyled,
   ButtonDelete,
-} from "./TableStyled";
+} from "./TableStyled.ts";
 import { useNavigate } from "react-router-dom";
 export const Concierge = ({ loading, UsersList }) => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import ConciergeFilter from "../../components/filters/concierge/ConciergeFilter.jsx";
 import { Concierge } from "../../components/tables/Concierge";
-import { MainStyled } from "../stytedPages";
+import { MainStyled } from "../stytedPages.ts";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.ts";

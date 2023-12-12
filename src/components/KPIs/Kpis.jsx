@@ -8,7 +8,7 @@ import {
   TextTextsStyled,
   IconCalendar,
   IconexiStyled,
-} from "./kpisStyled.js";
+} from "./kpisStyled.ts";
 
 export const Kpis = () => {
   return (

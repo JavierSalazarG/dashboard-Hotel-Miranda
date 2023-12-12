@@ -5,7 +5,7 @@ import {
   ButtonOrdenStyled,
   NavStyled,
   NewestStyled,
-} from "../roomsFilterStyled";
+} from "../roomsFilterStyled.ts";
 import { useContext } from "react";
 import { FilterRoomsContext } from "../../../contexts/rooms";
 const ConciergeFilter = () => {

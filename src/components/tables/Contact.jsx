@@ -5,7 +5,7 @@ import {
   TdButtonsStyled,
   ButtonArchivetyled,
   SpanLoading,
-} from "./TableStyled";
+} from "./TableStyled.ts";
 import { useContext } from "react";
 import { Archived } from "../../contexts/archived";
 import { useDispatch } from "react-redux";

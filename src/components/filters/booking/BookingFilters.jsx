@@ -5,7 +5,7 @@ import {
   ButtonOrdenStyled,
   NewestStyled,
   NavStyled,
-} from "../roomsFilterStyled";
+} from "../roomsFilterStyled.ts";
 import { FilterBookingContext } from "../../../contexts/boocking";
 import { useContext } from "react";
 const BookingFilters = () => {

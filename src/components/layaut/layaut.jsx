@@ -39,7 +39,7 @@ import {
   IconEmailsStyled,
   IconBellStyled,
   SpanAllertStyled,
-} from "./LayautStyled";
+} from "./LayautStyled.ts";
 //========================
 
 //imgs ---------------

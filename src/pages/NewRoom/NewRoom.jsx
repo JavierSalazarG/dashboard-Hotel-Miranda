@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MainStyled } from "../stytedPages";
+import { MainStyled } from "../stytedPages.ts";
 import { useDispatch } from "react-redux";
 import { addRoom } from "../../features/rooms/RoomsSlice.ts";
 import { v4 as uuidv4 } from "uuid";

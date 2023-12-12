@@ -1,4 +1,4 @@
-import { MainStyled } from "../stytedPages";
+import { MainStyled } from "../stytedPages.ts";
 import {
   FormStyled,
   InputStyled,
