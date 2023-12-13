@@ -17,7 +17,6 @@ import { ConciergePage } from "./pages/Concierge/ConciergePage";
 import { LoginPage } from "./pages/Login/LoginPage";
 import { NewEployee } from "./pages/NewEmployee/NewEployee";
 import NewBooking from "./pages/NewBooking/NewBooking.jsx";
-import { ErrorPage } from "./pages/error-page";
 import ContactPage from "./pages/Contact/ContactPage";
 import Booking from "./pages/Booking/Booking";
 import NewRoom from "./pages/NewRoom/NewRoom.jsx";

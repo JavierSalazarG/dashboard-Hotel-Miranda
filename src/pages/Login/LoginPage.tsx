@@ -11,7 +11,7 @@ import {
 } from "./LoginStyled.ts";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.jsx";
-
+import React from "react";
 //imgs--------------
 import Logo from "../../../public/logo/logo.png";
 import { useState } from "react";
@@ -20,15 +20,15 @@ export const LoginPage = () => {
   const [emailLocal, setEmaiLocal] = useState("");
 
   const [passwordLocal, setpasswordLocal] = useState("");
-  const { Login, setEmail, setPassword } = useContext(UserContext);
+  const { Login } = useContext(UserContext);
   const navigate = useNavigate();
   const handleEmailChange = (event) => {
     setEmaiLocal(event.target.value);
   };
-  const handlePasswordChange = (event) => {
+  const handlePasswordChange = (event: React.FormEvent<HTMLInputElement>) => {
     setpasswordLocal(event.target.value);
   };
-  const handleLogin = (event) => {
+  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (emailLocal !== "admin@admin.com" || passwordLocal !== "admin") {
       return alert(

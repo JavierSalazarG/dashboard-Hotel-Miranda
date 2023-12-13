@@ -1,10 +1,11 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { FilterRoomsContext } from "../../contexts/rooms";
-import { FilterBookingContext } from "../../contexts/boocking";
-import { UserContext } from "../../contexts/user";
+import { FilterRoomsContext } from "../../contexts/rooms.jsx";
+import { FilterBookingContext } from "../../contexts/boocking.jsx";
+import { UserContext } from "../../contexts/user.jsx";
 //styled ------------------
 import {
   ContainerStyled,

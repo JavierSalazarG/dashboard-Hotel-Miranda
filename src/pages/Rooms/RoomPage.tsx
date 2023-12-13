@@ -1,19 +1,21 @@
 import FilterRooms from "../../components/filters/room/FilterRooms.jsx";
 import { TableRooms } from "../../components/tables/rooms/TableRooms.jsx";
-import { MainStyled } from "../stytedPages.ts";
+import { MainStyled } from "../stytedPages.js";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.ts";
-
+import { RoomsInterface } from "../../interfaces/rooms/rooms.js";
+import React from "react";
 import {
   getRoomsData,
   getRoomsStatus,
 } from "../../features/rooms/RoomsSlice.ts";
-export const RoomPage = () => {
-  const dispatch = useDispatch();
+import { Dispatch } from "@reduxjs/toolkit";
+export const RoomPage: React.FC = () => {
+  const dispatch: Dispatch = useDispatch();
   const roomsData = useSelector(getRoomsData);
   const roomsStatus = useSelector(getRoomsStatus);
-  const [RoomsList, setRoomsList] = useState([]);
+  const [RoomsList, setRoomsList] = useState<RoomsInterface[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { MainStyled } from "../stytedPages.ts";
-import { Kpis } from "../../components/KPIs/Kpis.jsx";
+import { Kpis } from "../../components/KPIs/Kpis.tsx";
 import Comment from "../../components/comment/Comment.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { getCommentsListFromAPIThunk } from "../../features/comments/commentThunk.ts";

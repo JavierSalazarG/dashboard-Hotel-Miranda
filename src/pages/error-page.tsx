@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import React from "react";
 const DivError = styled.div`
   width: 50%;
   height: 20rem;
@@ -28,7 +29,7 @@ const LinkStyled = styled(NavLink)`
   color: red;
   cursor: pointer;
 `;
-export const ErrorPage = () => {
+const ErrorPage: React.FC = () => {
   return (
     <DivError>
       <h1>404</h1>
@@ -38,3 +39,5 @@ export const ErrorPage = () => {
     </DivError>
   );
 };
+
+export default ErrorPage;
