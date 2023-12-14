@@ -1,16 +1,18 @@
+import React from "react";
 import ConciergeFilter from "../../components/filters/concierge/ConciergeFilter.jsx";
-import { Concierge } from "../../components/tables/Concierge";
+import { Concierge } from "../../components/tables/Concierge.tsx";
 import { MainStyled } from "../stytedPages.ts";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.ts";
 
 import {
   getUsersData,
   getUsersStatus,
 } from "../../features/users/UsersSlice.ts";
+import { useAppDispatch } from "../../app/store.ts";
 export const ConciergePage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const usersData = useSelector(getUsersData);
   const Userstatus = useSelector(getUsersStatus);
   const [UsersList, setUsersList] = useState([]);

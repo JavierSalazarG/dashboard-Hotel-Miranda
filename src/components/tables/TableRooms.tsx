@@ -1,7 +1,7 @@
-import { SlOptionsVertical } from "react-icons/sl";
-import { deletedRoom } from "../../../features/rooms/RoomsSlice";
+import React from "react";
+import { deletedRoom } from "../../features/rooms/RoomsSlice.ts";
 import { useDispatch } from "react-redux";
-import { FilterRoomsContext } from "../../../contexts/rooms";
+import { FilterRoomsContext } from "../../contexts/rooms.jsx";
 import { useContext } from "react";
 import {
   TableStyled,
@@ -17,28 +17,40 @@ import {
   Spinner,
   ButtonDelete,
   IconDeletedStyled,
-} from "../TableStyled.ts";
-
-export const TableRooms = ({ RoomsList, loading }) => {
+} from "./TableStyled.ts";
+import { RoomsInterface } from "../../interfaces/rooms/rooms.ts";
+interface TableRoomsProps {
+  RoomsList: RoomsInterface[];
+  loading: boolean;
+}
+export const TableRooms: React.FC<TableRoomsProps> = ({
+  RoomsList,
+  loading,
+}) => {
   const dispatch = useDispatch();
 
   const { filter } = useContext(FilterRoomsContext);
 
-  const HandleDeleted = (id, event) => {
+  const HandleDeleted = (id: string | null, event: React.MouseEvent) => {
     if (event) {
       event.stopPropagation();
     }
-    dispatch(deletedRoom(id));
+    if (id !== null) {
+      dispatch(deletedRoom(id));
+    }
   };
 
-  const renderRooms = (room) => (
+  const renderRooms = (room: RoomsInterface) => (
     <TrStyled key={room.id}>
       <td>
         <DivImgStyled>
-          <ImgStyled alt={`Room ${room.roomNumber}`} src={room.imgs.img1} />
+          <ImgStyled
+            alt={`Room ${room.roomNumber}`}
+            src={room.imgs.img1 || undefined}
+          />
           <DivTextStyled>
             <PStyled>{`#${room.roomNumber}`}</PStyled>
-            <p>{room.roomId}</p>
+            <p>{room.id}</p>
           </DivTextStyled>
         </DivImgStyled>
       </td>
@@ -54,7 +66,10 @@ export const TableRooms = ({ RoomsList, loading }) => {
         )}
       </td>
       <td>
-        <ButtonDelete onClick={() => HandleDeleted(room.id)} className="button">
+        <ButtonDelete
+          onClick={(event) => HandleDeleted(room.id, event)}
+          className="button"
+        >
           {open ? (
             <IconDeletedStyled $color="red" />
           ) : (

@@ -14,4 +14,5 @@ export interface RoomsInterface{
   offerPrice: number;
   status: boolean;
   description: string;
+  start_date?: string | null
 }

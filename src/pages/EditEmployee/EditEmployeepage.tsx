@@ -1,14 +1,11 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MainStyled } from "../stytedPages.ts";
-import { useDispatch } from "react-redux";
 import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.ts";
-
 import { useSelector } from "react-redux";
 import {
   getUsersData,
   getUsersStatus,
-  updateUsers,
 } from "../../features/users/UsersSlice.ts";
 import {
   FormStyled,
@@ -16,12 +13,20 @@ import {
   LabelStyled,
   SubmitStyled,
 } from "./EditEmployeeStyled.ts";
-const EditEmployeepage = () => {
+import { useAppDispatch } from "../../app/store.ts";
+import { UsersInterface } from "../../interfaces/users/users.ts";
+interface formDataInterface {
+  nombre: string | null;
+  email: string | null;
+  contact: string | null;
+  key?: string | null;
+}
+const EditEmployeepage: React.FC = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const usersData = useSelector(getUsersData);
   const Userstatus = useSelector(getUsersStatus);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<formDataInterface>({
     nombre: "",
     email: "",
     contact: "",
@@ -31,14 +36,16 @@ const EditEmployeepage = () => {
     if (Userstatus === "idle" || Userstatus === "pending") {
       dispatch(getUsersListFromAPIThunk());
     } else if (Userstatus === "fulfilled") {
-      const userWithId = usersData.find((user) => user.id === id);
+      const userWithId = usersData.find(
+        (user: UsersInterface) => user.id === id
+      );
       setFormData(userWithId || {});
     } else if (Userstatus === "rejected") {
       console.error("Error fetching users:", Userstatus);
     }
   }, [id, Userstatus, dispatch, usersData]);
 
-  const handleOnChange = (e) => {
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -56,17 +63,17 @@ const EditEmployeepage = () => {
         <InputStyled
           type="text"
           onChange={handleOnChange}
-          defaultValue={formData.nombre}
+          defaultValue={formData.nombre ?? ""}
         />
         <InputStyled
           type="email"
           onChange={handleOnChange}
-          defaultValue={formData.email}
+          defaultValue={formData.email ?? ""}
         />
         <InputStyled
           type="number"
           onChange={handleOnChange}
-          defaultValue={formData.contact}
+          defaultValue={formData.contact ?? ""}
         />
 
         <SubmitStyled type="submit" value="save" />

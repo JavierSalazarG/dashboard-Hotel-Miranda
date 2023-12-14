@@ -1,15 +1,17 @@
+import React from "react";
 import { MainStyled } from "../stytedPages.ts";
 import { Kpis } from "../../components/KPIs/Kpis.tsx";
-import Comment from "../../components/comment/Comment.jsx";
-import { useDispatch, useSelector } from "react-redux";
+import Comment from "../../components/comment/Comment.tsx";
+import { useSelector } from "react-redux";
 import { getCommentsListFromAPIThunk } from "../../features/comments/commentThunk.ts";
 import {
   getCommentData,
   getCommentStatus,
 } from "../../features/comments/commentSlice.ts";
 import { useState, useEffect } from "react";
+import { useAppDispatch } from "../../app/store.ts";
 export const DashboardPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [CommentList, setCommentList] = useState([]);
   const [loading, setLoading] = useState(true);
   const CommentData = useSelector(getCommentData);

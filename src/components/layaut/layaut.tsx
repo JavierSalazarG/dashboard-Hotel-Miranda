@@ -44,8 +44,8 @@ import {
 //========================
 
 //imgs ---------------
-import Logo from "../../../public/logo/logo.png";
-import ImgPefil from "../../../public/navbar/perfil.png";
+import Logo from "../../assets/logo/logo.png";
+import ImgPefil from "../../assets/navbar/perfil.png";
 //============================
 const Layout = () => {
   const { email, name } = useContext(UserContext);

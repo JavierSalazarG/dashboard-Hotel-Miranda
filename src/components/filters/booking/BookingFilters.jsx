@@ -6,7 +6,7 @@ import {
   NewestStyled,
   NavStyled,
 } from "../roomsFilterStyled.ts";
-import { FilterBookingContext } from "../../../contexts/boocking";
+import { FilterBookingContext } from "../../../contexts/boocking.tsx";
 import { useContext } from "react";
 const BookingFilters = () => {
   const {

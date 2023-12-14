@@ -1,3 +1,4 @@
+import React from "react";
 import {
   TableStyled,
   TrStyled,
@@ -10,18 +11,30 @@ import {
   PopUpStyled,
   Spinner,
 } from "./TableStyled.ts";
+import { BookingInterface } from "../../interfaces/booking/booking.ts";
 import { SlOptionsVertical } from "react-icons/sl";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FilterBookingContext } from "../../contexts/boocking";
+import { FilterBookingContext } from "../../contexts/boocking.jsx";
 import { useContext } from "react";
-const Booking = ({ BookingsList, loading }) => {
+
+interface BookingProps {
+  BookingsList: BookingInterface[];
+  loading: boolean;
+}
+
+const Booking: React.FC<BookingProps> = ({ BookingsList, loading }) => {
   const [showPopUp, setShowPopUp] = useState(false);
-  const [selectedNote, setSelectedNote] = useState(null);
+  const [selectedNote, setSelectedNote] = useState<BookingInterface | null>(
+    null
+  );
   const navigate = useNavigate();
   const { filter } = useContext(FilterBookingContext);
-  const renderBooking = (booking) => (
-    <TrStyled onClick={() => HandleClick(booking.id)} key={booking.id}>
+  const renderBooking = (booking: BookingInterface) => (
+    <TrStyled
+      onClick={() => HandleClick(booking.id.toString())}
+      key={booking.id}
+    >
       <td>
         <p>
           {booking.nombre} {booking.apellidos}
@@ -38,7 +51,7 @@ const Booking = ({ BookingsList, loading }) => {
             View Notes
           </ButtonNotesStyled>
         ) : (
-          <SpanNotesStyles onClick="none">No Notes</SpanNotesStyles>
+          <SpanNotesStyles onClick={undefined}>No Notes</SpanNotesStyles>
         )}
       </td>
 
@@ -70,8 +83,14 @@ const Booking = ({ BookingsList, loading }) => {
   );
 
   //Popup Mensage---------------
-  const openPopup = (note, event) => {
+  const openPopup = (
+    note: BookingInterface | null,
+    event: React.MouseEvent
+  ) => {
     event.stopPropagation();
+    if (!note) {
+      return;
+    }
     setSelectedNote(note);
     setShowPopUp(true);
   };
@@ -80,7 +99,7 @@ const Booking = ({ BookingsList, loading }) => {
     setShowPopUp(false);
   };
   //=============================
-  const HandleClick = (id) => {
+  const HandleClick = (id: string) => {
     navigate(`/Booking/${id}`);
   };
   return (
@@ -100,7 +119,7 @@ const Booking = ({ BookingsList, loading }) => {
           <Spinner></Spinner>
         ) : (
           BookingsList &&
-          BookingsList.map((booking) => {
+          BookingsList.map((booking: BookingInterface) => {
             if (
               filter === "All" ||
               (filter === "Check In" && booking.status === "Check In") ||

@@ -1,7 +1,9 @@
+import React from "react";
 import { BsTelephone } from "react-icons/bs";
-import { FilterRoomsContext } from "../../contexts/rooms";
+import { FilterRoomsContext } from "../../contexts/rooms.jsx";
+import { UsersInterface } from "../../interfaces/users/users.ts";
 import { useDispatch } from "react-redux";
-import { deletedUsers } from "../../features/users/UsersSlice";
+import { deletedUsers } from "../../features/users/UsersSlice.ts";
 import { useContext } from "react";
 import {
   TableStyled,
@@ -18,19 +20,23 @@ import {
   ButtonDelete,
 } from "./TableStyled.ts";
 import { useNavigate } from "react-router-dom";
-export const Concierge = ({ loading, UsersList }) => {
+interface ConciergeProps {
+  UsersList: UsersInterface[];
+  loading: boolean;
+}
+export const Concierge: React.FC<ConciergeProps> = ({ loading, UsersList }) => {
   const dispatch = useDispatch();
   const { filter } = useContext(FilterRoomsContext);
   const navigate = useNavigate();
 
-  const HandleEdit = (id) => {
+  const HandleEdit = (id: string) => {
     navigate(`/user/edit/${id}`);
   };
-  const RenderUsers = (user) => (
+  const RenderUsers = (user: UsersInterface) => (
     <TrStyled onClick={() => HandleEdit(user.id)} key={user.id}>
       <td>
         <DivImgStyled>
-          <ImgPerfilStyled src={user.foto} />
+          <ImgPerfilStyled src={user.foto || undefined} />{" "}
           <DivTextStyled>
             <PnumberStyled>{user.nombre}</PnumberStyled>
             <p>#{user.id}</p>
@@ -65,7 +71,10 @@ export const Concierge = ({ loading, UsersList }) => {
       </td>
     </TrStyled>
   );
-  const HandleDeleted = (id, event) => {
+  const HandleDeleted = (
+    id: string,
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     if (event) {
       event.stopPropagation();
     }
@@ -85,7 +94,7 @@ export const Concierge = ({ loading, UsersList }) => {
           <Spinner></Spinner>
         ) : (
           UsersList &&
-          UsersList.map((user) => {
+          UsersList.map((user: UsersInterface) => {
             if (
               filter === "All" ||
               (filter === "Active" && user.status) ||

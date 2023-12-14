@@ -1,10 +1,11 @@
+import React from "react";
 import { useState } from "react";
 import { MainStyled } from "../stytedPages.ts";
-import { useDispatch } from "react-redux";
+
 import { addRoom } from "../../features/rooms/RoomsSlice.ts";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-import ImagePhoto from "../../../public/img_habitaion.jpg";
+import ImagePhoto from "../../assets/img_habitaion.jpg";
 import {
   FormStyled,
   InputStyled,
@@ -14,8 +15,11 @@ import {
   SubmitStyled,
   LabelSelectStyled,
 } from "./newRoom.ts";
+
+import { RoomsInterface } from "../../interfaces/rooms/rooms.ts";
+import { useAppDispatch } from "../../app/store.ts";
 const NewRoom = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const id = uuidv4();
   const [imgs, setImgs] = useState({});
@@ -26,19 +30,37 @@ const NewRoom = () => {
     const year = currentDate.getFullYear();
     return `${day}/${month}/${year}`;
   };
-  const HandleSubmit = (e) => {
+  const newId = (): string => {
+    const newId = id.slice(0, 5);
+    return newId;
+  };
+  const HandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newImage = {
       img1: ImagePhoto,
     };
     setImgs({ ...imgs, ...newImage });
-    const formData = {
-      id: id,
-      imgs: imgs,
-      bedType: e.target[0].value,
-      roomNumber: e.target[1].value,
-      rate: e.target[2].value,
-      description: e.target[3].value,
+    const roomNumber: number = parseInt(
+      (e.currentTarget[1] as HTMLInputElement).value,
+      10
+    );
+    const roomRate: number = parseInt(
+      (e.currentTarget[2] as HTMLInputElement).value,
+      0
+    );
+    const formData: RoomsInterface = {
+      id: newId(),
+      imgs: {
+        img1: null,
+        img2: null,
+        img3: null,
+        img4: null,
+        img5: null,
+      },
+      bedType: (e.currentTarget[0] as HTMLInputElement).value,
+      roomNumber: roomNumber,
+      rate: roomRate, // Asegúrate de que roomRate sea de tipo number
+      description: (e.currentTarget[3] as HTMLInputElement).value,
       facilities: ["Wi-Fi", "TV", "Air Conditioning"],
       start_date: getCurrentDate(),
       status: true,

@@ -1,17 +1,19 @@
+import React from "react";
 import { MainStyled, MarginStyled } from "../stytedPages.ts";
-import Comment from "../../components/comment/Comment.jsx";
-import { Contact } from "../../components/tables/Contact.jsx";
+import Comment from "../../components/comment/Comment.tsx";
+import { Contact } from "../../components/tables/Contact.tsx";
 import ContactFilter from "../../components/filters/contact/contactFilter.jsx";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getCommentsListFromAPIThunk } from "../../features/comments/commentThunk.ts";
 import {
   getCommentData,
   getCommentStatus,
 } from "../../features/comments/commentSlice.ts";
 import { useState, useEffect } from "react";
+import { useAppDispatch } from "../../app/store.ts";
 
 const ContactPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [CommentList, setCommentList] = useState([]);
   const [loading, setLoading] = useState(true);
   const CommentData = useSelector(getCommentData);

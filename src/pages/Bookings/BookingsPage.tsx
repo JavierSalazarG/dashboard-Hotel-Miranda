@@ -1,15 +1,18 @@
+import React from "react";
 import BookingFilters from "../../components/filters/booking/BookingFilters";
 import Booking from "../../components/tables/Booking";
 import { MainStyled } from "../stytedPages.ts";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getBookingListFromAPIThunk } from "../../features/booking/bookingThunk.ts";
 import {
   getBookingsData,
   getBookingsStatus,
 } from "../../features/booking/bookingSlice.ts";
+import { useAppDispatch } from "../../app/store.ts";
+
 export const BookingsPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const BookingsData = useSelector(getBookingsData);
   const BookingsStatus = useSelector(getBookingsStatus);
   const [BookingsList, setBookingsList] = useState([]);

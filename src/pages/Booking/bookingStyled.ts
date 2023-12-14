@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+interface BookingProps {
+  $bg?: string;
+}
 export const DivGeneralStyled = styled.div`
   width: 100%;
   max-width: 87.5rem;
@@ -72,7 +74,7 @@ export const DivDatesRoomStyled = styled.div`
     color: #363636;
   }
 `;
-export const SpanStatusStyled = styled.span`
+export const SpanStatusStyled= styled.span<BookingProps> `
   position: relative;
   align-self: flex-end;
   font-weight: 600;

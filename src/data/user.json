@@ -1,6 +1,6 @@
 [
   {
-    "foto": "../../public/navbar/perfil.png",
+    "foto": "src/assets/navbar/perfil.png",
     "nombre": "Juan Pérez",
     "id": "01",
     "email": "juan.perez@empresa.com",
@@ -10,7 +10,7 @@
     "status": true
   },
   {
-    "foto": "../../public/navbar/perfil.png",
+    "foto": "src/assets/navbar/perfil.png",
     "nombre": "Ana García",
     "id": "02",
     "email": "ana.garcia@empresa.com",
@@ -20,7 +20,7 @@
     "status": false
   },
   {
-    "foto": "../../public/navbar/perfil.png",
+    "foto": "src/assets/navbar/perfil.png",
     "nombre": "Luis Rodríguez",
     "id": "03",
     "email": "luis.rodriguez@empresa.com",
@@ -30,7 +30,7 @@
     "status": true
   },
   {
-    "foto": "../../public/navbar/perfil.png",
+    "foto": "src/assets/navbar/perfil.png",
     "nombre": "Elena López",
     "id": "04",
     "email": "elena.lopez@empresa.com",
@@ -40,7 +40,7 @@
     "status": true
   },
   {
-    "foto": "../../public/navbar/perfil.png",
+    "foto": "src/assets/navbar/perfil.png",
     "nombre": "Carlos Sánchez",
     "id": "05",
     "email": "carlos.sanchez@empresa.com",
@@ -50,7 +50,7 @@
     "status": false
   },
   {
-  "foto": "../../public/navbar/perfil.png",
+  "foto": "src/assets/navbar/perfil.png",
     "nombre": "Sara Martínez",
     "id": "06",
     "email": "sara.martinez@empresa.com",
@@ -60,7 +60,7 @@
     "status": false
   },
   {
-    "foto": "../../public/navbar/perfil.png",
+    "foto": "src/assets/navbar/perfil.png",
     "nombre": "Pedro Gómez",
     "id": "07",
     "email": "pedro.gomez@empresa.com",
@@ -70,7 +70,7 @@
     "status": true
   },
   {
-    "foto": "../../public/navbar/perfil.png",
+    "foto": "src/assets/navbar/perfil.png",
     "nombre": "Laura Fernández",
     "id": "08",
     "email": "laura.fernandez@empresa.com",
@@ -80,7 +80,7 @@
     "status": false
   },
   {
-    "foto": "../../public/navbar/perfil.png",
+    "foto": "src/assets/navbar/perfil.png",
     "nombre": "David González",
     "id": "09",
     "email": "david.gonzalez@empresa.com",
@@ -90,7 +90,7 @@
     "status": false
   },
   {
-    "foto": "../../public/navbar/perfil.png",
+    "foto": "src/assets/navbar/perfil.png",
     "nombre": "Marta Díaz",
     "id": "10",
     "email": "marta.diaz@empresa.com",

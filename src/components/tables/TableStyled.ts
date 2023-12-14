@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import { RiDeleteBin6Line } from "react-icons/ri";
+
+interface ButtonArchivetyledProps {
+  $color?: string
+  $bg?: string
+}
 export const TableStyled = styled.table`
   margin: 0 auto;
   width: 100%;
@@ -171,19 +176,19 @@ export const TdButtonsStyled = styled.td`
   gap: 1rem;
 `;
 
-export const ButtonArchivetyled = styled.button`
+export const ButtonArchivetyled = styled.button<ButtonArchivetyledProps>`
   color: ${(props) => props.$color};
   font-weight: 600;
   border: none;
   background-color: transparent;
   cursor: pointer;
 `;
-export const SpanStatusStyled = styled.span`
+export const SpanStatusStyled = styled.span<ButtonArchivetyledProps>`
   width: 100%;
   height: 100%;
   border-radius: 8px;
   color: ${(props) => props.$color};
-  background-color: ${(props) => props.$bg};
+  background-color: ${(props) => props.$bg || "transparent"};
   font-weight: 600;
   background-color: transparent;
 `;
@@ -264,7 +269,7 @@ export const ButtonDelete = styled.button`
     box-shadow: 0px 10px 30px #00000114;
   }
 `;
-export const IconDeletedStyled = styled(RiDeleteBin6Line)`
+export const IconDeletedStyled = styled(RiDeleteBin6Line)<ButtonArchivetyledProps>`
   color: ${(props) => props.$color};
   width: 1.5rem;
   height: 1.5rem;

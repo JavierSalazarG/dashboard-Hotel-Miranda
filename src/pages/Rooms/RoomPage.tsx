@@ -1,18 +1,18 @@
+import React from "react";
 import FilterRooms from "../../components/filters/room/FilterRooms.jsx";
-import { TableRooms } from "../../components/tables/rooms/TableRooms.jsx";
+import { TableRooms } from "../../components/tables/TableRooms.jsx";
 import { MainStyled } from "../stytedPages.js";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRoomsListFromAPIThunk } from "../../features/rooms/RoomsThunk.ts";
 import { RoomsInterface } from "../../interfaces/rooms/rooms.js";
-import React from "react";
 import {
   getRoomsData,
   getRoomsStatus,
 } from "../../features/rooms/RoomsSlice.ts";
-import { Dispatch } from "@reduxjs/toolkit";
+import { useAppDispatch } from "../../app/store.ts";
 export const RoomPage: React.FC = () => {
-  const dispatch: Dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const roomsData = useSelector(getRoomsData);
   const roomsStatus = useSelector(getRoomsStatus);
   const [RoomsList, setRoomsList] = useState<RoomsInterface[]>([]);
@@ -21,8 +21,8 @@ export const RoomPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (roomsStatus === "idle" || roomsStatus === "pending") {
-          await dispatch(getRoomsListFromAPIThunk());
+        if (roomsStatus === "idle") {
+          dispatch(getRoomsListFromAPIThunk());
         } else if (roomsStatus === "fulfilled") {
           setRoomsList(roomsData);
         } else if (roomsStatus === "rejected") {

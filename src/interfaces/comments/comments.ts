@@ -4,4 +4,5 @@ export interface CommentsInterface {
     fecha: string
     foto_perfil: string
     archive: boolean
+    comentario: string | null
 }

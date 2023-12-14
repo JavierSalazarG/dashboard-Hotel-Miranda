@@ -1,3 +1,4 @@
+import React from "react";
 import { MainStyled } from "../stytedPages.ts";
 import {
   FormStyled,
@@ -8,7 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 const EditUser = () => {
   const navigate = useNavigate();
-  const HandleSubmit = (e) => {
+  const HandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     navigate("/home");
@@ -17,7 +18,7 @@ const EditUser = () => {
     <MainStyled>
       <FormStyled onSubmit={HandleSubmit}>
         <InputStyled type="text" placeholder="William Johason" />
-        <inInputStyledput type="email" placeholder="williamjohn@mail.com" />
+        <InputStyled type="email" placeholder="williamjohn@mail.com" />
         <InputStyled type="number" placeholder="phone number" />
         <LabelStyled>
           Profile Picture

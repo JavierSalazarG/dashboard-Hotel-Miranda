@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
   InputStyles,
@@ -11,9 +12,8 @@ import {
 } from "./LoginStyled.ts";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.jsx";
-import React from "react";
 //imgs--------------
-import Logo from "../../../public/logo/logo.png";
+import Logo from "../../assets/logo/logo.png";
 import { useState } from "react";
 //===========================
 export const LoginPage = () => {
@@ -22,10 +22,10 @@ export const LoginPage = () => {
   const [passwordLocal, setpasswordLocal] = useState("");
   const { Login } = useContext(UserContext);
   const navigate = useNavigate();
-  const handleEmailChange = (event) => {
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmaiLocal(event.target.value);
   };
-  const handlePasswordChange = (event: React.FormEvent<HTMLInputElement>) => {
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setpasswordLocal(event.target.value);
   };
   const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   DivCommentStyled,
   SwiperStyled,
@@ -10,10 +11,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useState } from "react";
 import { Navigation } from "swiper/modules";
+import { CommentsInterface } from "../../interfaces/comments/comments.ts";
 
-const Comment = ({ CommentList, loading }) => {
+interface CommentProps {
+  CommentList: CommentsInterface[];
+  loading: boolean;
+}
+const Comment: React.FC<CommentProps> = ({ CommentList, loading }) => {
   const [showPopUp, setShowPopUp] = useState(false);
-  const [selectedComment, setSelectedComment] = useState(null);
+  const [selectedComment, setSelectedComment] =
+    useState<CommentsInterface | null>(null);
 
   const truncateText = (text, maxLength) => {
     return text.length > maxLength ? text.slice(0, maxLength) + " ..." : text;

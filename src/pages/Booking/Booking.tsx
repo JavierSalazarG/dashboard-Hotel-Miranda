@@ -1,3 +1,4 @@
+import React from "react";
 import { MainStyled } from "../stytedPages.ts";
 import { useParams } from "react-router-dom";
 
@@ -19,7 +20,7 @@ import {
   DivDescriptionStyled,
   SwiperSlideStyled,
 } from "./bookingStyled.ts";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   getBookingsData,
   getBookingsStatus,
@@ -28,13 +29,18 @@ import {
   getRoomsData,
   getRoomsStatus,
 } from "../../features/rooms/RoomsSlice.ts";
+import { useAppDispatch } from "../../app/store.ts";
+import { BookingInterface } from "../../interfaces/booking/booking.ts";
+import { RoomsInterface } from "../../interfaces/rooms/rooms.ts";
 const Booking = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const { id } = useParams();
 
-  const [bookingDetails, setBookingDetails] = useState(null);
-  const [roomDetails, setRoomDetails] = useState("");
+  const [bookingDetails, setBookingDetails] = useState<BookingInterface | null>(
+    null
+  );
+  const [roomDetails, setRoomDetails] = useState<RoomsInterface | undefined>();
 
   const bookingData = useSelector(getBookingsData);
   const bookingStatus = useSelector(getBookingsStatus);
@@ -42,14 +48,14 @@ const Booking = () => {
   const roomsData = useSelector(getRoomsData);
   const roomstatus = useSelector(getRoomsStatus);
 
-  const truncateText = (text, maxLength) => {
+  const truncateText = (text: string, maxLength: number) => {
     return text.length > maxLength ? text.slice(0, maxLength) + " ..." : text;
   };
 
   useEffect(() => {
-    if (bookingStatus === "idle") {
+    if (bookingStatus === "idle" && id) {
       dispatch(getBookingListFromAPIThunk());
-    } else if (bookingStatus === "fulfilled") {
+    } else if (bookingStatus === "fulfilled" && id) {
       const foundBooking = bookingData.find(
         (booking) => booking.id && booking.id.toString() === id.toString()
       );
@@ -63,7 +69,7 @@ const Booking = () => {
     if (roomstatus === "idle") {
       dispatch(getRoomsListFromAPIThunk());
     } else if (roomstatus === "fulfilled") {
-      const foundRoom = roomsData.find((room) => {
+      const foundRoom = roomsData.find((room: RoomsInterface) => {
         return (
           room.id &&
           bookingDetails &&
@@ -107,12 +113,12 @@ const Booking = () => {
                     {bookingDetails.numero_habitacion}
                   </TdStyled>
                   <TdStyled>
-                    $ {roomDetails.rate}
+                    $ {roomDetails && roomDetails.rate}
                     /night
                   </TdStyled>
                 </tr>
               </TableStyled>
-              <p>{roomDetails.description}</p>
+              <p>{roomDetails && roomDetails.description}</p>
             </DivDatesRoomStyled>
           </SectionStyled>
           <SectionStyled>
@@ -137,7 +143,10 @@ const Booking = () => {
               >
                 {Object.values(roomDetails.imgs).map((img, index) => (
                   <SwiperSlideStyled key={index}>
-                    <img src={img} alt={`Room Image ${index + 1}`} />
+                    <img
+                      src={img || undefined}
+                      alt={`Room Image ${index + 1}`}
+                    />
                   </SwiperSlideStyled>
                 ))}
               </SwiperStyled>
