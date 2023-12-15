@@ -109,5 +109,13 @@
   },
   "include": [
     "src/**/*.ts", "src/**/*.tsx", "path/to/assets/img/**/*", "src/**/*.js", "src/**/*.jsx"
-  ]
+  ],
+      "cypress": {
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"]
+  },
+  "include": ["**/*.ts"]
+}
 }
