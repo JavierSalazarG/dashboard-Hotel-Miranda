@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getCommentsListFromAPIThunk } from "./commentThunk";
 import { CommentsSliceInterface } from "../../interfaces/comments/commentsSliceInterfaces";
+import { RootState } from "../../app/store";
 
 const initialState: CommentsSliceInterface ={
   data: [],
@@ -43,8 +44,8 @@ export const CommentSlice = createSlice({
 });
 export const { AddArchive, DeleteArchive } = CommentSlice.actions;
 
-export const getCommentNotArchiveData = (state) =>
+export const getCommentNotArchiveData = (state: RootState) =>
   state.comment.data.filter((data) => !data.archive);
-export const getCommentData = (state) => state.comment.data;
-export const getCommentStatus = (state) => state.comment.status;
-export const getCommentError = (state) => state.comment.error;
+export const getCommentData = (state: RootState) => state.comment.data;
+export const getCommentStatus = (state: RootState) => state.comment.status;
+export const getCommentError = (state: RootState) => state.comment.error;

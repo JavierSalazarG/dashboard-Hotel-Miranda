@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getRoomsListFromAPIThunk } from "./RoomsThunk";
 import { RoomsSliceInterface } from "../../interfaces/rooms/roomsSliceInterfaces";
+import { RootState } from "../../app/store";
 
 const initialState: RoomsSliceInterface = {
    data: [],
@@ -44,6 +45,6 @@ export const RoomsSlice = createSlice({
 });
 
 export const { addRoom, deletedRoom } = RoomsSlice.actions;
-export const getRoomsData = (state) => state.room.data;
-export const getRoomsStatus = (state) => state.room.status;
-export const getRoomsError = (state) => state.room.error;
+export const getRoomsData = (state: RootState) => state.room.data;
+export const getRoomsStatus = (state: RootState) => state.room.status;
+export const getRoomsError = (state: RootState) => state.room.error;
