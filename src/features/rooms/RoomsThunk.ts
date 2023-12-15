@@ -3,7 +3,7 @@ import rooms from "../../data/rooms.json";
 import { RoomsInterface } from "../../interfaces/rooms/rooms";
 export const getRoomsListFromAPIThunk = createAsyncThunk(
   "room/getRoomsFromApi",
-   async (_, thunkAPI) => {
+   async () => {
     try {
       const response = await new Promise<Array<RoomsInterface>>((resolve) => {
         setTimeout(() => {

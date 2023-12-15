@@ -4,7 +4,7 @@ import { BookingInterface } from "../../interfaces/booking/booking";
 
 export const getBookingListFromAPIThunk = createAsyncThunk(
   "booking/getBookingFromApi",
-  async (_, thunkAPI) => {
+  async () => {
     try {
       const response = await new Promise<Array<BookingInterface>>((resolve) => {
         setTimeout(() => {

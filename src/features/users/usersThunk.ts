@@ -3,7 +3,7 @@ import users from "../../data/user.json";
 import { UsersInterface } from "../../interfaces/users/users";
 export const getUsersListFromAPIThunk = createAsyncThunk(
   "user/getUserFromApi",
-  async (_, thunkAPI) => {
+  async () => {
     try {
       const response = await new Promise<Array<UsersInterface>>((resolve) => {
         setTimeout(() => {
