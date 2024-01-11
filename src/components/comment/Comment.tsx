@@ -53,7 +53,7 @@ const Comment: React.FC<CommentProps> = ({ CommentList, loading }) => {
               !comment.archive && (
                 <SwiperSlideStyled
                   onClick={() => openPopup(comment)}
-                  key={comment.id}
+                  key={comment._id}
                 >
                   <p>{truncateText(comment.comentario, 200)}</p>
                   <div>

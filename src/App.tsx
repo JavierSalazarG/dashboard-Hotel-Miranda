@@ -18,7 +18,7 @@ import { NewEmployee } from "./pages/NewEmployee/NewEployee.tsx";
 import NewBooking from "./pages/NewBooking/NewBooking.tsx";
 import ContactPage from "./pages/Contact/ContactPage.tsx";
 import Booking from "./pages/Booking/Booking.tsx";
-import NewRoom from "./pages/NewRoom/newRoom.jsx";
+import NewRoom from "./pages/NewRoom/NewRoom.tsx";
 import { FilterBookingProvider } from "./contexts/boocking.tsx";
 import EditEmployeepage from "./pages/EditEmployee/EditEmployeepage.tsx";
 

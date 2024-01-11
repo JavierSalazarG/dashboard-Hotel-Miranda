@@ -2,7 +2,7 @@ import React from "react";
 import { MainStyled, MarginStyled } from "../stytedPages.ts";
 import Comment from "../../components/comment/Comment.tsx";
 import { Contact } from "../../components/tables/Contact.tsx";
-import ContactFilter from "../../components/filters/contact/contactFilter.jsx";
+import ContactFilter from "../../components/filters/contact/ContactFilter.tsx";
 import { useSelector } from "react-redux";
 import { getCommentsListFromAPIThunk } from "../../features/comments/commentThunk.ts";
 import {

@@ -41,7 +41,7 @@ export const TableRooms: React.FC<TableRoomsProps> = ({
   };
 
   const renderRooms = (room: RoomsInterface) => (
-    <TrStyled key={room.id}>
+    <TrStyled key={room._id}>
       <td>
         <DivImgStyled>
           <ImgStyled
@@ -50,7 +50,7 @@ export const TableRooms: React.FC<TableRoomsProps> = ({
           />
           <DivTextStyled>
             <PStyled>{`#${room.roomNumber}`}</PStyled>
-            <p>{room.id}</p>
+            <p>{room._id}</p>
           </DivTextStyled>
         </DivImgStyled>
       </td>
@@ -67,7 +67,7 @@ export const TableRooms: React.FC<TableRoomsProps> = ({
       </td>
       <td>
         <ButtonDelete
-          onClick={(event) => HandleDeleted(room.id, event)}
+          onClick={(event) => HandleDeleted(room._id, event)}
           className="button"
         >
           {open ? (
