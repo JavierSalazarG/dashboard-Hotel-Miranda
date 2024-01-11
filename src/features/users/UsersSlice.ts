@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getUsersListFromAPIThunk } from "./usersThunk";
+import { deleteUsersAPIThunk, getUsersListFromAPIThunk } from "./usersThunk";
 import { UsersSliceInterface } from "../../interfaces/users/usersSliceInterfaces";
 const initialState: UsersSliceInterface = {
   data: [],
@@ -43,6 +43,26 @@ export const UserSlice = createSlice({
       .addCase(getUsersListFromAPIThunk.pending, (state) => {
         state.status = "pending";
       })
+      .addDefaultCase((state) => {
+        state.status = "idle";
+      });
+    builder
+      .addCase(deleteUsersAPIThunk.fulfilled, (state, action): void => {
+        state.status = "fulfilled";
+        state.data = state.data.filter(
+          (user) => user._id !== action.payload._id
+        );
+      })
+      .addCase(deleteUsersAPIThunk.rejected, (state, action): void => {
+        state.status = "rejected";
+        state.error = action.payload
+          ? action.payload.message
+          : "Error deleting user";
+      })
+      .addCase(deleteUsersAPIThunk.pending, (state, action): void => {
+        state.status = "pending";
+      })
+      // Agrega esta línea para resolver el error
       .addDefaultCase((state) => {
         state.status = "idle";
       });

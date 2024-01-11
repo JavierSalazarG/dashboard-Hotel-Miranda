@@ -35,3 +35,36 @@ export const getUsersListFromAPIThunk = createAsyncThunk<
     throw error;
   }
 });
+
+export const deleteUsersAPIThunk = createAsyncThunk<
+  UsersInterface[],
+  string,
+  { rejectValue: RequestError }
+>("user/deleteUser", async (id: string, thunkAPI) => {
+  console.log(id);
+  try {
+    const response = await fetch(
+      `https://3h3fjely6k.execute-api.eu-west-3.amazonaws.com/dev/users/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        method: "DELETE",
+      }
+    );
+
+    if (!response.ok) {
+      throw new RequestError(response.status, "Failed to delete user");
+    }
+
+    const json = await response.json();
+
+    return json;
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    return thunkAPI.rejectWithValue({
+      status: 500, // Puedes ajustar el código de estado según sea necesario
+      message: error.message || "Error deleting user",
+    });
+  }
+});

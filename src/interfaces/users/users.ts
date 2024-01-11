@@ -1,7 +1,7 @@
 export interface UsersInterface {
   _id: string;
-  nombre: string;
   photo: string | null;
+  nombre: string;
   email: string;
   start_date: string;
   description: string;

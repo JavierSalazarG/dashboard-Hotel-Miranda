@@ -20,6 +20,7 @@ import {
   ButtonDelete,
 } from "./TableStyled.ts";
 import { useNavigate } from "react-router-dom";
+import { deleteUsersAPIThunk } from "../../features/users/usersThunk.ts";
 interface ConciergeProps {
   UsersList: UsersInterface[];
   loading: boolean;
@@ -78,7 +79,8 @@ export const Concierge: React.FC<ConciergeProps> = ({ loading, UsersList }) => {
     if (event) {
       event.stopPropagation();
     }
-    dispatch(deletedUsers(id));
+    console.log("handleDeleted");
+    dispatch(deleteUsersAPIThunk(id));
   };
   return (
     <TableStyled>
