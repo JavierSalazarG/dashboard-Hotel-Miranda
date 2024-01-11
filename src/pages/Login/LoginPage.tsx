@@ -12,13 +12,15 @@ import {
 } from "./LoginStyled.ts";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.jsx";
+import { loginThunk } from "../../features/login/loginThunk.ts";
 //imgs--------------
 import Logo from "../../assets/logo/logo.png";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 //===========================
 export const LoginPage = () => {
   const [emailLocal, setEmaiLocal] = useState("");
-
+  const dispatch = useDispatch();
   const [passwordLocal, setpasswordLocal] = useState("");
   const { Login } = useContext(UserContext);
   const navigate = useNavigate();
@@ -35,6 +37,11 @@ export const LoginPage = () => {
         "error al entrar, correo: admin@admin.com y password: admin"
       );
     } else {
+      const bodydata = JSON.stringify({
+        email: emailLocal,
+        password: passwordLocal,
+      });
+      dispatch(loginThunk(bodydata));
       Login(emailLocal, passwordLocal);
     }
     navigate("/home");

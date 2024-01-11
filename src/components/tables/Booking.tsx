@@ -32,14 +32,14 @@ const Booking: React.FC<BookingProps> = ({ BookingsList, loading }) => {
   const { filter } = useContext(FilterBookingContext);
   const renderBooking = (booking: BookingInterface) => (
     <TrStyled
-      onClick={() => HandleClick(booking.id.toString())}
-      key={booking.id}
+      onClick={() => HandleClick(booking._id.toString())}
+      key={booking._id}
     >
       <td>
         <p>
           {booking.nombre} {booking.apellidos}
         </p>
-        <IdBoockingStyled>#{booking.id}</IdBoockingStyled>
+        <IdBoockingStyled>#{booking._id}</IdBoockingStyled>
       </td>
 
       <td>{booking.fecha_reserva}</td>

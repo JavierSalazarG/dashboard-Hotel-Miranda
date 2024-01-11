@@ -33,13 +33,13 @@ export const Concierge: React.FC<ConciergeProps> = ({ loading, UsersList }) => {
     navigate(`/user/edit/${id}`);
   };
   const RenderUsers = (user: UsersInterface) => (
-    <TrStyled onClick={() => HandleEdit(user.id)} key={user.id}>
+    <TrStyled onClick={() => HandleEdit(user._id)} key={user._id}>
       <td>
         <DivImgStyled>
-          <ImgPerfilStyled src={user.foto || undefined} />{" "}
+          <ImgPerfilStyled src={user.photo || undefined} />
           <DivTextStyled>
             <PnumberStyled>{user.nombre}</PnumberStyled>
-            <p>#{user.id}</p>
+            <p>#{user._id}</p>
             <p>{user.start_date}</p>
           </DivTextStyled>
         </DivImgStyled>
@@ -59,7 +59,7 @@ export const Concierge: React.FC<ConciergeProps> = ({ loading, UsersList }) => {
       </td>
       <td>
         <ButtonDelete
-          onClick={(event) => HandleDeleted(user.id, event)}
+          onClick={(event) => HandleDeleted(user._id, event)}
           className="button"
         >
           {open ? (

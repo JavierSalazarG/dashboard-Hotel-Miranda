@@ -4,10 +4,10 @@ import { RoomsSliceInterface } from "../../interfaces/rooms/roomsSliceInterfaces
 import { RootState } from "../../app/store";
 
 const initialState: RoomsSliceInterface = {
-   data: [],
-  status: 'idle',
-  error: undefined
-}
+  data: [],
+  status: "idle",
+  error: undefined,
+};
 export const RoomsSlice = createSlice({
   name: "room",
   initialState,
@@ -16,7 +16,7 @@ export const RoomsSlice = createSlice({
       state.data = [action.payload, ...state.data];
     },
     deletedRoom: (state, action) => {
-      state.data = state.data.filter((user) => user.id !== action.payload);
+      state.data = state.data.filter((user) => user._id !== action.payload);
       state.data = [...state.data];
     },
   },
@@ -26,7 +26,7 @@ export const RoomsSlice = createSlice({
         state.status = "fulfilled";
         const uniqueData = action.payload.filter(
           (newRoom) =>
-            !state.data.some((existRooms) => existRooms.id === newRoom.id)
+            !state.data.some((existRooms) => existRooms._id === newRoom._id)
         );
 
         state.data = [...state.data, ...uniqueData];

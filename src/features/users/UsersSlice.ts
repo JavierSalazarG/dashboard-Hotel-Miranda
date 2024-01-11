@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getUsersListFromAPIThunk } from "./usersThunk";
 import { UsersSliceInterface } from "../../interfaces/users/usersSliceInterfaces";
 const initialState: UsersSliceInterface = {
-   data: [],
-  status: 'idle',
-  error: undefined
-}
+  data: [],
+  status: "idle",
+  error: undefined,
+};
 export const UserSlice = createSlice({
   name: "user",
   initialState,
@@ -14,14 +14,14 @@ export const UserSlice = createSlice({
       state.data = [action.payload, ...state.data];
     },
     deletedUsers: (state, action) => {
-      state.data = state.data.filter((user) => user.id !== action.payload);
+      state.data = state.data.filter((user) => user._id !== action.payload);
 
       state.data = [...state.data];
     },
     updateUsers: (state, action) => {
       const { id, updatedUserData } = action.payload;
       state.data = state.data.map((user) =>
-        user.id === id ? { ...user, ...updatedUserData } : user
+        user._id === id ? { ...user, ...updatedUserData } : user
       );
     },
   },
@@ -31,7 +31,7 @@ export const UserSlice = createSlice({
         state.status = "fulfilled";
         const uniqueData = action.payload.filter(
           (newUser) =>
-            !state.data.some((existingUser) => existingUser.id === newUser.id)
+            !state.data.some((existingUser) => existingUser._id === newUser._id)
         );
 
         state.data = [...state.data, ...uniqueData];

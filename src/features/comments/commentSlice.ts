@@ -3,25 +3,27 @@ import { getCommentsListFromAPIThunk } from "./commentThunk";
 import { CommentsSliceInterface } from "../../interfaces/comments/commentsSliceInterfaces";
 import { RootState } from "../../app/store";
 
-const initialState: CommentsSliceInterface ={
+const initialState: CommentsSliceInterface = {
   data: [],
-  status: 'idle',
-  error: undefined
-}
+  status: "idle",
+  error: undefined,
+};
 export const CommentSlice = createSlice({
   name: "comment",
   initialState,
   reducers: {
-    AddArchive: (state, action):void => {
+    AddArchive: (state, action): void => {
       state.data = state.data.map((comment) =>
-        comment.id === action.payload ? { ...comment, archive: true } : comment
+        comment._id === action.payload ? { ...comment, archive: true } : comment
       );
 
       state.data = [...state.data];
     },
     DeleteArchive: (state, action) => {
       state.data = state.data.map((comment) =>
-        comment.id === action.payload ? { ...comment, archive: false } : comment
+        comment._id === action.payload
+          ? { ...comment, archive: false }
+          : comment
       );
 
       state.data = [...state.data];
