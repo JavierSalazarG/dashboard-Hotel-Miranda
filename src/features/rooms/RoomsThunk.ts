@@ -1,6 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import rooms from "../../data/rooms.json";
 import { RoomsInterface } from "../../interfaces/rooms/rooms";
+<<<<<<< HEAD
+=======
+export const getRoomsListFromAPIThunk = createAsyncThunk(
+  "room/getRoomsFromApi",
+   async () => {
+    try {
+      const response = await new Promise<Array<RoomsInterface>>((resolve) => {
+        setTimeout(() => {
+          resolve(rooms);
+        }, 1000);
+      });
+>>>>>>> 6ce3bdea8a74c0da61a1c862c1c166dde1f92820
 
 const token = localStorage.getItem("token");
 

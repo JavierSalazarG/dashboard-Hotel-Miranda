@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import users from "../../data/user.json";
 import { UsersInterface } from "../../interfaces/users/users";
+<<<<<<< HEAD
 const token = localStorage.getItem("token");
 interface RequestError {
   status: number;
@@ -22,6 +23,17 @@ export const getUsersListFromAPIThunk = createAsyncThunk<
         method: "GET",
       }
     );
+=======
+export const getUsersListFromAPIThunk = createAsyncThunk(
+  "user/getUserFromApi",
+  async () => {
+    try {
+      const response = await new Promise<Array<UsersInterface>>((resolve) => {
+        setTimeout(() => {
+          resolve(users);
+        }, 1000);
+      });
+>>>>>>> 6ce3bdea8a74c0da61a1c862c1c166dde1f92820
 
     if (!response.ok) {
       throw new RequestError(response.status, "");

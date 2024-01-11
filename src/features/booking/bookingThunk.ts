@@ -2,10 +2,22 @@ import { createAsyncThunk, ThunkAction } from "@reduxjs/toolkit";
 
 import { BookingInterface } from "../../interfaces/booking/booking";
 
+<<<<<<< HEAD
 interface RequestError {
   status: number;
   message: string;
 }
+=======
+export const getBookingListFromAPIThunk = createAsyncThunk(
+  "booking/getBookingFromApi",
+  async () => {
+    try {
+      const response = await new Promise<Array<BookingInterface>>((resolve) => {
+        setTimeout(() => {
+          resolve(bookings);
+        }, 1000);
+      });
+>>>>>>> 6ce3bdea8a74c0da61a1c862c1c166dde1f92820
 
 const token = localStorage.getItem("token");
 
