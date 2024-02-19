@@ -1,50 +1,36 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import users from "../../data/user.json";
 import { UsersInterface } from "../../interfaces/users/users";
-<<<<<<< HEAD
+
 const token = localStorage.getItem("token");
 interface RequestError {
   status: number;
   message: string;
 }
+
 export const getUsersListFromAPIThunk = createAsyncThunk<
   UsersInterface[],
   void,
   { rejectValue: RequestError }
->("user/getUserFromApi", async () => {
+>("user/getUserFromApi", async (_, thunkAPI) => {
   try {
-    const response = await fetch(
-      "https://3h3fjely6k.execute-api.eu-west-3.amazonaws.com/dev/users",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        method: "GET",
-      }
-    );
-=======
-export const getUsersListFromAPIThunk = createAsyncThunk(
-  "user/getUserFromApi",
-  async () => {
-    try {
-      const response = await new Promise<Array<UsersInterface>>((resolve) => {
-        setTimeout(() => {
-          resolve(users);
-        }, 1000);
-      });
->>>>>>> 6ce3bdea8a74c0da61a1c862c1c166dde1f92820
+    const response = await new Promise<Array<UsersInterface>>((resolve) => {
+      setTimeout(() => {
+        resolve(users);
+      }, 1000);
+    });
 
-    if (!response.ok) {
-      throw new RequestError(response.status, "");
+    if (!response) {
+      throw new Error("Failed to fetch users list");
     }
 
-    const json = await response.json();
-
-    return json;
+    return response;
   } catch (error) {
-    console.error("Error fetching Rooms list:", error);
-    throw error;
+    console.error("Error fetching users list:", error);
+    return thunkAPI.rejectWithValue({
+      status: 500,
+      message: error.message || "Error fetching users list",
+    });
   }
 });
 
@@ -53,7 +39,6 @@ export const deleteUsersAPIThunk = createAsyncThunk<
   string,
   { rejectValue: RequestError }
 >("user/deleteUser", async (id: string, thunkAPI) => {
-  console.log(id);
   try {
     const response = await fetch(
       `https://3h3fjely6k.execute-api.eu-west-3.amazonaws.com/dev/users/${id}`,
@@ -66,7 +51,7 @@ export const deleteUsersAPIThunk = createAsyncThunk<
     );
 
     if (!response.ok) {
-      throw new RequestError(response.status, "Failed to delete user");
+      throw new Error("Failed to delete user");
     }
 
     const json = await response.json();
@@ -75,7 +60,7 @@ export const deleteUsersAPIThunk = createAsyncThunk<
   } catch (error) {
     console.error("Error deleting user:", error);
     return thunkAPI.rejectWithValue({
-      status: 500, // Puedes ajustar el código de estado según sea necesario
+      status: 500,
       message: error.message || "Error deleting user",
     });
   }

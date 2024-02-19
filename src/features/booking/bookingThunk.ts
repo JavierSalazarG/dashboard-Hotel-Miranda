@@ -1,25 +1,13 @@
-import { createAsyncThunk, ThunkAction } from "@reduxjs/toolkit";
-
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { RootState } from "../store"; // Importar RootState si es necesario
 import { BookingInterface } from "../../interfaces/booking/booking";
 
-<<<<<<< HEAD
+const token = localStorage.getItem("token");
+
 interface RequestError {
   status: number;
   message: string;
 }
-=======
-export const getBookingListFromAPIThunk = createAsyncThunk(
-  "booking/getBookingFromApi",
-  async () => {
-    try {
-      const response = await new Promise<Array<BookingInterface>>((resolve) => {
-        setTimeout(() => {
-          resolve(bookings);
-        }, 1000);
-      });
->>>>>>> 6ce3bdea8a74c0da61a1c862c1c166dde1f92820
-
-const token = localStorage.getItem("token");
 
 export const getBookingListFromAPIThunk = createAsyncThunk<
   BookingInterface[],
@@ -53,6 +41,7 @@ export const getBookingListFromAPIThunk = createAsyncThunk<
   }
 });
 
+// Definir tipo de thunk de la aplicación si es necesario
 type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
@@ -60,6 +49,7 @@ type AppThunk<ReturnType = void> = ThunkAction<
   AnyAction
 >;
 
+// Exportar la función del thunk de manera separada si es necesario
 export const dispatchGetBookingListFromAPIThunk: AppThunk = (dispatch) => {
   return dispatch(getBookingListFromAPIThunk());
 };
