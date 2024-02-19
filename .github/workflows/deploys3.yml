@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: TypeScript Compilation
-        run: npm run tsc
+        run: tsc
       - name: Build
         run: URL_API=${{ secrets.URL_API }} npm run build
       - name: Deploy to S3
