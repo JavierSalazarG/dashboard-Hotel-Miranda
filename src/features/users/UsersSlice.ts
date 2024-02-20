@@ -47,7 +47,7 @@ export const UserSlice = createSlice({
         state.status = "idle";
       });
     builder
-      .addCase(deleteUsersAPIThunk.fulfilled, (state, action): void => {
+      .addCase(deleteUsersAPIThunk.fulfilled, (state, action: any): void => {
         state.status = "fulfilled";
         state.data = state.data.filter(
           (user) => user._id !== action.payload._id
@@ -70,6 +70,6 @@ export const UserSlice = createSlice({
 });
 
 export const { addUsers, deletedUsers, updateUsers } = UserSlice.actions;
-export const getUsersData = (state) => state.user.data;
-export const getUsersStatus = (state) => state.user.status;
-export const getUsersError = (state) => state.user.error;
+export const getUsersData = (state: any) => state.user.data;
+export const getUsersStatus = (state: any) => state.user.status;
+export const getUsersError = (state: any) => state.user.error;

@@ -89,7 +89,7 @@ const NewBooking: React.FC = () => {
       (room: RoomsInterface) => room._id === selectedRoomId
     );
 
-    const formData: FormData = {
+    const formData: any = {
       id: newId(),
       nombre: (e.target as any)[0].value,
       apellidos: (e.target as any)[1].value,

@@ -1,5 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { RootState } from "../store"; // Importar RootState si es necesario
+import { ThunkAction, createAsyncThunk, AnyAction } from "@reduxjs/toolkit";
 import { BookingInterface } from "../../interfaces/booking/booking";
 
 const token = localStorage.getItem("token");
@@ -27,7 +26,7 @@ export const getBookingListFromAPIThunk = createAsyncThunk<
     );
 
     if (!response.ok) {
-      throw new RequestError(response.status, "");
+      throw new Error("Failed to fetch bookings");
     }
 
     const json = await response.json();
@@ -44,12 +43,16 @@ export const getBookingListFromAPIThunk = createAsyncThunk<
 // Definir tipo de thunk de la aplicación si es necesario
 type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
-  RootState,
+  unknown,
   unknown,
   AnyAction
 >;
 
-// Exportar la función del thunk de manera separada si es necesario
-export const dispatchGetBookingListFromAPIThunk: AppThunk = (dispatch) => {
-  return dispatch(getBookingListFromAPIThunk());
-};
+export const dispatchGetBookingListFromAPIThunk =
+  (): AppThunk => async (dispatch) => {
+    try {
+      await dispatch(getBookingListFromAPIThunk());
+    } catch (error) {
+      console.error("Error dispatching getBookingListFromAPIThunk:", error);
+    }
+  };

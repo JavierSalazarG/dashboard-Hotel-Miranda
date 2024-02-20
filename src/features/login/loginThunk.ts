@@ -1,12 +1,12 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, isRejectedWithValue } from "@reduxjs/toolkit";
 import fetch from "cross-fetch";
 interface LoginThunkArgs {
   bodydata: string;
 }
 
-export const loginThunk = createAsyncThunk(
+export const loginThunk: any = createAsyncThunk(
   "login/getLoginnToken",
-  async (bodydata) => {
+  async (bodydata: any) => {
     try {
       const response = await fetch(
         "https://3h3fjely6k.execute-api.eu-west-3.amazonaws.com/dev/login",
@@ -28,9 +28,9 @@ export const loginThunk = createAsyncThunk(
       localStorage.setItem("token", json.token);
       console.log(json.token);
       return json;
-    } catch (e) {
+    } catch (e: any) {
       console.error("Error in getLoginTokenThunk:", e);
-      return rejectWithValue(e.message || "An error occurred");
+      return isRejectedWithValue(e.message || "An error occurred");
     }
   }
 );

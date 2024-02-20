@@ -25,7 +25,7 @@ export const getUsersListFromAPIThunk = createAsyncThunk<
     }
 
     return response;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error fetching users list:", error);
     return thunkAPI.rejectWithValue({
       status: 500,
@@ -34,7 +34,7 @@ export const getUsersListFromAPIThunk = createAsyncThunk<
   }
 });
 
-export const deleteUsersAPIThunk = createAsyncThunk<
+export const deleteUsersAPIThunk: any = createAsyncThunk<
   UsersInterface[],
   any,
   { rejectValue: RequestError }
@@ -57,7 +57,7 @@ export const deleteUsersAPIThunk = createAsyncThunk<
     const json = await response.json();
 
     return json;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error deleting user:", error);
     return thunkAPI.rejectWithValue({
       status: 500,

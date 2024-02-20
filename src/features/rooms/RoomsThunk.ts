@@ -6,8 +6,8 @@ const rooms = require("../../data/rooms.json"); // Cambiado para que funcione co
 const token = localStorage.getItem("token");
 
 interface RequestError {
-  status: number;
-  message: string;
+  status?: number;
+  message?: string;
 }
 
 export const getRoomsListFromAPIThunk = createAsyncThunk<
@@ -26,10 +26,6 @@ export const getRoomsListFromAPIThunk = createAsyncThunk<
         method: "GET",
       }
     );
-
-    if (!response.ok) {
-      throw new RequestError(response.status, "");
-    }
 
     const json = await response.json();
     return json;

@@ -48,6 +48,6 @@ export const { AddArchive, DeleteArchive } = CommentSlice.actions;
 
 export const getCommentNotArchiveData = (state: RootState) =>
   state.comment.data.filter((data) => !data.archive);
-export const getCommentData = (state: RootState) => state.comment.data;
-export const getCommentStatus = (state: RootState) => state.comment.status;
-export const getCommentError = (state: RootState) => state.comment.error;
+export const getCommentData = (state: any) => state.comment.data;
+export const getCommentStatus = (state: any) => state.comment.status;
+export const getCommentError = (state: any) => state.comment.error;

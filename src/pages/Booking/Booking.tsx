@@ -37,9 +37,9 @@ const Booking = () => {
 
   const { id } = useParams();
 
-  const [bookingDetails, setBookingDetails] = useState<BookingInterface | null>(
-    null
-  );
+  const [bookingDetails, setBookingDetails] = useState<
+    BookingInterface | undefined
+  >(undefined);
   const [roomDetails, setRoomDetails] = useState<RoomsInterface | undefined>();
 
   const bookingData = useSelector(getBookingsData);
@@ -57,7 +57,7 @@ const Booking = () => {
       dispatch(getBookingListFromAPIThunk());
     } else if (bookingStatus === "fulfilled" && id) {
       const foundBooking = bookingData.find(
-        (booking) => booking.id && booking.id.toString() === id.toString()
+        (booking) => booking._id && booking._id.toString() === id.toString()
       );
       setBookingDetails(foundBooking);
     } else if (bookingStatus === "rejected") {
@@ -71,9 +71,9 @@ const Booking = () => {
     } else if (roomstatus === "fulfilled") {
       const foundRoom = roomsData.find((room: RoomsInterface) => {
         return (
-          room.id &&
+          room._id &&
           bookingDetails &&
-          room.id.toString() === bookingDetails.id_habitacion?.toString()
+          room._id.toString() === bookingDetails.id_habitacion?.toString()
         );
       });
       setRoomDetails(foundRoom);

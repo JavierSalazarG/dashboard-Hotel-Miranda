@@ -1,8 +1,8 @@
 [
   {
-    "foto": "src/assets/navbar/perfil.png",
+    "_id": "01",
+    "photo": "src/assets/navbar/perfil.png",
     "nombre": "Juan Pérez",
-    "id": "01",
     "email": "juan.perez@empresa.com",
     "start_date": "01/01/2023",
     "description": "Analista de datos",
@@ -10,9 +10,9 @@
     "status": true
   },
   {
-    "foto": "src/assets/navbar/perfil.png",
+    "photo": "src/assets/navbar/perfil.png",
     "nombre": "Ana García",
-    "id": "02",
+    "_id": "02",
     "email": "ana.garcia@empresa.com",
     "start_date": "02/01/2023",
     "description": "Diseñadora gráfica",
@@ -20,9 +20,9 @@
     "status": false
   },
   {
-    "foto": "src/assets/navbar/perfil.png",
+    "photo": "src/assets/navbar/perfil.png",
     "nombre": "Luis Rodríguez",
-    "id": "03",
+    "_id": "03",
     "email": "luis.rodriguez@empresa.com",
     "start_date": "03/01/2023",
     "description": "Programador web",
@@ -30,9 +30,9 @@
     "status": true
   },
   {
-    "foto": "src/assets/navbar/perfil.png",
+    "photo": "src/assets/navbar/perfil.png",
     "nombre": "Elena López",
-    "id": "04",
+    "_id": "04",
     "email": "elena.lopez@empresa.com",
     "start_date": "04/01/2023",
     "description": "Contable",
@@ -40,9 +40,9 @@
     "status": true
   },
   {
-    "foto": "src/assets/navbar/perfil.png",
+    "photo": "src/assets/navbar/perfil.png",
     "nombre": "Carlos Sánchez",
-    "id": "05",
+    "_id": "05",
     "email": "carlos.sanchez@empresa.com",
     "start_date": "05/01/2023",
     "description": "Marketing",
@@ -50,9 +50,9 @@
     "status": false
   },
   {
-  "foto": "src/assets/navbar/perfil.png",
+  "photo": "src/assets/navbar/perfil.png",
     "nombre": "Sara Martínez",
-    "id": "06",
+    "_id": "06",
     "email": "sara.martinez@empresa.com",
     "start_date": "06/01/2023",
     "description": "Recursos humanos",
@@ -60,9 +60,9 @@
     "status": false
   },
   {
-    "foto": "src/assets/navbar/perfil.png",
+    "photo": "src/assets/navbar/perfil.png",
     "nombre": "Pedro Gómez",
-    "id": "07",
+    "_id": "07",
     "email": "pedro.gomez@empresa.com",
     "start_date": "07/01/2023",
     "description": "Administrativo",
@@ -70,9 +70,9 @@
     "status": true
   },
   {
-    "foto": "src/assets/navbar/perfil.png",
+    "photo": "src/assets/navbar/perfil.png",
     "nombre": "Laura Fernández",
-    "id": "08",
+    "_id": "08",
     "email": "laura.fernandez@empresa.com",
     "start_date": "08/01/2023",
     "description": "Comercial",
@@ -80,9 +80,9 @@
     "status": false
   },
   {
-    "foto": "src/assets/navbar/perfil.png",
+    "photo": "src/assets/navbar/perfil.png",
     "nombre": "David González",
-    "id": "09",
+    "_id": "09",
     "email": "david.gonzalez@empresa.com",
     "start_date": "09/01/2023",
     "description": "Ingeniero",
@@ -90,9 +90,9 @@
     "status": false
   },
   {
-    "foto": "src/assets/navbar/perfil.png",
+    "photo": "src/assets/navbar/perfil.png",
     "nombre": "Marta Díaz",
-    "id": "10",
+    "_id": "10",
     "email": "marta.diaz@empresa.com",
     "start_date": "10/01/2023",
     "description": "Secretaria",

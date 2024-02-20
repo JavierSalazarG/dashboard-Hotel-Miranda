@@ -1,10 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getBookingListFromAPIThunk } from "./bookingThunk";
-import {
-  BookingSliceInterface,
-  statusOptions,
-} from "../../interfaces/booking/bookingSliceInterfaces";
+import { BookingSliceInterface } from "../../interfaces/booking/bookingSliceInterfaces";
 import { BookingInterface } from "../../interfaces/booking/booking";
+
 const initialState: BookingSliceInterface = {
   data: [],
   status: "idle",
@@ -15,10 +13,10 @@ export const bookingSlice = createSlice({
   name: "booking",
   initialState,
   reducers: {
-    addBooking: (state, action): void => {
+    addBooking: (state, action: PayloadAction<BookingInterface>): void => {
       state.data = [action.payload, ...state.data];
     },
-    deleteBooking: (state, action): void => {
+    deleteBooking: (state, action: any): void => {
       state.data = state.data.filter(
         (booking) => booking._id !== action.payload
       );
@@ -29,11 +27,13 @@ export const bookingSlice = createSlice({
       .addCase(getBookingListFromAPIThunk.fulfilled, (state, action) => {
         state.status = "fulfilled";
         const uniqueData = action.payload.filter(
-          (newUser) =>
-            !state.data.some((existingUser) => existingUser._id === newUser._id)
+          (newBooking) =>
+            !state.data.some(
+              (existingBooking) => existingBooking._id === newBooking._id
+            )
         );
 
-        (state as BookingSliceInterface).data = [...state.data, ...uniqueData];
+        state.data = [...state.data, ...uniqueData];
       })
       .addCase(getBookingListFromAPIThunk.rejected, (state, action) => {
         state.status = "rejected";
@@ -51,12 +51,11 @@ export const bookingSlice = createSlice({
 export const { deleteBooking, addBooking } = bookingSlice.actions;
 export const getBookingsData = (state: { booking: BookingSliceInterface }) =>
   state.booking.data;
-export type BookingStatus = (typeof statusOptions)[number];
 
-export const getBookingsStatus = (state: {
-  booking: { status: BookingStatus };
-}) => state.booking.status;
+export const getBookingsStatus = (state: { booking: { status: string } }) =>
+  state.booking.status;
+
 export const getBookingsError = (state: { booking: BookingSliceInterface }) =>
   state.booking.error;
 
-export default bookingSlice;
+export default bookingSlice.reducer;
