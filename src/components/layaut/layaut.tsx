@@ -1,11 +1,8 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { FilterRoomsContext } from "../../contexts/rooms.jsx";
-import { FilterBookingContext } from "../../contexts/boocking.jsx";
-import { UserContext } from "../../contexts/user.jsx";
+import React, { useContext, useState } from "react";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { FilterRoomsContext } from "../../contexts/rooms";
+import { FilterBookingContext } from "../../contexts/boocking";
+import { UserContext } from "../../contexts/user";
 //styled ------------------
 import {
   ContainerStyled,
@@ -40,21 +37,39 @@ import {
   IconEmailsStyled,
   IconBellStyled,
   SpanAllertStyled,
-} from "./LayautStyled.ts";
+} from "./LayautStyled";
 //========================
 
 //imgs ---------------
 import Logo from "../../assets/logo/logo.png";
 import ImgPefil from "../../assets/navbar/perfil.png";
 //============================
-const Layout = () => {
-  const { email, name } = useContext(UserContext);
+const Layout: React.FC = () => {
+  const userContext = useContext(UserContext);
+  if (
+    !userContext ||
+    userContext.email === undefined ||
+    userContext.name === undefined
+  ) {
+    return null;
+  }
+  const { email, name } = userContext;
+  const filterRoomsContext = useContext(FilterRoomsContext);
 
-  const { setAll: setAllRooms } = useContext(FilterRoomsContext);
-  const { setAll: setAllBookingContext } = useContext(FilterBookingContext);
+  if (!filterRoomsContext) {
+    return null;
+  }
+  const { setAll: setAllRooms } = filterRoomsContext;
+  const filterBookingContext = useContext(FilterBookingContext);
+
+  if (!filterBookingContext) {
+    return null;
+  }
+  const { setAll: setAllBookingContext } = filterBookingContext;
+
   const navigate = useNavigate();
   const [isMenuVisible, setMenuVisible] = useState(true);
-  let location = useLocation();
+  const location = useLocation();
   let locationmal = location.pathname;
   let locationAcctual = locationmal.substring(1);
 
@@ -69,6 +84,7 @@ const Layout = () => {
   } else if (locationAcctual.startsWith("user/edit/")) {
     locationAcctual = "Edit User";
   }
+
   const HandleMenu = () => {
     setMenuVisible(!isMenuVisible);
   };
@@ -76,6 +92,7 @@ const Layout = () => {
   const Handleprofile = () => {
     navigate("/profile/edit");
   };
+
   return (
     <ContainerStyled>
       {isMenuVisible && (

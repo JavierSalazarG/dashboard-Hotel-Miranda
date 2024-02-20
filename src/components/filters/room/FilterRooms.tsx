@@ -27,9 +27,9 @@ const FilterRooms: React.FC = () => {
       <div>
         {filter === "All" ? (
           <ButtonOrdenStyled
-            $color="#135846"
-            $weight="600"
-            $px="2"
+            color="#135846"
+            weight="600"
+            px="2"
             onClick={setAll}
           >
             All Rooms
@@ -39,9 +39,9 @@ const FilterRooms: React.FC = () => {
         )}
         {filter === "Active" ? (
           <ButtonOrdenStyled
-            $color="#135846"
-            $weight="600"
-            $px="2"
+            color="#135846"
+            weight="600"
+            px="2"
             onClick={setActive}
           >
             Active Employee
@@ -54,9 +54,9 @@ const FilterRooms: React.FC = () => {
 
         {filter === "Inactive" ? (
           <ButtonOrdenStyled
-            $color="#135846"
-            $weight="600"
-            $px="2"
+            color="#135846"
+            weight="600"
+            px="2"
             onClick={setInactive}
           >
             Inactive Employee
