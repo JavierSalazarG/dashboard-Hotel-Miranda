@@ -29,7 +29,12 @@ const Booking: React.FC<BookingProps> = ({ BookingsList, loading }) => {
     null
   );
   const navigate = useNavigate();
-  const { filter } = useContext(FilterBookingContext);
+  const filterBookingContext = useContext(FilterBookingContext);
+
+  if (!filterBookingContext) {
+    return null;
+  }
+  const { filter } = filterBookingContext;
   const renderBooking = (booking: BookingInterface) => (
     <TrStyled
       onClick={() => HandleClick(booking._id.toString())}

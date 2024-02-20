@@ -27,7 +27,12 @@ interface ConciergeProps {
 }
 export const Concierge: React.FC<ConciergeProps> = ({ loading, UsersList }) => {
   const dispatch = useDispatch();
-  const { filter } = useContext(FilterRoomsContext);
+  const filterRoomsContext = useContext(FilterRoomsContext);
+
+  if (!filterRoomsContext) {
+    return null;
+  }
+  const { filter } = filterRoomsContext;
   const navigate = useNavigate();
 
   const HandleEdit = (id: string) => {

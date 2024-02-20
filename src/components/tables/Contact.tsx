@@ -24,17 +24,17 @@ export const Contact: React.FC<ContactProps> = ({ CommentList, loading }) => {
   const dispatch = useDispatch();
   const HandleArchive = (comment: CommentsInterface) => {
     if (!comment.archive) {
-      dispatch(AddArchive(comment.id));
+      dispatch(AddArchive(comment._id));
     } else {
-      dispatch(DeleteArchive(comment.id));
+      dispatch(DeleteArchive(comment._id));
     }
   };
 
   const renderComments = (comment: CommentsInterface) => (
-    <TrContactStyled key={comment.id}>
+    <TrContactStyled key={comment._id}>
       <td>{comment.fecha}</td>
       <td>
-        <p>#{comment.id} </p>
+        <p>#{comment._id} </p>
         <p>{comment.nombre} </p>
       </td>
       <td>

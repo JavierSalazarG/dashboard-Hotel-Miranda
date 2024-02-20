@@ -28,8 +28,12 @@ export const TableRooms: React.FC<TableRoomsProps> = ({
   loading,
 }) => {
   const dispatch = useDispatch();
+  const filterRoomsContext = useContext(FilterRoomsContext);
 
-  const { filter } = useContext(FilterRoomsContext);
+  if (!filterRoomsContext) {
+    return null;
+  }
+  const { filter } = filterRoomsContext;
 
   const HandleDeleted = (id: string | null, event: React.MouseEvent) => {
     if (event) {
@@ -39,7 +43,6 @@ export const TableRooms: React.FC<TableRoomsProps> = ({
       dispatch(deletedRoom(id));
     }
   };
-
   const renderRooms = (room: RoomsInterface) => (
     <TrStyled key={room._id}>
       <td>
@@ -70,11 +73,7 @@ export const TableRooms: React.FC<TableRoomsProps> = ({
           onClick={(event) => HandleDeleted(room._id, event)}
           className="button"
         >
-          {open ? (
-            <IconDeletedStyled $color="red" />
-          ) : (
-            <IconDeletedStyled $color="#135846" />
-          )}
+          <IconDeletedStyled $color="#135846" />
         </ButtonDelete>
       </td>
     </TrStyled>
