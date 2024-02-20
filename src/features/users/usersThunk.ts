@@ -36,9 +36,9 @@ export const getUsersListFromAPIThunk = createAsyncThunk<
 
 export const deleteUsersAPIThunk = createAsyncThunk<
   UsersInterface[],
-  string,
+  any,
   { rejectValue: RequestError }
->("user/deleteUser", async (id: string, thunkAPI) => {
+>("user/deleteUser", async (id: any, thunkAPI) => {
   try {
     const response = await fetch(
       `https://3h3fjely6k.execute-api.eu-west-3.amazonaws.com/dev/users/${id}`,

@@ -22,7 +22,13 @@ export const LoginPage = () => {
   const [emailLocal, setEmaiLocal] = useState("");
   const dispatch = useDispatch();
   const [passwordLocal, setpasswordLocal] = useState("");
-  const { Login } = useContext(UserContext);
+  const context = useContext(UserContext);
+
+  if (!context) {
+    return null;
+  }
+  const { Login } = context;
+
   const navigate = useNavigate();
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmaiLocal(event.target.value);

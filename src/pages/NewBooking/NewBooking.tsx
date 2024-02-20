@@ -86,7 +86,7 @@ const NewBooking: React.FC = () => {
       mensaje = true;
     }
     const selectedRoom = roomDetails.find(
-      (room: RoomsInterface) => room.id === selectedRoomId
+      (room: RoomsInterface) => room._id === selectedRoomId
     );
 
     const formData: FormData = {
@@ -122,7 +122,7 @@ const NewBooking: React.FC = () => {
             </option>
           ) : (
             roomDetails.map((room) => (
-              <option value={room.id} key={room.id}>
+              <option value={room._id} key={room._id}>
                 {room.bedType} - {room.roomNumber}
               </option>
             ))

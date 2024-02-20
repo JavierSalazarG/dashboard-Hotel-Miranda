@@ -21,10 +21,13 @@ import {
 } from "./TableStyled.ts";
 import { useNavigate } from "react-router-dom";
 import { deleteUsersAPIThunk } from "../../features/users/usersThunk.ts";
+import { string } from "prop-types";
+
 interface ConciergeProps {
   UsersList: UsersInterface[];
   loading: boolean;
 }
+
 export const Concierge: React.FC<ConciergeProps> = ({ loading, UsersList }) => {
   const dispatch = useDispatch();
   const filterRoomsContext = useContext(FilterRoomsContext);
@@ -38,6 +41,18 @@ export const Concierge: React.FC<ConciergeProps> = ({ loading, UsersList }) => {
   const HandleEdit = (id: string) => {
     navigate(`/user/edit/${id}`);
   };
+
+  const HandleDeleted = (
+    id: any,
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    if (event) {
+      event.stopPropagation();
+    }
+    console.log("handleDeleted");
+    dispatch(deleteUsersAPIThunk(id));
+  };
+
   const RenderUsers = (user: UsersInterface) => (
     <TrStyled onClick={() => HandleEdit(user._id)} key={user._id}>
       <td>
@@ -68,25 +83,12 @@ export const Concierge: React.FC<ConciergeProps> = ({ loading, UsersList }) => {
           onClick={(event) => HandleDeleted(user._id, event)}
           className="button"
         >
-          {open ? (
-            <IconDeletedStyled $color="red" />
-          ) : (
-            <IconDeletedStyled $color="#135846" />
-          )}
+          <IconDeletedStyled $color="#135846" />
         </ButtonDelete>
       </td>
     </TrStyled>
   );
-  const HandleDeleted = (
-    id: string,
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    if (event) {
-      event.stopPropagation();
-    }
-    console.log("handleDeleted");
-    dispatch(deleteUsersAPIThunk(id));
-  };
+
   return (
     <TableStyled>
       <tbody>

@@ -11,10 +11,10 @@ import {
 } from "../../features/comments/commentSlice.ts";
 import { useState, useEffect } from "react";
 import { useAppDispatch } from "../../app/store.ts";
-
+import { CommentsInterface } from "../../interfaces/comments/comments.ts";
 const ContactPage = () => {
   const dispatch = useAppDispatch();
-  const [CommentList, setCommentList] = useState([]);
+  const [CommentList, setCommentList] = useState<CommentsInterface[]>([]);
   const [loading, setLoading] = useState(true);
   const CommentData = useSelector(getCommentData);
   const CommentStatus = useSelector(getCommentStatus);

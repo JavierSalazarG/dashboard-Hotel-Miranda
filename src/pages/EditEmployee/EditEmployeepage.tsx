@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState, ChangeEvent } from "react";
 import { useParams } from "react-router-dom";
 import { MainStyled } from "../stytedPages.ts";
 import { getUsersListFromAPIThunk } from "../../features/users/usersThunk.ts";
@@ -37,7 +37,7 @@ const EditEmployeepage: React.FC = () => {
       dispatch(getUsersListFromAPIThunk());
     } else if (Userstatus === "fulfilled") {
       const userWithId = usersData.find(
-        (user: UsersInterface) => user.id === id
+        (user: UsersInterface) => user._id === id
       );
       setFormData(userWithId || {});
     } else if (Userstatus === "rejected") {

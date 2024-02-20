@@ -49,7 +49,7 @@ const NewRoom = () => {
       0
     );
     const formData: RoomsInterface = {
-      id: newId(),
+      _id: newId(),
       imgs: {
         img1: null,
         img2: null,
@@ -59,7 +59,8 @@ const NewRoom = () => {
       },
       bedType: (e.currentTarget[0] as HTMLInputElement).value,
       roomNumber: roomNumber,
-      rate: roomRate, // Asegúrate de que roomRate sea de tipo number
+      rate: roomRate,
+      offerPrice: 0,
       description: (e.currentTarget[3] as HTMLInputElement).value,
       facilities: ["Wi-Fi", "TV", "Air Conditioning"],
       start_date: getCurrentDate(),
