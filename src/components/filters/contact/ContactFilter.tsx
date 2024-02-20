@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ArchivedProvider } from "../../../contexts/archived";
+import { Archived, ArchivedContextProps } from "../../../contexts/archived";
 import {
   DivOptionsStyled,
   DivButtonsNewstyled,
@@ -9,7 +9,7 @@ import {
 
 const ContactFilter: React.FC = () => {
   const { isArchived, setArchived, setAllContacts } =
-    useContext(ArchivedProvider);
+    useContext<ArchivedContextProps>(Archived);
 
   return (
     <DivOptionsStyled>

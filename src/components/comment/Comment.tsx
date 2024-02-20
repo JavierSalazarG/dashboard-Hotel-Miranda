@@ -22,11 +22,11 @@ const Comment: React.FC<CommentProps> = ({ CommentList, loading }) => {
   const [selectedComment, setSelectedComment] =
     useState<CommentsInterface | null>(null);
 
-  const truncateText = (text, maxLength) => {
+  const truncateText = (text: any, maxLength: any) => {
     return text.length > maxLength ? text.slice(0, maxLength) + " ..." : text;
   };
 
-  const openPopup = (comment) => {
+  const openPopup = (comment: any) => {
     setSelectedComment(comment);
     setShowPopUp(true);
   };

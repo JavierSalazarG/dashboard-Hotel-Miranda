@@ -1,15 +1,26 @@
+import React, { useContext } from "react";
 import {
   DivOptionsStyled,
   DivButtonsNewstyled,
   ButtonOrdenStyled,
   NavStyled,
   NewestStyled,
-} from "../roomsFilterStyled.ts";
+} from "../roomsFilterStyled";
 import { FilterRoomsContext } from "../../../contexts/rooms";
-import { useContext } from "react";
-const FilterRooms = () => {
-  const { filter, setAll, setActive, setInactive } =
-    useContext(FilterRoomsContext);
+
+const FilterRooms: React.FC = () => {
+  const context = useContext(FilterRoomsContext);
+
+  if (
+    !context ||
+    context.filter === undefined ||
+    context.setAll === undefined ||
+    context.setActive === undefined ||
+    context.setInactive === undefined
+  ) {
+    return null;
+  }
+  const { filter, setAll, setActive, setInactive } = context;
 
   return (
     <DivOptionsStyled>

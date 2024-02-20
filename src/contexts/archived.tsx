@@ -1,13 +1,13 @@
 import React, { createContext, useState, ReactNode } from "react";
 
-interface ArchivedContextProps {
+export interface ArchivedContextProps {
   isArchived: boolean;
   setArchived: () => void;
   setAllContacts: () => void;
 }
 
-export const Archived = createContext<ArchivedContextProps | undefined>(
-  undefined
+export const Archived = createContext<ArchivedContextProps>(
+  {} as ArchivedContextProps
 );
 
 interface ArchivedProviderProps {
